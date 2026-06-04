@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.npm-cache/
+.DS_Store
+vite-dev.log
+vite-dev.err.log
+*.pid
+*.docx
+*.pdf
+*.pptx
+*.png
+DESIGN-HANDOFF.md
+DESIGN-MANIFEST.json
+export_space_landing_pptx.py
+space-landing.html
+Maricela-landing.html
