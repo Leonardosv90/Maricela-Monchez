@@ -1,43 +1,2639 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Maricela Monchez | Experiencia personalizada Mary Kay</title>
-    <meta
-      name="description"
-      content="Agenda una experiencia personalizada de belleza y cuidado de la piel con Maricela Monchez, Consultora de Belleza Independiente Mary Kay en El Salvador."
-    />
-    <meta name="theme-color" content="#4A123A" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Maricela Monchez | Experiencia personalizada Mary Kay" />
-    <meta
-      property="og:description"
-      content="OrientaciÃ³n clara para cuidar tu piel y resaltar tu belleza natural, sin presiÃ³n de compra."
-    />
-    <meta
-      property="og:image"
-      content="./assets/mpdo9hna-ChatGPT-Image-20-may-2026_-12_13_08-a.m.-_3_.webp"
-    />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div id="root">
-      <main class="app-loading">
-        <div>
-          <p>Maricela Monchez Â· Mary Kay</p>
-          <h1>Una experiencia de belleza pensada para ti</h1>
-          <span>Cargando la experiencia personalizada.</span>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maricela Monchez | Experiencia personalizada Mary Kay</title>
+  <meta name="description" content="Landing premium para agendar una experiencia personalizada de belleza y cuidado de la piel con Maricela Monchez, Consultora de Belleza Independiente Mary Kay.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ["Instrument Serif", "serif"],
+            body: ["Barlow", "sans-serif"]
+          },
+          borderRadius: {
+            DEFAULT: "9999px"
+          },
+          colors: {
+            mary: {
+              pink: "#E83E9D",
+              vivid: "#FF4FAE",
+              soft: "#F8B6D8",
+              light: "#FCE7F3",
+              deep: "#4B0637",
+              wine: "#920B62",
+              blush: "#FFF3F9",
+              gold: "#D7B56D",
+              ink: "#24121F",
+              muted: "#6F5365"
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root {
+      --color-bg-dark: #920B62;
+      --color-bg-dark-2: #B9147C;
+      --color-bg-deep: #4B0637;
+      --color-primary: #E83E9D;
+      --color-primary-hover: #FF4FAE;
+      --color-primary-soft: #F8B6D8;
+      --color-blush: #FFF3F9;
+      --color-blush-2: #FCE7F3;
+      --color-gold: #D7B56D;
+      --color-text-dark: #24121F;
+      --color-text-soft: #6F5365;
+      --color-white: #FFFFFF;
+      --glass-bg: rgba(255, 255, 255, 0.10);
+      --glass-border: rgba(255, 255, 255, 0.22);
+      --glow-pink: rgba(232, 62, 157, 0.38);
+
+      --bg-main: var(--color-blush);
+      --bg-soft: var(--color-blush-2);
+      --bg-blush: var(--color-blush);
+      --dark-main: var(--color-bg-dark);
+      --dark-secondary: var(--color-bg-dark-2);
+      --dark-deep: var(--color-bg-deep);
+      --pink-main: var(--color-primary);
+      --pink-vivid: var(--color-primary-hover);
+      --pink-soft: var(--color-primary-soft);
+      --pink-light: var(--color-blush-2);
+      --gold-soft: var(--color-gold);
+      --gold-light: #F4DFB0;
+      --text-main: var(--color-text-dark);
+      --text-muted: var(--color-text-soft);
+      --white: var(--color-white);
+      --glass: var(--glass-bg);
+      --pink-glow: var(--glow-pink);
+      --shadow-rose: rgba(232, 62, 157, 0.18);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 96px;
+      background: var(--dark-main);
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      min-height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    body {
+      margin: 0;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      min-height: 100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background: var(--dark-main);
+      color: var(--text-main);
+      font-family: "Barlow", sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    #root {
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .viewport-fill {
+      width: 100%;
+      max-width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      position: relative;
+      isolation: isolate;
+    }
+
+    section {
+      width: 100%;
+      max-width: 100%;
+      scroll-margin-top: 104px;
+    }
+
+    #opciones {
+      scroll-margin-top: 104px;
+    }
+
+    ::selection {
+      background: var(--pink-glow);
+      color: var(--white);
+    }
+
+    .liquid-glass {
+      background: var(--glass);
+      background-blend-mode: luminosity;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border: 1px solid var(--glass-border);
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.16), 0 20px 50px rgba(232,62,157,0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .liquid-glass::before {
+      content: "";
+      position: absolute; inset: 0;
+      border-radius: inherit;
+      padding: 1.4px;
+      background: linear-gradient(180deg,
+      rgba(255,255,255,0.45) 0%,
+      rgba(255,255,255,0.15) 20%,
+      rgba(255,255,255,0) 40%,
+      rgba(255,255,255,0) 60%,
+      rgba(255,255,255,0.15) 80%,
+      rgba(255,255,255,0.45) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .liquid-glass-strong {
+      background: linear-gradient(135deg, var(--pink-main), var(--pink-vivid));
+      background-blend-mode: luminosity;
+      backdrop-filter: blur(50px);
+      -webkit-backdrop-filter: blur(50px);
+      border: none;
+      box-shadow: 0 12px 35px rgba(232,62,157,0.35), inset 0 1px 1px rgba(255,255,255,0.28);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .liquid-glass-strong::before {
+      content: "";
+      position: absolute; inset: 0;
+      border-radius: inherit;
+      padding: 1.4px;
+      background: linear-gradient(180deg,
+      rgba(255,255,255,0.5) 0%,
+      rgba(255,255,255,0.2) 20%,
+      rgba(255,255,255,0) 40%,
+      rgba(255,255,255,0) 60%,
+      rgba(255,255,255,0.2) 80%,
+      rgba(255,255,255,0.5) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .glass-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-title {
+      letter-spacing: -0.04em;
+    }
+
+    .cinematic-bg {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      max-width: 100%;
+      z-index: 0;
+      overflow: hidden;
+      background: var(--dark-main);
+      transform: translateZ(0);
+      pointer-events: none;
+    }
+
+    .cinematic-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(255, 243, 249, 0.18), transparent 26%),
+        radial-gradient(circle at 86% 12%, rgba(255, 79, 174, 0.26), transparent 30%),
+        linear-gradient(135deg, rgba(214, 27, 140, 0.78) 0%, rgba(232, 62, 157, 0.66) 45%, rgba(255, 79, 174, 0.38) 100%);
+      pointer-events: none;
+    }
+
+    .bg-photo {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      filter: saturate(0.95) contrast(1.03);
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .bg-photo:first-child {
+      opacity: 1;
+    }
+
+    .bg-soft-blush {
+      background: var(--bg-main);
+    }
+
+    .soft-section-transition {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .soft-section-transition::before {
+      content: "";
+      display: none;
+    }
+
+    .bg-dark-rose {
+      background:
+        radial-gradient(circle at 74% 12%, rgba(255, 136, 199, 0.16), transparent 34%),
+        linear-gradient(180deg, var(--color-bg-dark-2) 0%, var(--color-bg-dark) 48%, var(--color-bg-deep) 100%);
+    }
+
+    .testimonials-photo {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 28%;
+      opacity: 0.42;
+      filter: saturate(0.9) contrast(1.04);
+      pointer-events: none;
+    }
+
+    .testimonials-veil {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(circle at 50% 10%, rgba(232, 62, 157, 0.22), transparent 38%),
+        linear-gradient(180deg, rgba(138, 15, 99, 0.72) 0%, rgba(214, 27, 140, 0.86) 45%, rgba(138, 15, 99, 0.96) 100%);
+      pointer-events: none;
+    }
+
+    .testimonial-card {
+      width: 100%;
+      appearance: none;
+      border: 0;
+      color: inherit;
+      text-align: left;
+      cursor: pointer;
+      transition: transform 220ms ease, box-shadow 220ms ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-3px);
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.2), 0 24px 52px rgba(232, 62, 157, 0.2);
+    }
+
+    .testimonial-card:focus-visible {
+      outline: 2px solid var(--gold-light);
+      outline-offset: 4px;
+    }
+
+    .testimonial-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 20000;
+      display: grid;
+      place-items: center;
+      padding: clamp(16px, 3vw, 34px);
+      background: rgba(138, 15, 99, 0.68);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      animation: testimonial-fade-in 280ms ease both;
+    }
+
+    .testimonial-overlay.is-closing {
+      animation: testimonial-fade-out 240ms ease both;
+    }
+
+    .testimonial-modal {
+      position: relative;
+      width: min(1120px, 100%);
+      max-height: min(88svh, 760px);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: clamp(1.4rem, 3vw, 2.1rem);
+      background:
+        radial-gradient(circle at 86% 10%, rgba(232, 62, 157, 0.18), transparent 35%),
+        rgba(214, 27, 140, 0.92);
+      box-shadow: 0 32px 100px rgba(138, 15, 99, 0.38), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+      animation: testimonial-modal-in 320ms cubic-bezier(.2,.7,.25,1) both;
+    }
+
+    .testimonial-overlay.is-closing .testimonial-modal {
+      animation: testimonial-modal-out 240ms ease both;
+    }
+
+    .testimonial-modal-grid {
+      display: grid;
+      grid-template-columns: minmax(300px, 0.94fr) minmax(360px, 1.06fr);
+      min-height: min(78svh, 650px);
+    }
+
+    .testimonial-modal-photo {
+      display: grid;
+      place-items: center;
+      min-height: 100%;
+      padding: clamp(14px, 2vw, 20px);
+      background: rgba(255, 246, 251, 0.06);
+      overflow: hidden;
+    }
+
+    .testimonial-modal-photo img {
+      display: block;
+      width: 100%;
+      height: min(72svh, 610px);
+      object-fit: cover;
+      object-position: center center;
+      border-radius: 1.35rem;
+      background: rgba(138, 15, 99, 0.3);
+    }
+
+    .testimonial-modal-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+      overflow-y: auto;
+      padding: clamp(30px, 4.5vw, 52px);
+    }
+
+    .testimonial-modal-close,
+    .testimonial-nav-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.09);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+    }
+
+    .testimonial-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 2;
+      width: 44px;
+      height: 44px;
+      border-radius: 9999px;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .testimonial-modal-close:hover,
+    .testimonial-nav-button:not(:disabled):hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 255, 255, 0.38);
+    }
+
+    .testimonial-modal-close:focus-visible,
+    .testimonial-nav-button:focus-visible {
+      outline: 2px solid var(--gold-light);
+      outline-offset: 3px;
+    }
+
+    .testimonial-nav-button {
+      min-height: 44px;
+      border-radius: 9999px;
+      gap: 8px;
+      padding: 0 16px;
+      font: 500 14px "Barlow", sans-serif;
+    }
+
+    .testimonial-nav-button:disabled {
+      opacity: 0.34;
+      cursor: default;
+    }
+
+    .testimonial-story.is-next {
+      animation: testimonial-slide-next 300ms ease both;
+    }
+
+    .testimonial-story.is-prev {
+      animation: testimonial-slide-prev 300ms ease both;
+    }
+
+    @keyframes testimonial-fade-in {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes testimonial-fade-out {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+
+    @keyframes testimonial-modal-in {
+      from { opacity: 0; transform: scale(0.96) translateY(10px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    @keyframes testimonial-modal-out {
+      from { opacity: 1; transform: scale(1) translateY(0); }
+      to { opacity: 0; transform: scale(0.97) translateY(8px); }
+    }
+
+    @keyframes testimonial-slide-next {
+      from { opacity: 0; transform: translateX(16px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes testimonial-slide-prev {
+      from { opacity: 0; transform: translateX(-16px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @media (max-width: 767px) {
+      .testimonial-overlay {
+        align-items: end;
+        padding: 12px;
+      }
+
+      .testimonial-modal {
+        max-height: calc(100svh - 24px);
+        overflow-y: auto;
+      }
+
+      .testimonial-modal-grid {
+        display: flex;
+        min-height: auto;
+        flex-direction: column;
+      }
+
+      .testimonial-modal-photo {
+        padding: 12px 12px 0;
+      }
+
+      .testimonial-modal-photo img {
+        height: min(42svh, 360px);
+      }
+
+      .testimonial-modal-copy {
+        overflow: visible;
+        padding: 24px 20px 22px;
+      }
+
+      .testimonial-modal-close {
+        top: 20px;
+        right: 20px;
+      }
+    }
+
+    .hero-shell {
+      min-height: 100svh;
+      background: linear-gradient(135deg, var(--color-bg-dark-2), var(--color-bg-dark) 52%, var(--color-bg-deep));
+    }
+
+    .hero-main {
+      min-height: 100svh;
+      box-sizing: border-box;
+      padding-top: clamp(6rem, 11vh, 7.5rem);
+      padding-bottom: clamp(1.75rem, 4vh, 3rem);
+    }
+
+    @media (max-height: 760px) {
+      .hero-main {
+        padding-top: 5.75rem;
+        padding-bottom: 1.25rem;
+        justify-content: flex-start;
+      }
+
+      .hero-title {
+        font-size: clamp(2.85rem, 7.3vw, 4.25rem) !important;
+        line-height: 0.92 !important;
+        letter-spacing: -2px;
+        max-width: 45rem;
+      }
+
+      .hero-copy {
+        margin-top: 1rem !important;
+        max-width: 43rem;
+      }
+
+      .hero-actions {
+        margin-top: 1.15rem !important;
+      }
+
+      .hero-stat-grid {
+        margin-top: 1.25rem !important;
+      }
+
+      .hero-endcap {
+        margin-top: 1.35rem !important;
+        gap: 0.85rem !important;
+      }
+    }
+
+    .cta-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: rgba(232, 62, 157, 0.24);
+      border: 1px solid rgba(255, 255, 255, 0.46);
+      color: var(--white);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.18), 0 18px 45px rgba(232, 62, 157, 0.16);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .cta-secondary svg {
+      flex: 0 0 auto;
+    }
+
+    .trust-card {
+      min-height: 118px;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.075);
+    }
+
+    .trust-card-inner {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-height: 88px;
+      text-align: left;
+    }
+
+    .trust-icon {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.11);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    }
+
+    .trust-value {
+      font-size: clamp(1.85rem, 3vw, 2.25rem);
+      letter-spacing: -0.04em;
+    }
+
+    .trust-label {
+      max-width: 155px;
+      line-height: 1.35;
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .nav-on-light .liquid-glass {
+      background: rgba(255, 255, 255, 0.76);
+      border-color: rgba(232, 62, 157, 0.16);
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.42), 0 18px 42px rgba(232,62,157,0.12);
+    }
+
+    .nav-on-light .liquid-glass::before {
+      background: linear-gradient(180deg,
+      rgba(232,62,157,0.3) 0%,
+      rgba(232,62,157,0.12) 22%,
+      rgba(255,255,255,0) 42%,
+      rgba(255,255,255,0) 58%,
+      rgba(232,62,157,0.12) 78%,
+      rgba(215,181,109,0.38) 100%);
+    }
+
+    .nav-on-light .nav-brand,
+    .nav-on-light .nav-link,
+    .nav-on-light .nav-icon {
+      color: var(--text-main) !important;
+    }
+
+    .nav-on-light .nav-link:hover {
+      color: var(--pink-main) !important;
+    }
+
+    .mobile-menu-panel {
+      max-height: calc(100svh - 5.5rem);
+      overflow-y: auto;
+      background: rgba(214, 27, 140, 0.94);
+      border-radius: 1.4rem;
+      box-shadow: 0 24px 60px rgba(138, 15, 99, 0.32), inset 0 1px 1px rgba(255, 255, 255, 0.16);
+    }
+
+    .nav-on-light .mobile-menu-panel {
+      background: rgba(255, 243, 249, 0.98);
+      box-shadow: 0 24px 60px rgba(214, 27, 140, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.74);
+    }
+
+    .mobile-menu-link {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .mobile-menu-link:last-child {
+      border-bottom: 0;
+    }
+
+    .nav-on-light .mobile-menu-link {
+      border-color: rgba(232, 62, 157, 0.12);
+    }
+
+    .whatsapp-float {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      position: fixed;
+      right: clamp(16px, 2.2vw, 28px);
+      bottom: clamp(16px, 2.2vw, 26px);
+      z-index: 10000;
+      border-radius: 9999px;
+      padding: 12px 18px 12px 13px;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--pink-main), var(--pink-vivid));
+      box-shadow: 0 12px 35px rgba(232, 62, 157, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.34);
+      font-family: 'Barlow', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-2px);
+      filter: saturate(1.06);
+      box-shadow: 0 22px 48px rgba(232, 62, 157, 0.42), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+    }
+
+    .whatsapp-float:focus-visible {
+      outline: 2px solid var(--gold-light);
+      outline-offset: 3px;
+    }
+
+    .whatsapp-float-icon {
+      display: inline-grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.17);
+      flex: none;
+    }
+
+    @media (max-width: 640px) {
+      .hero-title {
+        letter-spacing: -2px;
+      }
+
+      .whatsapp-float {
+        right: 14px;
+        bottom: calc(14px + env(safe-area-inset-bottom));
+        gap: 8px;
+        padding: 10px 14px 10px 10px;
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <main style="min-height:100vh;display:grid;place-items:center;padding:32px;background:linear-gradient(180deg,#FFF3F9,#FCE7F3);color:#24121F;font-family:Barlow,Arial,sans-serif;text-align:center;">
+      <div style="max-width:780px;">
+        <p style="margin:0 0 16px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#E83E9D;">Maricela Monchez · Mary Kay</p>
+        <h1 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:clamp(54px,10vw,118px);line-height:.82;font-weight:400;">Una experiencia de belleza pensada para ti</h1>
+        <p style="margin:24px auto 0;max-width:620px;font-size:18px;line-height:1.35;color:#6F5365;">Cargando la experiencia personalizada.</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/framer-motion@11.11.17/dist/framer-motion.js"></script>
+  <script>window.Motion = window.FramerMotion || window.Motion || {};</script>
+
+  <script type="text/babel">
+    const { useEffect, useRef, useState } = React;
+
+    function createMotionFallback() {
+      const motionProps = new Set(["initial", "animate", "transition", "variants", "custom", "whileInView", "viewport"]);
+      return new Proxy({}, {
+        get: (_target, tag) => React.forwardRef((props, ref) => {
+          const cleanProps = {};
+          Object.keys(props || {}).forEach((key) => {
+            if (!motionProps.has(key)) cleanProps[key] = props[key];
+          });
+          return React.createElement(tag, { ...cleanProps, ref }, props.children);
+        })
+      });
+    }
+
+    const motion = createMotionFallback();
+    const useInView = () => true;
+
+    const WHATSAPP_MAIN = "https://wa.me/50370876214?text=Hola%20Maricela%2C%20me%20gustar%C3%ADa%20agendar%20mi%20experiencia%20personalizada%20Mary%20Kay.";
+    const WHATSAPP_OPPORTUNITY = "https://wa.me/50370876214?text=Hola%20Maricela%2C%20me%20gustar%C3%ADa%20conocer%20la%20oportunidad%20Mary%20Kay.%20%C2%BFMe%20puedes%20contar%20m%C3%A1s%3F";
+    const OPPORTUNITY_PAGE_PATH = "/oportunidad-negocio";
+    const HERO_IMAGE = "/assets/mpdo9hna-ChatGPT-Image-20-may-2026_-12_13_08-a.m.-_3_.webp";
+    const EXPERIENCE_IMAGE = "/assets/mpdo98nr-ChatGPT-Image-20-may-2026_-12_03_44-a.m.-_1_.webp";
+    const CONSULTATION_IMAGE = "/assets/mpdo8scb-ChatGPT-Image-18-may-2026_-10_35_51-p.m..webp";
+    const MARICELA_IMAGE = "/assets/mpkgftko-ChatGPT-Image-20-may-2026_-12_03_44-a.m.-_1_.webp";
+    const BEAUTY_DETAIL_IMAGE = "/assets/mpdo91gn-ChatGPT-Image-19-may-2026_-11_37_37-p.m.-_1_.webp";
+    const OPPORTUNITY_IMAGE = "/assets/mpkgappv-ChatGPT-Image-18-may-2026_-10_26_23-p.m.-_10_.webp";
+    const AGENDA_IMAGE = "/assets/mpkgz26m-ChatGPT-Image-19-may-2026_-11_47_01-p.m.-_7_.webp";
+    const OPPORTUNITY_CONVERSATION_IMAGE = "/assets/mpkg0ezu-ChatGPT-Image-24-may-2026_-05_47_19-p.m.-_2_.webp";
+    const OPPORTUNITY_GUIDE_IMAGE = "/assets/mpkg0f6q-ChatGPT-Image-24-may-2026_-05_47_20-p.m.-_5_.webp";
+    const OPPORTUNITY_CONFIDENCE_IMAGE = "/assets/mpkg11vk-ChatGPT-Image-24-may-2026_-05_47_20-p.m.-_3_.webp";
+    const OPPORTUNITY_PRODUCT_IMAGE = "/assets/mpkgdnpi-ChatGPT-Image-19-may-2026_-11_37_26-p.m.-_1_.webp";
+
+    function ArrowUpRight({ className = "h-5 w-5" }) {
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M7 17L17 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M7 7h10v10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      );
+    }
+
+    function WhatsAppIcon({ className = "h-5 w-5" }) {
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M19.05 4.91A9.82 9.82 0 0 0 3.62 16.67L2.25 21.7l5.15-1.35A9.8 9.8 0 0 0 12.09 21h.01a9.83 9.83 0 0 0 6.95-16.09Zm-6.95 14.42h-.01a8.12 8.12 0 0 1-4.13-1.13l-.3-.18-3.06.8.82-2.98-.2-.31A8.14 8.14 0 1 1 12.1 19.33Zm4.46-6.1c-.24-.12-1.44-.71-1.66-.79-.22-.08-.38-.12-.54.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.19-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49l.36-.42c.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.19-.47-.39-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.58.18 1.1.16 1.51.1.46-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z" />
+        </svg>
+      );
+    }
+
+    function PlayIcon({ className = "h-4 w-4" }) {
+      return (
+        <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <polygon points="6 4 20 12 6 20 6 4" />
+        </svg>
+      );
+    }
+
+    function SparkleIcon() {
+      return (
+        <svg className="h-7 w-7 text-white" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 3l1.6 5.1L19 10l-5.4 1.9L12 17l-1.6-5.1L5 10l5.4-1.9L12 3Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+          <path d="M18.5 15l.8 2.4 2.2.8-2.2.8-.8 2.4-.8-2.4-2.2-.8 2.2-.8.8-2.4Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+        </svg>
+      );
+    }
+
+    function HeartIcon() {
+      return (
+        <svg className="h-7 w-7 text-white" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 20s-7.2-4.5-8.8-9.2C2.1 7.6 4.2 5 7.2 5c1.8 0 3.2 1 4.1 2.2C12.2 6 13.7 5 15.5 5c3 0 5.1 2.6 4 5.8C17.8 15.5 12 20 12 20Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+        </svg>
+      );
+    }
+
+    function SoftCrossfadeImage({ images, label }) {
+      const imageRefs = useRef([]);
+      const rafRef = useRef(null);
+      const indexRef = useRef(0);
+
+      useEffect(() => {
+        const FADE_MS = 900;
+        const HOLD_MS = 6200;
+        let timeoutId;
+
+        const setOpacity = (index, value) => {
+          const node = imageRefs.current[index];
+          if (node) node.style.opacity = String(value);
+        };
+
+        const fadePair = (from, to) => {
+          if (rafRef.current) cancelAnimationFrame(rafRef.current);
+          const start = performance.now();
+
+          const tick = (now) => {
+            const progress = Math.min((now - start) / FADE_MS, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            setOpacity(from, 1 - eased);
+            setOpacity(to, eased);
+            if (progress < 1) {
+              rafRef.current = requestAnimationFrame(tick);
+            }
+          };
+
+          rafRef.current = requestAnimationFrame(tick);
+        };
+
+        imageRefs.current.forEach((_, index) => setOpacity(index, index === 0 ? 1 : 0));
+
+        const cycle = () => {
+          const from = indexRef.current;
+          const to = (from + 1) % images.length;
+          indexRef.current = to;
+          fadePair(from, to);
+          timeoutId = window.setTimeout(cycle, HOLD_MS);
+        };
+
+        timeoutId = window.setTimeout(cycle, HOLD_MS);
+
+        return () => {
+          if (rafRef.current) cancelAnimationFrame(rafRef.current);
+          window.clearTimeout(timeoutId);
+        };
+      }, [images.length]);
+
+      return (
+        <div className="cinematic-bg" aria-label={label}>
+          {images.map((src, index) => (
+            <img
+              key={src}
+              ref={(node) => { imageRefs.current[index] = node; }}
+              className="bg-photo"
+              src={src}
+              alt=""
+              aria-hidden="true"
+            />
+          ))}
         </div>
-      </main>
-    </div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+      );
+    }
+
+    function BlurText({ text, className = "" }) {
+      const ref = useRef(null);
+      const isInView = useInView(ref, { amount: 0.1, once: true });
+      const words = text.split(" ");
+
+      return (
+        <p ref={ref} className={className} style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", rowGap: "0.06em" }}>
+          {words.map((word, index) => (
+            <motion.span
+              key={`${word}-${index}`}
+              initial={{ filter: "blur(10px)", opacity: 0, y: 50 }}
+              animate={isInView ? {
+                filter: ["blur(10px)", "blur(5px)", "blur(0px)"],
+                opacity: [0, 0.5, 1],
+                y: [50, -5, 0]
+              } : undefined}
+              transition={{
+                duration: 0.7,
+                times: [0, 0.5, 1],
+                ease: "easeOut",
+                delay: (index * 80) / 1000
+              }}
+              style={{ display: "inline-block", marginRight: "0.24em" }}
+            >
+              {word}
+            </motion.span>
+          ))}
+        </p>
+      );
+    }
+
+    Object.assign(window, { WHATSAPP_MAIN, WHATSAPP_OPPORTUNITY, OPPORTUNITY_PAGE_PATH, HERO_IMAGE, EXPERIENCE_IMAGE, CONSULTATION_IMAGE, MARICELA_IMAGE, BEAUTY_DETAIL_IMAGE, OPPORTUNITY_IMAGE, AGENDA_IMAGE, OPPORTUNITY_CONVERSATION_IMAGE, OPPORTUNITY_GUIDE_IMAGE, OPPORTUNITY_CONFIDENCE_IMAGE, OPPORTUNITY_PRODUCT_IMAGE, ArrowUpRight, WhatsAppIcon, PlayIcon, SparkleIcon, HeartIcon, SoftCrossfadeImage, BlurText, __maryMotion: motion });
+  </script>
+
+  <script type="text/babel">
+    const {
+      WHATSAPP_MAIN,
+      WHATSAPP_OPPORTUNITY,
+      OPPORTUNITY_PAGE_PATH,
+      HERO_IMAGE,
+      EXPERIENCE_IMAGE,
+      CONSULTATION_IMAGE,
+      MARICELA_IMAGE,
+      BEAUTY_DETAIL_IMAGE,
+      OPPORTUNITY_IMAGE,
+      AGENDA_IMAGE,
+      OPPORTUNITY_CONVERSATION_IMAGE,
+      OPPORTUNITY_GUIDE_IMAGE,
+      OPPORTUNITY_CONFIDENCE_IMAGE,
+      OPPORTUNITY_PRODUCT_IMAGE,
+      ArrowUpRight,
+      WhatsAppIcon,
+      PlayIcon,
+      SparkleIcon,
+      HeartIcon,
+      SoftCrossfadeImage,
+      BlurText
+    } = window;
+    const motion = window.__maryMotion;
+    const { useEffect, useRef, useState } = React;
+
+    const entrance = {
+      hidden: { filter: "blur(10px)", opacity: 0, y: 20 },
+      show: (delay = 0) => ({
+        filter: "blur(0px)",
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.8, ease: "easeOut", delay }
+      })
+    };
+
+    function fadeIn(delay = 0) {
+      return {
+        initial: { filter: "blur(10px)", opacity: 0, y: 24 },
+        whileInView: { filter: "blur(0px)", opacity: 1, y: 0 },
+        viewport: { once: true, amount: 0.2 },
+        transition: { duration: 0.75, ease: "easeOut", delay }
+      };
+    }
+
+    function scrollToSection(event, href) {
+      if (!href || !href.startsWith("#")) return;
+      const target = document.querySelector(href);
+      if (!target) return;
+      event.preventDefault();
+      const navOffset = window.innerWidth < 1280 ? 82 : 96;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - navOffset;
+      window.history.pushState(null, "", href);
+      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+    }
+
+    function Navbar() {
+      const [onLight, setOnLight] = useState(false);
+      const [menuOpen, setMenuOpen] = useState(false);
+      const links = [
+        ["Inicio", "#inicio"],
+        ["Experiencia", "#experiencia"],
+        ["Opciones", "#opciones"],
+        ["Maricela", "#maricela"],
+        ["Oportunidad", "#oportunidad"],
+        ["Testimonios", "#testimonios"],
+        ["Agenda", "#agenda"]
+      ];
+
+      useEffect(() => {
+        const updateTheme = () => {
+          const navProbeY = 120;
+          const lightSections = ["maricela"]
+            .map((id) => document.getElementById(id))
+            .filter(Boolean);
+          setOnLight(lightSections.some((section) => {
+            const rect = section.getBoundingClientRect();
+            return rect.top <= navProbeY && rect.bottom > navProbeY;
+          }));
+        };
+
+        updateTheme();
+        window.addEventListener("scroll", updateTheme, { passive: true });
+        window.addEventListener("resize", updateTheme);
+        return () => {
+          window.removeEventListener("scroll", updateTheme);
+          window.removeEventListener("resize", updateTheme);
+        };
+      }, []);
+
+      useEffect(() => {
+        const closeOnDesktop = () => {
+          if (window.innerWidth >= 1024) setMenuOpen(false);
+        };
+        const closeOnEscape = (event) => {
+          if (event.key === "Escape") setMenuOpen(false);
+        };
+        window.addEventListener("resize", closeOnDesktop);
+        window.addEventListener("keydown", closeOnEscape);
+        return () => {
+          window.removeEventListener("resize", closeOnDesktop);
+          window.removeEventListener("keydown", closeOnEscape);
+        };
+      }, []);
+
+      const navigate = (event, href) => {
+        setMenuOpen(false);
+        scrollToSection(event, href);
+      };
+
+      return (
+        <nav className={`fixed left-0 right-0 top-4 z-[9999] px-4 lg:px-6 xl:px-16 ${onLight ? "nav-on-light" : ""}`} aria-label="Navegación principal">
+          <div className="relative mx-auto flex max-w-7xl items-center justify-between">
+            <a href="#inicio" onClick={(event) => navigate(event, "#inicio")} className="nav-brand liquid-glass flex h-12 w-12 items-center justify-center rounded-full text-white" aria-label="Volver al inicio">
+              <span className="glass-content">
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M3.5 11.2 12 4l8.5 7.2" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M6.5 10.2V20h11v-9.8M10 20v-5.2h4V20" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+            </a>
+
+            <div className="liquid-glass hidden items-center gap-1 rounded-full px-1.5 py-1.5 lg:flex">
+              <div className="glass-content flex items-center gap-1">
+                {links.map(([label, href]) => (
+                  <a key={label} href={href} onClick={(event) => navigate(event, href)} className="nav-link px-2 py-2 font-body text-[12px] font-medium text-white/90 xl:px-3 xl:text-sm">
+                    {label}
+                  </a>
+                ))}
+                <a href={WHATSAPP_MAIN} target="_blank" rel="noopener noreferrer" className="ml-1 flex items-center gap-2 rounded-full bg-gradient-to-br from-mary-pink to-mary-vivid px-3 py-2 font-body text-xs font-semibold text-white shadow-[0_14px_34px_rgba(232,62,157,0.35)] whitespace-nowrap xl:px-4 xl:text-sm">
+                  Agendar por WhatsApp
+                  <ArrowUpRight className="h-4 w-4" />
+                </a>
+              </div>
+            </div>
+
+            <span className="hidden h-12 w-12 lg:block" aria-hidden="true" />
+            <button
+              type="button"
+              className="nav-icon liquid-glass flex h-12 w-12 items-center justify-center rounded-full text-white lg:hidden"
+              aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+              aria-controls="mobile-navigation"
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((open) => !open)}
+            >
+              <span className="glass-content">
+                {menuOpen ? (
+                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6 18 18M18 6 6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
+                ) : (
+                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
+                )}
+              </span>
+            </button>
+
+            {menuOpen && (
+              <div id="mobile-navigation" className="mobile-menu-panel absolute left-0 right-0 top-16 p-2 lg:hidden">
+                <div className="glass-content flex flex-col">
+                  {links.map(([label, href]) => (
+                    <a
+                      key={label}
+                      href={href}
+                      onClick={(event) => navigate(event, href)}
+                      className="nav-link mobile-menu-link px-4 py-3.5 font-body text-base font-medium text-white/90"
+                    >
+                      {label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </nav>
+      );
+    }
+
+    function StatCard({ icon, value, label }) {
+      return (
+        <div className="trust-card liquid-glass w-full rounded-[1.25rem] sm:w-[264px]">
+          <div className="glass-content trust-card-inner">
+            <span className="trust-icon">{icon}</span>
+            <div>
+              <div className="trust-value font-heading italic leading-none text-white">{value}</div>
+              <div className="trust-label mt-2 font-body text-xs font-normal">{label}</div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    function Hero() {
+      return (
+        <section id="inicio" className="viewport-fill hero-shell relative flex overflow-hidden bg-dark-rose">
+          <SoftCrossfadeImage images={[HERO_IMAGE, EXPERIENCE_IMAGE]} label="Maricela Monchez y experiencia personalizada Mary Kay" />
+
+          <div className="relative z-10 flex w-full flex-col">
+            <main className="hero-main flex flex-col items-center justify-center px-4 text-center">
+              <motion.div variants={entrance} initial="hidden" animate="show" custom={0.3} className="liquid-glass rounded-full">
+                <div className="glass-content flex flex-wrap items-center justify-center gap-2 px-2 py-1.5">
+                  <span className="rounded-full bg-white px-3 py-1 font-body text-xs font-semibold text-mary-ink">Maricela Monchez</span>
+                  <span className="pr-3 font-body text-sm text-white/90">Consultora de Belleza Independiente · Futura directora</span>
+                </div>
+              </motion.div>
+
+              <BlurText
+                text="Descubre una rutina de belleza pensada para tu piel, tu tiempo y tu estilo."
+                className="hero-title mt-6 max-w-[62rem] justify-center font-heading text-[3.35rem] italic leading-[0.92] tracking-[-0.04em] text-white md:text-[4.45rem] lg:text-[5.25rem]"
+              />
+
+              <motion.p variants={entrance} initial="hidden" animate="show" custom={0.8} className="hero-copy mt-5 max-w-[46rem] font-body text-base font-normal leading-snug text-white/90 md:text-lg">
+                Agenda tu experiencia conmigo y recibe orientación clara para cuidar tu piel y resaltar tu belleza natural, sin presión de compra.
+              </motion.p>
+
+              <motion.div variants={entrance} initial="hidden" animate="show" custom={1.05} className="hero-actions mt-7 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
+                <a href={WHATSAPP_MAIN} target="_blank" rel="noopener noreferrer" className="liquid-glass-strong rounded-full px-5 py-2.5 font-body text-sm font-medium text-white">
+                  <span className="glass-content flex items-center gap-2">
+                    Agendar por WhatsApp
+                    <ArrowUpRight />
+                  </span>
+                </a>
+                <a href="#experiencia" onClick={(event) => scrollToSection(event, "#experiencia")} className="cta-secondary rounded-full px-5 py-2.5 font-body text-sm font-semibold">
+                  Conocer experiencias
+                  <PlayIcon />
+                </a>
+              </motion.div>
+
+              <motion.div variants={entrance} initial="hidden" animate="show" custom={1.25} className="hero-stat-grid mx-auto mt-8 grid w-full max-w-[544px] grid-cols-1 justify-items-center gap-4 sm:grid-cols-2">
+                <StatCard icon={<SparkleIcon />} value="1 a 1" label="Diagnóstico y rutina personalizada" />
+                <StatCard icon={<HeartIcon />} value="Sin presión" label="Acompañamiento claro y cercano" />
+              </motion.div>
+
+              <motion.div variants={entrance} initial="hidden" animate="show" custom={1.4} className="hero-endcap mt-8 flex w-full flex-col items-center gap-4 px-4 md:mt-10">
+              <div className="liquid-glass rounded-full px-3.5 py-1">
+                <span className="glass-content font-body text-xs font-medium text-white">Atención personalizada · Cuidado constante · Belleza con confianza</span>
+              </div>
+              <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-2 font-heading text-2xl italic tracking-tight text-white md:gap-x-14 md:text-3xl">
+                <span>Piel</span>
+                <span>Maquillaje</span>
+                <span>Autocuidado</span>
+                <span>Confianza</span>
+                <span>Liderazgo</span>
+              </div>
+              </motion.div>
+            </main>
+          </div>
+        </section>
+      );
+    }
+
+    const experienceCards = [
+      {
+        title: "Diagnóstico facial",
+        body: "Juntas identificamos cómo se siente tu piel, qué rutina llevas hoy y qué puedes simplificar para cuidarte con constancia.",
+        tags: ["Escucha real", "Tipo de piel", "Rutina simple", "Seguimiento"]
+      },
+      {
+        title: "Manos de Seda",
+        body: "Un momento sensorial para probar texturas, sentir suavidad y descubrir una forma práctica de regalarte cuidado.",
+        tags: ["Sensorial", "Suavidad", "Autocuidado", "Uso diario"]
+      },
+      {
+        title: "Maquillaje express",
+        body: "Elegimos tonos, acabados y pasos sencillos para resaltar tu belleza natural sin sentirte recargada ni disfrazada.",
+        tags: ["Tonos", "Look natural", "Tips claros", "Seguridad"]
+      }
+    ];
+
+    const experienceIncludes = [
+      ["Orientación sobre tu rutina actual", "Conversamos sobre lo que usas, lo que te preocupa y lo que deseas mejorar."],
+      ["Recomendación según tu tipo de piel", "Te oriento con una guía clara para cuidar tu piel de forma sencilla."],
+      ["Prueba de texturas y productos", "Te muestro opciones Mary Kay con calma y sin presión."],
+      ["Maquillaje natural o express", "Si lo deseas, te ayudo a descubrir tonos y acabados que resalten tu belleza."],
+      ["Seguimiento por WhatsApp", "Puedo acompañarte después para resolver dudas y ayudarte a mantener tu rutina."]
+    ];
+
+    const processCards = [
+      ["Escríbeme por WhatsApp", "Haz clic, envíame el mensaje y coordinamos el mejor espacio para ti."],
+      ["Conversamos sobre tu piel", "Te haré preguntas sencillas para entender tu rutina, necesidades y expectativas."],
+      ["Vives tu experiencia", "Pruebas, resuelves dudas y sales con una guía clara para cuidar tu piel con constancia."]
+    ];
+
+    function FeatureCard({ card, index }) {
+      return (
+        <motion.article
+          className="liquid-glass flex min-h-[290px] flex-col rounded-[1.25rem] p-6"
+          initial={{ filter: "blur(10px)", opacity: 0, y: 24 }}
+          whileInView={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.12 * index }}
+        >
+          <div className="glass-content flex h-full flex-col">
+            <div className="flex items-start justify-between gap-4">
+              <div className="liquid-glass flex h-11 w-11 shrink-0 items-center justify-center rounded-[0.75rem]">
+                <span className="glass-content">{index === 1 ? <HeartIcon /> : <SparkleIcon />}</span>
+              </div>
+              <div className="flex max-w-[72%] flex-wrap justify-end gap-1.5">
+                {card.tags.map((tag) => (
+                  <span key={tag} className="liquid-glass rounded-full px-3 py-1 font-body text-[11px] text-white/90 whitespace-nowrap">
+                    <span className="glass-content">{tag}</span>
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex-1" />
+
+            <div className="mt-6">
+              <h3 className="font-body text-2xl font-semibold leading-tight text-white md:text-3xl">{card.title}</h3>
+              <p className="mt-3 max-w-[34ch] font-body text-[15px] font-normal leading-relaxed text-white/90">{card.body}</p>
+            </div>
+          </div>
+        </motion.article>
+      );
+    }
+
+    function ProcessTabs() {
+      const [active, setActive] = useState(0);
+
+      return (
+        <div id="proceso" className="liquid-glass rounded-[1.75rem] p-4 md:p-5">
+          <div className="glass-content">
+            <div className="grid gap-2 md:grid-cols-3">
+              {processCards.map(([title], index) => (
+                <button
+                  key={title}
+                  type="button"
+                  onClick={() => setActive(index)}
+                  className={`rounded-full px-4 py-3 text-left font-body text-sm font-medium ${active === index ? "bg-white text-mary-ink" : "text-white/80"}`}
+                >
+                  0{index + 1} · {title}
+                </button>
+              ))}
+            </div>
+            <div className="mt-5 rounded-[1.25rem] bg-white/10 p-5">
+              <p className="font-body text-2xl font-semibold leading-tight text-white">{processCards[active][0]}</p>
+              <p className="mt-3 max-w-2xl font-body text-[15px] font-normal leading-relaxed text-white/90">{processCards[active][1]}</p>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    function Details() {
+      return (
+        <section id="experiencia" className="viewport-fill relative overflow-hidden bg-dark-rose">
+          <SoftCrossfadeImage images={[EXPERIENCE_IMAGE, CONSULTATION_IMAGE, BEAUTY_DETAIL_IMAGE]} label="Asesoría personalizada de belleza y piel" />
+
+          <div className="relative z-10 px-5 py-24 md:px-16 md:py-28 lg:px-20 lg:py-32">
+            <div className="mx-auto max-w-7xl">
+              <div className="grid gap-8 lg:grid-cols-[1fr_0.52fr] lg:items-end">
+                <motion.header
+                  className="max-w-5xl"
+                  initial={{ filter: "blur(10px)", opacity: 0, y: 20 }}
+                  whileInView={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                >
+                  <p className="mb-5 font-body text-sm font-medium text-white/80">// La experiencia</p>
+                  <h2 className="font-heading max-w-[15ch] text-5xl italic leading-[0.92] tracking-[-2px] text-white md:text-6xl lg:text-[4.7rem]">
+                    ¿Qué puedes vivir en tu experiencia personalizada?
+                  </h2>
+                  <p className="mt-6 max-w-2xl font-body text-base font-normal leading-relaxed text-white/90 md:text-lg">
+                    Cada experiencia la adapto a ti. Te escucho, entiendo tu rutina actual y te ayudo a elegir con más claridad.
+                  </p>
+                </motion.header>
+
+                <motion.aside
+                  className="liquid-glass rounded-[1.5rem] p-5 md:p-6"
+                  initial={{ filter: "blur(10px)", opacity: 0, y: 24 }}
+                  whileInView={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.25 }}
+                  transition={{ duration: 0.75, ease: "easeOut", delay: 0.12 }}
+                >
+                  <div className="glass-content">
+                    <p className="font-body text-sm font-semibold uppercase tracking-[0.16em] text-white/80">Sin presión de compra</p>
+                    <p className="mt-4 font-body text-2xl font-semibold leading-tight text-white">Escucha, prueba y decide con confianza.</p>
+                    <p className="mt-3 font-body text-sm font-normal leading-relaxed text-white/90">Te acompaño en una sesión cercana para resolver dudas y encontrar pasos realistas para cuidarte.</p>
+                  </div>
+                </motion.aside>
+              </div>
+
+              <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+                {experienceIncludes.map(([title, body], index) => (
+                  <motion.article
+                    key={title}
+                    className="liquid-glass rounded-[1.25rem] p-5"
+                    initial={{ filter: "blur(10px)", opacity: 0, y: 20 }}
+                    whileInView={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.65, ease: "easeOut", delay: 0.07 * index }}
+                  >
+                    <div className="glass-content">
+                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/10 font-body text-xs font-semibold text-white/90">0{index + 1}</span>
+                      <h3 className="mt-5 font-body text-base font-semibold leading-snug text-white">{title}</h3>
+                      <p className="mt-3 font-body text-[15px] font-normal leading-relaxed text-white/90">{body}</p>
+                    </div>
+                  </motion.article>
+                ))}
+              </div>
+
+              <div className="mt-8 flex justify-center">
+                <a href={WHATSAPP_MAIN} target="_blank" rel="noopener noreferrer" className="liquid-glass-strong inline-flex items-center gap-2 rounded-full px-6 py-3.5 font-body text-sm font-semibold text-white">
+                  <span className="glass-content">Agendar mi experiencia por WhatsApp</span>
+                  <ArrowUpRight className="glass-content h-4 w-4" />
+                </a>
+              </div>
+
+              <div className="my-16 md:my-20" aria-hidden="true">
+                <div className="relative mx-auto flex max-w-5xl items-center justify-center py-8">
+                  <span className="h-px flex-1 bg-gradient-to-r from-transparent via-white/34 to-white/10"></span>
+                  <span className="mx-5 h-3 w-3 rounded-full bg-mary-soft shadow-[0_0_32px_rgba(248,182,216,0.72)]"></span>
+                  <span className="h-px flex-1 bg-gradient-to-l from-transparent via-white/34 to-white/10"></span>
+                </div>
+              </div>
+
+              <div id="opciones" className="relative">
+                <div className="pointer-events-none absolute -inset-x-5 -top-8 bottom-auto h-48 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.13),transparent_64%)] md:-inset-x-16 lg:-inset-x-20" aria-hidden="true"></div>
+                <div className="mb-6 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+                  <div>
+                    <p className="font-body text-sm font-semibold uppercase tracking-[0.16em] text-white/80">Opciones de experiencia</p>
+                    <h3 className="mt-3 font-heading text-4xl italic leading-tight text-white md:text-5xl">Elige cómo quieres comenzar.</h3>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+                {experienceCards.map((card, index) => (
+                  <FeatureCard key={card.title} card={card} index={index} />
+                ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function Story() {
+      return (
+        <section id="maricela" className="viewport-fill soft-section-transition bg-soft-blush px-5 pb-16 pt-16 text-mary-ink md:px-16 md:pb-20 md:pt-20 lg:px-20 lg:pb-24 lg:pt-24">
+          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <motion.div
+              initial={{ filter: "blur(10px)", opacity: 0, y: 24 }}
+              whileInView={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.75, ease: "easeOut" }}
+              className="overflow-hidden rounded-[2rem] bg-white shadow-[0_28px_80px_rgba(232,62,157,0.18)]"
+            >
+              <img className="h-full min-h-[420px] w-full object-cover" src={MARICELA_IMAGE} alt="Maricela Monchez preparando una asesoría personalizada de belleza" />
+            </motion.div>
+
+            <motion.div
+              initial={{ filter: "blur(10px)", opacity: 0, y: 24 }}
+              whileInView={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.75, ease: "easeOut", delay: 0.1 }}
+            >
+              <p className="font-body text-sm font-semibold uppercase tracking-[0.18em] text-mary-pink">Hola, soy Maricela Monchez</p>
+              <h2 className="mt-4 max-w-3xl font-heading text-5xl italic leading-[0.9] tracking-[-2px] text-mary-ink md:text-7xl">
+                Te acompaño a mirar tu reflejo con más amor y seguridad.
+              </h2>
+              <p className="mt-6 max-w-2xl font-body text-lg font-normal leading-snug text-mary-muted">
+                Soy Consultora de Belleza Independiente Mary Kay y futura directora. Mi propósito es ayudar a mujeres a reconectar con su belleza, su confianza y su amor propio a través de experiencias personalizadas de cuidado de la piel y maquillaje.
+              </p>
+              <p className="mt-4 max-w-2xl font-body text-base font-normal leading-snug text-mary-muted">
+                Más que vender productos, me encanta escuchar, orientar y acompañar a cada mujer para que encuentre una rutina que se adapte a su piel, su tiempo y su estilo de vida.
+              </p>
+
+              <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                {["Consultora de Belleza Independiente Mary Kay", "Futura directora", "WhatsApp 7087-6214", "Usulután / El Salvador"].map((fact) => (
+                  <div key={fact} className="rounded-[1.25rem] border border-[rgba(232,62,157,0.18)] bg-white/80 px-4 py-3 font-body text-sm text-mary-ink shadow-[0_14px_34px_rgba(74,18,58,0.08)]">
+                    {fact}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      );
+    }
+
+    function Opportunity() {
+      const pillars = [
+        {
+          title: "Aprende con acompañamiento",
+          text: "No empiezas sola. Te comparto mi experiencia y te explico el camino con cercanía."
+        },
+        {
+          title: "Comparte desde tu historia",
+          text: "La oportunidad se vuelve más natural cuando nace de lo que ya vives y amas."
+        },
+        {
+          title: "Construye a tu ritmo",
+          text: "Puedes conocer el proceso, resolver dudas y decidir con calma si esto conecta contigo."
+        }
+      ];
+
+      return (
+        <section id="oportunidad" className="viewport-fill relative overflow-hidden bg-dark-rose px-5 py-20 text-white md:px-16 md:py-24 lg:px-20 lg:py-28">
+          <img
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center opacity-[0.42]"
+            src={OPPORTUNITY_IMAGE}
+            alt="Maricela Monchez compartiendo reconocimiento en una reunión Mary Kay"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_22%,rgba(255,139,202,0.16),transparent_36%),linear-gradient(135deg,rgba(75,6,55,0.95),rgba(146,11,98,0.86)_54%,rgba(185,20,124,0.46))]" />
+
+          <div className="relative z-10 mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.96fr_1.04fr] lg:items-center lg:gap-14">
+            <motion.div {...fadeIn(0.05)}>
+              <p className="mb-5 font-body text-sm font-semibold uppercase tracking-[0.18em] text-mary-soft">// Oportunidad Mary Kay</p>
+              <h2 className="max-w-[620px] font-heading text-[3.15rem] italic leading-[0.94] tracking-[-2px] text-white sm:text-6xl md:text-[4.35rem] lg:text-[4.6rem]">
+                Crecer también puede sentirse femenino, claro y posible.
+              </h2>
+              <p className="mt-6 max-w-[560px] font-body text-base font-normal leading-relaxed text-white/90">
+                Si además de cuidarte te interesa aprender, compartir belleza y construir algo propio, puedo contarte cómo funciona esta oportunidad con honestidad, claridad y sin presión.
+              </p>
+              <div className="mt-8 flex max-w-xl flex-wrap gap-3">
+                {["Ingresos extra", "Crecimiento personal", "Comunidad y liderazgo"].map((item) => (
+                  <div key={item} className="liquid-glass rounded-full px-4 py-2.5">
+                    <span className="glass-content block whitespace-nowrap font-body text-sm font-medium text-white/95">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a href={OPPORTUNITY_PAGE_PATH} className="inline-flex items-center justify-center rounded-full bg-gradient-to-br from-mary-pink to-mary-vivid px-5 py-3 font-body text-sm font-semibold text-white shadow-[0_18px_45px_rgba(232,62,157,0.35)]">
+                  Ver landing de negocio <ArrowUpRight className="ml-2 h-4 w-4" />
+                </a>
+                <a href={WHATSAPP_MAIN} target="_blank" rel="noopener noreferrer" className="liquid-glass inline-flex items-center justify-center rounded-full px-5 py-3 font-body text-sm font-semibold text-white">
+                  Primero quiero mi experiencia
+                </a>
+              </div>
+            </motion.div>
+
+            <motion.div {...fadeIn(0.18)} className="liquid-glass rounded-[2rem] p-6 md:p-8 lg:p-9">
+              <div className="glass-content">
+                <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-mary-soft">Una ruta para crecer</p>
+                <h3 className="mt-4 font-body text-2xl font-semibold leading-tight text-white md:text-[2rem]">
+                  ¿Qué puedes encontrar aquí?
+                </h3>
+                <div className="mt-7 divide-y divide-white/15">
+                {pillars.map((pillar) => (
+                  <div key={pillar.title} className="py-5 first:pt-0 last:pb-0">
+                    <h4 className="font-body text-base font-semibold text-white">{pillar.title}</h4>
+                    <p className="mt-2 max-w-[48ch] font-body text-[15px] font-normal leading-relaxed text-white/90">{pillar.text}</p>
+                  </div>
+                ))}
+                </div>
+                <p className="mt-7 border-t border-white/15 pt-6 font-body text-sm font-medium leading-relaxed text-white/90">
+                  La primera conversación no es para convencerte. Es para ayudarte a entender si este camino tiene sentido para ti.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      );
+    }
+
+    function Testimonials() {
+      const testimonials = [
+        {
+          name: "Ana Rivera",
+          image: "/assets/mpkg0ezu-ChatGPT-Image-24-may-2026_-05_47_19-p.m.-_2_.webp",
+          focus: "center 48%",
+          modalFocus: "center 48%",
+          quote: "Me ayudó a entender mejor mi piel y a crear una rutina mucho más sencilla.",
+          title: "Ahora entiendo mejor lo que mi piel necesita",
+          fullQuote: "Llegué con muchas dudas porque no sabía qué productos usar ni cómo ordenar mi rutina. Maricela me escuchó con paciencia, me explicó cada paso y me ayudó a encontrar una forma más sencilla de cuidar mi piel sin sentirme presionada. Me gustó poder decidir con calma."
+        },
+        {
+          name: "Claudia Morales",
+          image: "/assets/mpkg0f6q-ChatGPT-Image-24-may-2026_-05_47_20-p.m.-_5_.webp",
+          focus: "center 44%",
+          modalFocus: "center 47%",
+          quote: "Me sentí escuchada y acompañada, sin presión para decidir.",
+          title: "Una asesoría donde pude sentirme tranquila",
+          fullQuote: "Desde el primer momento sentí que la conversación era sobre mí y no sobre venderme algo. Hablamos de mis hábitos, de lo que quería mejorar en apariencia y de las opciones que podía conocer. La atención de Maricela me dio confianza para elegir a mi ritmo."
+        },
+        {
+          name: "Verónica Pérez",
+          image: "/assets/mpkg0fea-ChatGPT-Image-24-may-2026_-05_47_19-p.m.-_1_.webp",
+          focus: "center 39%",
+          modalFocus: "center 47%",
+          quote: "Aprendí qué pasos puedo mantener cada día sin complicarme.",
+          title: "Una rutina posible para mis días reales",
+          fullQuote: "Quería cuidarme mejor, pero me abrumaban las rutinas largas. Maricela me mostró pasos sencillos que puedo integrar a mi día y me orientó con claridad sobre qué probar. Me fui con una rutina comprensible y con ganas de ser constante."
+        },
+        {
+          name: "Karla Hernández",
+          image: "/assets/mpkg8nl6-ChatGPT-Image-24-may-2026_-06_01_14-p.m.-_1_.webp",
+          focus: "center 38%",
+          modalFocus: "center 46%",
+          quote: "La experiencia fue delicada y cercana. Salí sintiéndome más segura.",
+          title: "Un momento para reconectar conmigo",
+          fullQuote: "La sesión se sintió como un espacio bonito para cuidarme y volver a mirarme con cariño. Maricela fue muy cercana, explicó cada recomendación sin prisa y me ayudó a sentirme segura con lo que elegí probar. Fue una experiencia cálida y especial."
+        },
+        {
+          name: "Silvia Romero",
+          image: "/assets/mpkg11vk-ChatGPT-Image-24-may-2026_-05_47_20-p.m.-_3_.webp",
+          focus: "center 48%",
+          modalFocus: "center 47%",
+          quote: "Descubrí opciones de maquillaje natural que se sienten muy yo.",
+          title: "Maquillaje natural, pero con intención",
+          fullQuote: "Me gusta maquillarme, pero buscaba algo más natural y fácil de repetir. Maricela me ayudó a descubrir tonos y acabados que resaltan mis rasgos sin sentirme disfrazada. Lo mejor fue aprender pequeños detalles que puedo aplicar yo misma."
+        },
+        {
+          name: "Patricia López",
+          image: "/assets/mpkg1m9w-ChatGPT-Image-24-may-2026_-06_01_17-p.m.-_6_.webp",
+          focus: "center 36%",
+          modalFocus: "center 45%",
+          quote: "Maricela explicó cada opción con calma y mucha honestidad.",
+          title: "Elegí con información y sin prisa",
+          fullQuote: "Agradecí mucho que Maricela me hablara con honestidad sobre cada opción y respondiera todas mis preguntas. No sentí presión; sentí guía. Eso hizo que la experiencia fuera agradable y que pudiera pensar con claridad en lo que realmente se adapta a mí."
+        }
+      ];
+
+      const [selectedIndex, setSelectedIndex] = useState(null);
+      const [isClosing, setIsClosing] = useState(false);
+      const [direction, setDirection] = useState(0);
+      const closeButtonRef = useRef(null);
+      const lastFocusRef = useRef(null);
+      const closeTimerRef = useRef(null);
+      const activeTestimonial = selectedIndex === null ? null : testimonials[selectedIndex];
+
+      const openTestimonial = (index) => {
+        lastFocusRef.current = document.activeElement;
+        setDirection(0);
+        setIsClosing(false);
+        setSelectedIndex(index);
+      };
+
+      const closeTestimonial = () => {
+        if (selectedIndex === null || isClosing) return;
+        setIsClosing(true);
+        if (closeTimerRef.current) window.clearTimeout(closeTimerRef.current);
+        closeTimerRef.current = window.setTimeout(() => {
+          setSelectedIndex(null);
+          setIsClosing(false);
+          if (lastFocusRef.current) lastFocusRef.current.focus();
+        }, 240);
+      };
+
+      const changeTestimonial = (step) => {
+        setSelectedIndex((currentIndex) => {
+          if (currentIndex === null) return currentIndex;
+          const nextIndex = currentIndex + step;
+          if (nextIndex < 0 || nextIndex >= testimonials.length) return currentIndex;
+          setDirection(step);
+          return nextIndex;
+        });
+      };
+
+      useEffect(() => {
+        if (selectedIndex === null) return undefined;
+        const previousOverflow = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+        window.setTimeout(() => closeButtonRef.current && closeButtonRef.current.focus(), 0);
+
+        const handleKeyDown = (event) => {
+          if (event.key === "Escape") {
+            closeTestimonial();
+          } else if (event.key === "ArrowRight") {
+            changeTestimonial(1);
+          } else if (event.key === "ArrowLeft") {
+            changeTestimonial(-1);
+          }
+        };
+
+        document.addEventListener("keydown", handleKeyDown);
+        return () => {
+          document.body.style.overflow = previousOverflow;
+          document.removeEventListener("keydown", handleKeyDown);
+        };
+      }, [selectedIndex !== null]);
+
+      useEffect(() => () => {
+        if (closeTimerRef.current) window.clearTimeout(closeTimerRef.current);
+      }, []);
+
+      return (
+        <>
+          <section id="testimonios" className="viewport-fill relative overflow-hidden bg-dark-rose px-5 pb-16 pt-16 text-white md:px-16 md:pb-20 md:pt-20 lg:px-20 lg:pb-24 lg:pt-24">
+            <img
+              className="testimonials-photo"
+              src="/assets/mpkgdnpi-ChatGPT-Image-19-may-2026_-11_37_26-p.m.-_1_.webp"
+              alt=""
+              aria-hidden="true"
+            />
+            <div className="testimonials-veil" aria-hidden="true"></div>
+            <div className="relative z-10 mx-auto max-w-7xl">
+              <motion.div {...fadeIn(0)} className="max-w-3xl">
+                <p className="mb-5 font-body text-sm font-medium text-white/80">// Confianza real</p>
+                <h2 className="font-heading text-5xl italic leading-[0.95] tracking-[-2px] text-white md:text-7xl">
+                  Mujeres que ya vivieron su experiencia
+                </h2>
+                <p className="mt-6 max-w-2xl font-body text-base font-normal leading-relaxed text-white/90 md:text-lg">
+                  La confianza empieza cuando te sientes escuchada, orientada y libre de decidir con calma.
+                </p>
+              </motion.div>
+
+              <div className="mt-10 grid gap-5 sm:grid-cols-2 md:mt-12 lg:grid-cols-3">
+                {testimonials.map((testimonial, index) => (
+                  <motion.button
+                    key={testimonial.name}
+                    type="button"
+                    onClick={() => openTestimonial(index)}
+                    aria-haspopup="dialog"
+                    aria-label={`Leer testimonio completo de ${testimonial.name}`}
+                    {...fadeIn(0.1 + (index * 0.08))}
+                    className="testimonial-card liquid-glass group flex flex-col rounded-[1.5rem] p-2"
+                  >
+                    <div className="glass-content flex h-full flex-col">
+                      <div className="relative overflow-hidden rounded-[1.1rem]">
+                        <img
+                          src={testimonial.image}
+                          alt={`${testimonial.name} durante una experiencia personalizada junto a Maricela Monchez`}
+                          className="aspect-[5/4] w-full object-cover transition duration-500 group-hover:scale-[1.03] sm:aspect-[4/3]"
+                          style={{ objectPosition: testimonial.focus }}
+                          loading="lazy"
+                        />
+                        <span className="absolute bottom-3 left-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/80 font-heading text-4xl italic leading-none text-mary-pink shadow-sm" aria-hidden="true">“</span>
+                      </div>
+                      <p className="flex-1 px-5 pb-0 pt-5 font-body text-[15px] font-normal leading-relaxed text-white md:text-base">
+                        {testimonial.quote}
+                      </p>
+                      <div className="mx-5 mb-5 mt-5 border-t border-white/10 pt-4 font-body">
+                        <p className="text-base font-semibold text-white">{testimonial.name}</p>
+                        <p className="mt-1 text-xs font-medium uppercase tracking-[0.12em] text-white/70">Clienta de Maricela</p>
+                      </div>
+                    </div>
+                  </motion.button>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {activeTestimonial && (
+            <div
+              className={`testimonial-overlay${isClosing ? " is-closing" : ""}`}
+              onMouseDown={(event) => {
+                if (event.target === event.currentTarget) closeTestimonial();
+              }}
+            >
+              <div
+                className="testimonial-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="testimonial-dialog-title"
+              >
+                <button
+                  ref={closeButtonRef}
+                  type="button"
+                  className="testimonial-modal-close"
+                  onClick={closeTestimonial}
+                  aria-label="Cerrar testimonio"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+
+                <div
+                  key={`${activeTestimonial.name}-${direction}`}
+                  className={`testimonial-story${direction === 1 ? " is-next" : direction === -1 ? " is-prev" : ""}`}
+                >
+                  <div className="testimonial-modal-grid">
+                    <figure className="testimonial-modal-photo">
+                      <img
+                        src={activeTestimonial.image}
+                        alt={`${activeTestimonial.name} junto a Maricela Monchez durante su experiencia personalizada`}
+                        style={{ objectPosition: activeTestimonial.modalFocus }}
+                      />
+                    </figure>
+                    <div className="testimonial-modal-copy text-white">
+                      <p className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-mary-gold">Clienta de Maricela</p>
+                      <h3 id="testimonial-dialog-title" className="mt-4 max-w-[15ch] font-heading text-4xl italic leading-[0.94] tracking-[-1px] text-white sm:text-5xl">
+                        {activeTestimonial.title}
+                      </h3>
+                      <p className="mt-5 font-body text-base font-semibold text-white">{activeTestimonial.name}</p>
+                      <p className="mt-5 max-w-[46ch] font-body text-base font-normal leading-relaxed text-white/90 md:text-lg">
+                        {activeTestimonial.fullQuote}
+                      </p>
+                      <div className="mt-8 flex flex-wrap items-center gap-3">
+                        <button
+                          type="button"
+                          className="testimonial-nav-button"
+                          onClick={() => changeTestimonial(-1)}
+                          disabled={selectedIndex === 0}
+                          aria-label="Testimonio anterior"
+                        >
+                          <span aria-hidden="true">&larr;</span> Anterior
+                        </button>
+                        <button
+                          type="button"
+                          className="testimonial-nav-button"
+                          onClick={() => changeTestimonial(1)}
+                          disabled={selectedIndex === testimonials.length - 1}
+                          aria-label="Siguiente testimonio"
+                        >
+                          Siguiente <span aria-hidden="true">&rarr;</span>
+                        </button>
+                        <p className="ml-auto font-body text-sm text-white/60">
+                          {selectedIndex + 1} / {testimonials.length}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </>
+      );
+    }
+
+    function Conversion() {
+      return (
+        <section id="agenda" className="viewport-fill bg-dark-rose px-5 pb-28 pt-14 text-white md:px-16 md:pb-32 md:pt-16 lg:px-20 lg:pb-36 lg:pt-20">
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+            <img
+              className="h-full w-full object-cover object-center opacity-55"
+              src={AGENDA_IMAGE}
+              alt=""
+            />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(255,182,216,0.12),transparent_32%),linear-gradient(110deg,rgba(185,20,124,0.58)_0%,rgba(146,11,98,0.8)_45%,rgba(75,6,55,0.93)_100%)]" />
+          </div>
+          <div className="relative z-10">
+          <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div>
+              <p className="mb-6 font-body text-sm font-medium text-white/80">// Agenda en 3 pasos</p>
+              <h2 className="font-heading text-6xl italic leading-[0.9] tracking-[-3px] text-white md:text-7xl">
+                Sin presión.<br />Con claridad.
+              </h2>
+              <p className="mt-6 max-w-xl font-body text-base font-normal leading-snug text-white/90">
+                No necesitas saber tu tipo de piel ni tener una rutina perfecta. Empezamos conversando y terminas con una guía más clara para cuidarte.
+              </p>
+            </div>
+            <ProcessTabs />
+          </div>
+
+          <div className="mx-auto mt-14 grid max-w-7xl gap-8 lg:mt-16 lg:grid-cols-[0.95fr_1.05fr]">
+            <div className="liquid-glass rounded-[1.75rem] p-7">
+              <div className="glass-content">
+                <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-white/60">Antes de escribir</p>
+                <h3 className="mt-4 font-heading text-5xl italic leading-[0.9] text-white">Puedes llegar con dudas.</h3>
+                <p className="mt-5 font-body text-[15px] font-normal leading-relaxed text-white/90">
+                  No necesitas saber qué producto elegir ni qué rutina seguir. El primer paso es contarme qué te preocupa, qué deseas mejorar en apariencia y cuánto tiempo real tienes para cuidarte.
+                </p>
+                <a href={WHATSAPP_MAIN} target="_blank" rel="noopener noreferrer" className="liquid-glass-strong mt-7 inline-flex rounded-full px-5 py-2.5 font-body text-sm font-medium text-white">
+                  <span className="glass-content flex items-center gap-2">Agendar por WhatsApp <ArrowUpRight /></span>
+                </a>
+              </div>
+            </div>
+
+            <div className="liquid-glass rounded-[1.75rem] p-7">
+              <div className="glass-content">
+                <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-white/60">Preguntas frecuentes</p>
+                <div className="mt-4 space-y-4">
+                  <details className="rounded-[1.1rem] bg-white/10 p-4" open>
+                    <summary className="cursor-pointer font-body text-sm font-semibold text-white">¿Me vas a vender productos durante la sesión?</summary>
+                    <p className="mt-2 font-body text-[15px] font-normal leading-relaxed text-white/90">La experiencia está pensada para orientarte. Puedo mostrarte productos y darte recomendaciones, pero la decisión siempre es tuya y sin presión.</p>
+                  </details>
+                  <details className="rounded-[1.1rem] bg-white/10 p-4">
+                    <summary className="cursor-pointer font-body text-sm font-semibold text-white">¿Qué pasa si no sé mi tipo de piel?</summary>
+                    <p className="mt-2 font-body text-[15px] font-normal leading-relaxed text-white/90">No necesitas saberlo. Conversaremos sobre tu piel, hábitos y necesidades para que pueda guiarte mejor.</p>
+                  </details>
+                  <details className="rounded-[1.1rem] bg-white/10 p-4">
+                    <summary className="cursor-pointer font-body text-sm font-semibold text-white">¿Hay precios públicos?</summary>
+                    <p className="mt-2 font-body text-[15px] font-normal leading-relaxed text-white/90">No aquí. Te recomiendo de forma personalizada para evitar compras impulsivas o productos que no se adapten a tu rutina.</p>
+                  </details>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <footer className="mx-auto mt-16 grid max-w-7xl gap-8 lg:mt-20 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-14" aria-label="Contacto de Maricela Monchez">
+            <div className="max-w-xl">
+              <p className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-mary-soft">Maricela Monchez</p>
+              <h3 className="mt-4 font-heading text-5xl italic leading-[0.94] tracking-[-2px] text-white sm:text-6xl">
+                Belleza con guía,<br className="hidden sm:block" /> cuidado y confianza.
+              </h3>
+              <p className="mt-5 max-w-lg font-body text-base font-normal leading-relaxed text-white/90">
+                Belleza, cuidado y acompañamiento personalizado para mujeres que desean sentirse más seguras y cuidar su piel con claridad.
+              </p>
+              <a href={WHATSAPP_MAIN} target="_blank" rel="noopener noreferrer" className="liquid-glass-strong mt-7 inline-flex rounded-full px-5 py-2.5 font-body text-sm font-medium text-white">
+                <span className="glass-content flex items-center gap-2">Agendar por WhatsApp <ArrowUpRight /></span>
+              </a>
+            </div>
+
+            <div className="liquid-glass w-full rounded-[1.5rem] p-5 sm:p-6 lg:w-[390px]">
+              <div className="glass-content">
+                  <p className="font-body text-sm font-semibold text-white">Maricela Monchez</p>
+                  <p className="mt-1 font-body text-sm font-normal text-white/75">Consultora de Belleza Independiente Mary Kay</p>
+                  <dl className="mt-6 space-y-4 border-t border-white/15 pt-5 font-body text-sm">
+                    <div className="flex items-center justify-between gap-4">
+                      <dt className="text-white/60">Instagram</dt>
+                      <dd className="font-medium text-white">@maricelamonchez</dd>
+                    </div>
+                    <div className="flex items-center justify-between gap-4">
+                      <dt className="text-white/60">WhatsApp</dt>
+                      <dd className="font-medium text-white">7087-6214</dd>
+                    </div>
+                    <div className="flex items-center justify-between gap-4">
+                      <dt className="text-white/60">Ubicación</dt>
+                      <dd className="text-right font-medium text-white">Usulután, El Salvador</dd>
+                    </div>
+                  </dl>
+              </div>
+            </div>
+          </footer>
+          </div>
+        </section>
+      );
+    }
+
+    function AuthorCredit() {
+      return (
+        <div className="bg-mary-deep px-5 pb-16 pt-3 sm:pb-14" aria-label="Autoría del sitio">
+          <div className="mx-auto flex max-w-7xl items-center justify-center gap-4 border-t border-white/10 pt-4">
+            <span className="hidden h-px w-10 bg-gradient-to-r from-transparent to-white/20 sm:block" aria-hidden="true"></span>
+            <a
+              href="https://elevium.sv"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-baseline gap-1.5 text-white transition-colors duration-300 hover:text-mary-pink focus-visible:text-mary-pink focus-visible:outline-none"
+            >
+              <span className="font-body text-[11px] font-medium uppercase tracking-[0.2em]">Landing page by</span>
+              <span className="font-heading text-lg italic tracking-[-0.01em] text-white transition-colors duration-300 group-hover:text-mary-pink group-focus-visible:text-mary-pink">Elevium</span>
+              <span className="font-body text-[11px] font-medium tracking-[0.16em]">© 2026</span>
+            </a>
+            <span className="hidden h-px w-10 bg-gradient-to-l from-transparent to-white/20 sm:block" aria-hidden="true"></span>
+          </div>
+        </div>
+      );
+    }
+
+    function OpportunityLandingNav() {
+      const [onLight, setOnLight] = useState(false);
+      const [menuOpen, setMenuOpen] = useState(false);
+      const links = [
+        ["Inicio", "#inicio-oportunidad"],
+        ["Identificación", "#modelo"],
+        ["Dolores", "#camino"],
+        ["Objeciones", "#objeciones"],
+        ["Visión", "#vision"],
+        ["Diagnóstico", "#preguntas-negocio"]
+      ];
+
+      useEffect(() => {
+        const updateTheme = () => {
+          const navProbeY = 120;
+          const lightSections = ["camino"]
+            .map((id) => document.getElementById(id))
+            .filter(Boolean);
+          setOnLight(lightSections.some((section) => {
+            const rect = section.getBoundingClientRect();
+            return rect.top <= navProbeY && rect.bottom > navProbeY;
+          }));
+        };
+
+        updateTheme();
+        window.addEventListener("scroll", updateTheme, { passive: true });
+        window.addEventListener("resize", updateTheme);
+        return () => {
+          window.removeEventListener("scroll", updateTheme);
+          window.removeEventListener("resize", updateTheme);
+        };
+      }, []);
+
+      useEffect(() => {
+        const closeOnDesktop = () => {
+          if (window.innerWidth >= 1024) setMenuOpen(false);
+        };
+        const closeOnEscape = (event) => {
+          if (event.key === "Escape") setMenuOpen(false);
+        };
+        window.addEventListener("resize", closeOnDesktop);
+        window.addEventListener("keydown", closeOnEscape);
+        return () => {
+          window.removeEventListener("resize", closeOnDesktop);
+          window.removeEventListener("keydown", closeOnEscape);
+        };
+      }, []);
+
+      const navigate = (event, href) => {
+        setMenuOpen(false);
+        scrollToSection(event, href);
+      };
+
+      return (
+        <nav className={"fixed left-0 right-0 top-4 z-[9999] px-4 lg:px-6 xl:px-16 " + (onLight ? "nav-on-light" : "")} aria-label="Navegación oportunidad Mary Kay">
+          <div className="relative mx-auto flex max-w-7xl items-center justify-center">
+            <a href="/" className="nav-brand liquid-glass absolute left-0 flex h-12 w-12 items-center justify-center rounded-full text-white" aria-label="Volver a la landing principal">
+              <span className="glass-content">
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M10.8 6 5 12l5.8 6M6 12h13" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+            </a>
+
+            <div className="liquid-glass hidden rounded-full px-1.5 py-1.5 lg:flex">
+              <div className="glass-content flex items-center gap-1">
+                {links.map(([label, href]) => (
+                  <a key={label} href={href} onClick={(event) => navigate(event, href)} className="nav-link px-2 py-2 font-body text-[12px] font-medium text-white/90 xl:px-3 xl:text-sm">
+                    {label}
+                  </a>
+                ))}
+                <a href={WHATSAPP_OPPORTUNITY} target="_blank" rel="noopener noreferrer" className="ml-1 flex items-center gap-2 rounded-full bg-gradient-to-br from-mary-pink to-mary-vivid px-3 py-2 font-body text-xs font-semibold text-white shadow-[0_14px_34px_rgba(232,62,157,0.35)] whitespace-nowrap xl:px-4 xl:text-sm">
+                  Conversar
+                  <ArrowUpRight className="h-4 w-4" />
+                </a>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              className="nav-brand liquid-glass ml-auto flex h-12 w-12 items-center justify-center rounded-full text-white lg:hidden"
+              aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((current) => !current)}
+            >
+              <span className="glass-content flex h-5 w-5 flex-col justify-center gap-1.5">
+                <span className={"block h-0.5 w-5 rounded-full bg-current transition " + (menuOpen ? "translate-y-2 rotate-45" : "")}></span>
+                <span className={"block h-0.5 w-5 rounded-full bg-current transition " + (menuOpen ? "opacity-0" : "")}></span>
+                <span className={"block h-0.5 w-5 rounded-full bg-current transition " + (menuOpen ? "-translate-y-2 -rotate-45" : "")}></span>
+              </span>
+            </button>
+
+            {menuOpen && (
+              <div className="mobile-menu-panel liquid-glass absolute left-0 right-0 top-[4.2rem] p-3 lg:hidden">
+                <div className="glass-content grid gap-2">
+                  {links.map(([label, href]) => (
+                    <a
+                      key={label}
+                      href={href}
+                      onClick={(event) => navigate(event, href)}
+                      className="nav-link mobile-menu-link px-4 py-3.5 font-body text-base font-medium text-white/90"
+                    >
+                      {label}
+                    </a>
+                  ))}
+                  <a href={WHATSAPP_OPPORTUNITY} target="_blank" rel="noopener noreferrer" className="mt-1 flex items-center justify-center gap-2 rounded-full bg-gradient-to-br from-mary-pink to-mary-vivid px-4 py-3.5 font-body text-sm font-semibold text-white shadow-[0_14px_34px_rgba(232,62,157,0.35)]">
+                    Conversar con Maricela
+                    <ArrowUpRight className="h-4 w-4" />
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
+        </nav>
+      );
+    }
+
+    function OpportunityBenefit({ title, text }) {
+      return (
+        <div className="liquid-glass rounded-[1.5rem] p-5">
+          <div className="glass-content">
+            <h3 className="font-body text-lg font-semibold text-white">{title}</h3>
+            <p className="mt-3 font-body text-[15px] font-normal leading-relaxed text-white/86">{text}</p>
+          </div>
+        </div>
+      );
+    }
+
+    function LegacyOpportunityBusinessPage() {
+      useEffect(() => {
+        const previousTitle = document.title;
+        document.title = "Oportunidad Mary Kay | Maricela Monchez";
+        return () => {
+          document.title = previousTitle;
+        };
+      }, []);
+
+      const benefits = [
+        ["Ingresos extra con intención", "Puedes conocer una forma de generar ingresos compartiendo belleza, cuidado personal y recomendaciones desde una conversación cercana."],
+        ["Acompañamiento desde el inicio", "No se trata de adivinar qué hacer. Hay guía, herramientas y una ruta para entender el negocio paso a paso."],
+        ["Crecimiento personal", "La oportunidad también desarrolla seguridad, comunicación, constancia y liderazgo femenino."],
+        ["Flexibilidad real", "Puedes explorar el camino a tu ritmo, según tu tiempo, tus metas y el momento de vida en el que estás."]
+      ];
+
+      const steps = [
+        ["Conversamos", "Me cuentas qué buscas, qué dudas tienes y qué te llama la atención de Mary Kay."],
+        ["Entiendes el modelo", "Te explico cómo funciona la oportunidad, qué implica iniciar y qué recursos tienes disponibles."],
+        ["Defines si conecta contigo", "La decisión se toma con claridad. Sin presión, sin promesas irreales y con información honesta."]
+      ];
+
+      return (
+        <div className="min-h-screen bg-dark-rose text-white">
+          <OpportunityLandingNav />
+
+          <section id="inicio-oportunidad" className="opportunity-hero-page viewport-fill relative flex min-h-[100svh] items-center overflow-hidden px-5 pb-16 pt-28 md:px-16 lg:px-20">
+            <img className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center opacity-45" src={OPPORTUNITY_IMAGE} alt="" aria-hidden="true" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_76%_16%,rgba(255,79,174,0.28),transparent_34%),linear-gradient(115deg,rgba(42,11,36,0.96)_0%,rgba(74,18,58,0.88)_48%,rgba(232,62,157,0.58)_100%)]" />
+
+            <div className="relative z-10 mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.82fr] lg:items-center">
+              <motion.div {...fadeIn(0)}>
+                <p className="mb-5 font-body text-sm font-semibold uppercase tracking-[0.2em] text-mary-soft">Oportunidad de negocio Mary Kay</p>
+                <h1 className="max-w-[780px] font-heading text-[4.2rem] italic leading-[0.86] tracking-[-3px] text-white sm:text-[5.6rem] lg:text-[6.8rem]">
+                  Construye algo propio sin dejar de ser tú.
+                </h1>
+                <p className="mt-7 max-w-2xl font-body text-lg font-normal leading-relaxed text-white/90">
+                  Si te gusta la belleza, conectar con otras mujeres y crecer con propósito, esta página te ayuda a entender si la oportunidad Mary Kay puede ser una ruta para ti.
+                </p>
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <a href={WHATSAPP_OPPORTUNITY} target="_blank" rel="noopener noreferrer" className="liquid-glass-strong inline-flex justify-center rounded-full px-6 py-3.5 font-body text-sm font-semibold text-white">
+                    <span className="glass-content flex items-center gap-2">Quiero conocer la oportunidad <ArrowUpRight /></span>
+                  </a>
+                  <a href="#modelo" className="cta-secondary rounded-full px-6 py-3.5 font-body text-sm font-semibold">
+                    Ver cómo funciona
+                    <PlayIcon />
+                  </a>
+                </div>
+              </motion.div>
+
+              <motion.div {...fadeIn(0.18)} className="liquid-glass rounded-[2rem] p-6 md:p-8">
+                <div className="glass-content">
+                  <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-white/60">Para mujeres que quieren</p>
+                  <div className="mt-5 space-y-4">
+                    {["Aprender de belleza con guía", "Compartir desde su experiencia", "Crear ingresos adicionales", "Crecer en comunidad"].map((item) => (
+                      <div key={item} className="flex items-center gap-3 rounded-[1.15rem] bg-white/10 px-4 py-3">
+                        <span className="grid h-8 w-8 place-items-center rounded-full bg-white/15 text-mary-soft">✓</span>
+                        <span className="font-body text-base font-semibold text-white">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </section>
+
+          <section id="modelo" className="viewport-fill relative overflow-hidden bg-dark-rose px-5 py-16 md:px-16 md:py-20 lg:px-20">
+            <img className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[center_32%] opacity-42" src={OPPORTUNITY_CONVERSATION_IMAGE} alt="" aria-hidden="true" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(112deg,rgba(42,11,36,0.97)_0%,rgba(74,18,58,0.9)_48%,rgba(232,62,157,0.52)_100%)]" />
+            <div className="relative z-10 mx-auto max-w-7xl">
+              <motion.div {...fadeIn(0)} className="max-w-3xl">
+                <p className="mb-5 font-body text-sm font-medium text-white/70">// Modelo claro</p>
+                <h2 className="font-heading text-5xl italic leading-[0.92] tracking-[-2px] text-white md:text-7xl">
+                  No es solo vender. Es acompañar, aprender y construir confianza.
+                </h2>
+                <p className="mt-6 max-w-2xl font-body text-base leading-relaxed text-white/86 md:text-lg">
+                  La oportunidad empieza con entender el producto, vivir la experiencia y compartir desde una recomendación honesta. El enfoque es crear relaciones, no presionar decisiones.
+                </p>
+              </motion.div>
+
+              <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+                {benefits.map(([title, text], index) => (
+                  <motion.div key={title} {...fadeIn(0.08 * index)}>
+                    <OpportunityBenefit title={title} text={text} />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section id="camino" className="viewport-fill bg-soft-blush px-5 py-16 text-mary-ink md:px-16 md:py-20 lg:px-20">
+            <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+              <motion.div {...fadeIn(0)}>
+                <p className="mb-5 font-body text-sm font-semibold uppercase tracking-[0.18em] text-mary-pink">Tu camino para iniciar</p>
+                <h2 className="font-heading text-5xl italic leading-[0.9] tracking-[-2px] text-mary-ink md:text-7xl">
+                  Primero entiendes. Luego decides.
+                </h2>
+                <p className="mt-6 max-w-xl font-body text-base leading-relaxed text-mary-muted md:text-lg">
+                  La primera conversación es para resolver dudas y darte contexto. Si conecta contigo, vemos juntas el siguiente paso.
+                </p>
+              </motion.div>
+
+              <div className="grid gap-5">
+                {steps.map(([title, text], index) => (
+                  <motion.div key={title} {...fadeIn(0.08 * index)} className="rounded-[1.5rem] border border-[rgba(232,62,157,0.16)] bg-white/80 p-6 shadow-[0_18px_50px_rgba(74,18,58,0.08)]">
+                    <div className="flex gap-5">
+                      <span className="grid h-12 w-12 flex-none place-items-center rounded-full bg-mary-pink font-heading text-3xl italic text-white">{index + 1}</span>
+                      <div>
+                        <h3 className="font-body text-xl font-semibold text-mary-ink">{title}</h3>
+                        <p className="mt-2 font-body text-base leading-relaxed text-mary-muted">{text}</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section id="objeciones" className="viewport-fill relative overflow-hidden bg-dark-rose px-5 py-16 md:px-16 md:py-20 lg:px-20">
+            <img className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center opacity-35" src={BEAUTY_DETAIL_IMAGE} alt="" aria-hidden="true" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgba(42,11,36,0.95),rgba(74,18,58,0.9),rgba(232,62,157,0.42))]" />
+            <div className="relative z-10 mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+              <motion.div {...fadeIn(0)}>
+                <p className="mb-5 font-body text-sm font-medium text-white/70">// Una invitación honesta</p>
+                <h2 className="font-heading text-5xl italic leading-[0.92] tracking-[-2px] text-white md:text-7xl">
+                  Puede ser una oportunidad si hace sentido para tu vida.
+                </h2>
+              </motion.div>
+              <motion.div {...fadeIn(0.15)} className="liquid-glass rounded-[2rem] p-7">
+                <div className="glass-content">
+                  <p className="font-body text-base leading-relaxed text-white/90">
+                    No necesitas tenerlo todo resuelto. Puedes empezar con una conversación, entender las bases y decidir con calma si quieres explorar este camino conmigo.
+                  </p>
+                  <a href={WHATSAPP_OPPORTUNITY} target="_blank" rel="noopener noreferrer" className="liquid-glass-strong mt-7 inline-flex rounded-full px-6 py-3 font-body text-sm font-semibold text-white">
+                    <span className="glass-content flex items-center gap-2">Hablar con Maricela <ArrowUpRight /></span>
+                  </a>
+                </div>
+              </motion.div>
+            </div>
+          </section>
+
+          <section id="preguntas-negocio" className="viewport-fill bg-dark-rose px-5 pb-28 pt-16 md:px-16 md:pb-32 md:pt-20 lg:px-20">
+            <div className="mx-auto max-w-4xl">
+              <motion.div {...fadeIn(0)} className="text-center">
+                <p className="mb-5 font-body text-sm font-medium text-white/70">// Antes de conversar</p>
+                <h2 className="font-heading text-5xl italic leading-[0.92] tracking-[-2px] text-white md:text-7xl">
+                  Preguntas frecuentes
+                </h2>
+              </motion.div>
+              <div className="mt-9 space-y-4">
+                {[
+                  ["¿Tengo que vender inmediatamente?", "No. Primero necesitas entender la oportunidad, conocer los productos y definir si este camino se adapta a ti."],
+                  ["¿Necesito experiencia previa?", "No necesitas experiencia previa. Lo importante es tener disposición para aprender, conversar y construir confianza."],
+                  ["¿Hay presión para iniciar?", "No. La conversación es informativa. La decisión se toma con calma y con claridad."],
+                  ["¿Puedo hacerlo si tengo poco tiempo?", "Sí, puedes conocer opciones según tu ritmo. La idea es revisar expectativas reales antes de decidir."]
+                ].map(([question, answer], index) => (
+                  <motion.details key={question} {...fadeIn(0.05 * index)} className="liquid-glass rounded-[1.35rem] p-5" open={index === 0}>
+                    <summary className="glass-content cursor-pointer font-body text-base font-semibold text-white">{question}</summary>
+                    <p className="glass-content mt-3 font-body text-[15px] leading-relaxed text-white/86">{answer}</p>
+                  </motion.details>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <AuthorCredit />
+          <a href={WHATSAPP_OPPORTUNITY} className="whatsapp-float" aria-label="Consultar oportunidad Mary Kay por WhatsApp" target="_blank" rel="noopener noreferrer">
+            <span className="whatsapp-float-icon"><WhatsAppIcon /></span>
+            <span>Consultar</span>
+          </a>
+        </div>
+      );
+    }
+
+
+    function OpportunityPillCard({ children, delay = 0 }) {
+      return (
+        <motion.div {...fadeIn(delay)} className="liquid-glass rounded-[1.45rem] p-5">
+          <div className="glass-content flex items-start gap-4">
+            <span className="mt-1 grid h-9 w-9 flex-none place-items-center rounded-full bg-white/14 text-mary-soft">
+              <SparkleIcon className="h-5 w-5" />
+            </span>
+            <p className="font-body text-[15px] font-semibold leading-relaxed text-white/90">{children}</p>
+          </div>
+        </motion.div>
+      );
+    }
+
+    function OpportunityObjectionCard({ title, text, delay = 0 }) {
+      return (
+        <motion.div {...fadeIn(delay)} className="liquid-glass rounded-[1.35rem] p-5">
+          <div className="glass-content">
+            <h3 className="font-body text-lg font-semibold text-white">{title}</h3>
+            <p className="mt-3 font-body text-[15px] leading-relaxed text-white/82">{text}</p>
+          </div>
+        </motion.div>
+      );
+    }
+
+    function OpportunityQuiz() {
+      const questions = [
+        {
+          key: "motivacion",
+          label: "Lo que más me interesa",
+          question: "¿Qué fue lo que más te llamó la atención de esta oportunidad?",
+          options: [
+            "Generar ingresos extra",
+            "Aprender más de belleza y cuidado de la piel",
+            "Tener algo propio",
+            "Crecer en confianza",
+            "Conocer una comunidad de mujeres",
+            "Aún no estoy segura, solo quiero saber más"
+          ]
+        },
+        {
+          key: "dolor",
+          label: "Lo que quiero mejorar",
+          question: "¿Qué te gustaría cambiar o mejorar en esta etapa de tu vida?",
+          options: [
+            "Tener más ingresos",
+            "Sentirme más segura",
+            "Salir de la rutina",
+            "Aprender algo nuevo",
+            "Conocer nuevas personas",
+            "Construir algo propio"
+          ]
+        },
+        {
+          key: "objecion",
+          label: "Lo que más me detiene",
+          question: "¿Qué es lo que más te detiene?",
+          options: [
+            "Me da pena vender",
+            "No sé si tengo tiempo",
+            "No conozco muchas personas",
+            "No sé si soy buena para esto",
+            "Me preocupa invertir",
+            "Me da miedo que me digan que no"
+          ]
+        },
+        {
+          key: "tiempo",
+          label: "Tiempo disponible",
+          question: "¿Cuánto tiempo real podrías dedicarle por semana si esto te interesa?",
+          options: ["1 a 2 horas", "3 a 5 horas", "6 a 10 horas", "Más de 10 horas", "Aún no lo sé"]
+        },
+        {
+          key: "apoyo",
+          label: "Apoyo que necesito",
+          question: "¿Qué tipo de apoyo necesitarías para sentirte más segura?",
+          options: [
+            "Guía paso a paso",
+            "Ideas para hablar con personas",
+            "Capacitación de productos",
+            "Acompañamiento para vender",
+            "Motivación y comunidad",
+            "Resolver mis dudas primero"
+          ]
+        },
+        {
+          key: "interes",
+          label: "Nivel de interés",
+          question: "¿Qué tan interesada estás en conocer más?",
+          options: [
+            "Solo tengo curiosidad",
+            "Me interesa, pero tengo dudas",
+            "Me gustaría hablarlo con alguien",
+            "Quiero una reunión para entenderlo mejor",
+            "Estoy lista para conocer cómo iniciar"
+          ]
+        },
+        {
+          key: "reunion",
+          label: "Tipo de reunión",
+          question: "¿Qué tipo de reunión prefieres?",
+          options: ["Videollamada", "Llamada por WhatsApp", "Reunión presencial", "Solo mensajes por ahora"]
+        }
+      ];
+
+      const [step, setStep] = useState(0);
+      const [answers, setAnswers] = useState({});
+      const [form, setForm] = useState({ nombre: "", whatsapp: "", ciudad: "", horario: "", comentario: "", permiso: false });
+      const [touched, setTouched] = useState(false);
+      const formRefs = useRef({});
+      const isDataStep = step === questions.length;
+      const isResultStep = step === questions.length + 1;
+      const progress = Math.min(100, Math.round(((step + 1) / (questions.length + 2)) * 100));
+
+      const getProfile = () => {
+        const interest = answers.interes || "";
+        const time = answers.tiempo || "";
+        const motivation = answers.motivacion || "";
+        let score = 0;
+        if (interest.includes("lista") || interest.includes("reunión")) score += 2;
+        if (interest.includes("hablarlo")) score += 1;
+        if (["3 a 5 horas", "6 a 10 horas", "Más de 10 horas"].includes(time)) score += 1;
+        if (motivation.includes("Aún no estoy segura") || interest.includes("curiosidad") || time.includes("Aún")) score -= 1;
+        if (score >= 2) return "Lista para conocer el modelo";
+        if (score <= 0) return "Exploradora";
+        return "Interesada con dudas";
+      };
+
+      const profile = getProfile();
+      const profileCopy = {
+        "Exploradora": "Estás en una etapa de curiosidad. Tal vez aún no tienes claro si esto es para ti, pero te interesa conocer opciones para crecer, aprender y generar algo adicional. La mejor reunión para ti sería una conversación tranquila, sin compromiso, donde puedas hacer preguntas y entender el modelo.",
+        "Interesada con dudas": "Te llama la atención la oportunidad, pero hay algo que todavía necesitas aclarar: tiempo, ventas, inversión o confianza. La reunión ideal para ti será enfocada en resolver tus dudas y explicarte cómo puedes iniciar paso a paso.",
+        "Lista para conocer el modelo": "Tus respuestas muestran que tienes interés real en entender cómo funciona Mary Kay y qué camino podrías seguir. El siguiente paso recomendado es agendar una reunión de oportunidad para conocer el proceso con más claridad."
+      };
+
+      const isCompleteForm = (data) => data.nombre.trim() && data.whatsapp.trim() && data.ciudad.trim() && data.horario.trim() && data.permiso;
+      const dataIsValid = isCompleteForm(form);
+      const message = [
+        "Hola Maricela, acabo de completar la experiencia de oportunidad Mary Kay.",
+        "",
+        "Mi nombre es: " + form.nombre,
+        "Mi perfil fue: " + profile,
+        "Lo que más me interesa es: " + (answers.motivacion || ""),
+        "Lo que más me detiene es: " + (answers.objecion || ""),
+        "Prefiero una reunión por: " + (answers.reunion || ""),
+        "Mi horario ideal sería: " + form.horario,
+        "",
+        "Me gustaría solicitar una reunión de oportunidad de negocio."
+      ].join("\n");
+      const whatsappUrl = "https://wa.me/50370876214?text=" + encodeURIComponent(message);
+
+      const selectAnswer = (key, value) => {
+        setAnswers((current) => ({ ...current, [key]: value }));
+        window.setTimeout(() => setStep((current) => Math.min(current + 1, questions.length)), 180);
+      };
+
+      const continueFromData = () => {
+        const nextForm = {
+          nombre: formRefs.current.nombre ? formRefs.current.nombre.value : "",
+          whatsapp: formRefs.current.whatsapp ? formRefs.current.whatsapp.value : "",
+          ciudad: formRefs.current.ciudad ? formRefs.current.ciudad.value : "",
+          horario: formRefs.current.horario ? formRefs.current.horario.value : "",
+          comentario: formRefs.current.comentario ? formRefs.current.comentario.value : "",
+          permiso: formRefs.current.permiso ? formRefs.current.permiso.checked : false
+        };
+        setForm(nextForm);
+        setTouched(true);
+        if (isCompleteForm(nextForm)) setStep(questions.length + 1);
+      };
+
+      return (
+        <div id="diagnostico" className="liquid-glass rounded-[2rem] p-4 sm:p-6 md:p-8">
+          <div className="glass-content">
+            <div className="mb-7">
+              <div className="flex items-center justify-between gap-4">
+                <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-white/62">Experiencia de validación</p>
+                <p className="font-body text-xs font-semibold text-white/70">{Math.min(step + 1, questions.length + 2)} / {questions.length + 2}</p>
+              </div>
+              <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/12">
+                <motion.div className="h-full rounded-full bg-gradient-to-r from-mary-soft to-mary-vivid" animate={{ width: progress + "%" }} transition={{ duration: 0.35 }} />
+              </div>
+            </div>
+
+            {!isDataStep && !isResultStep && (
+              <motion.div key={"q-" + step} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }}>
+                <p className="font-body text-sm font-semibold text-mary-soft">{questions[step].label}</p>
+                <h3 className="mt-3 font-heading text-4xl italic leading-[0.95] tracking-[-1px] text-white md:text-5xl">{questions[step].question}</h3>
+                <div className="mt-7 grid gap-3">
+                  {questions[step].options.map((option) => (
+                    <button
+                      key={option}
+                      type="button"
+                      onClick={() => selectAnswer(questions[step].key, option)}
+                      className="rounded-[1.1rem] border border-white/16 bg-white/10 px-5 py-4 text-left font-body text-base font-semibold text-white transition duration-300 hover:border-mary-soft/70 hover:bg-white/16"
+                    >
+                      {option}
+                    </button>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+
+            {isDataStep && (
+              <motion.div key="data" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }}>
+                <p className="font-body text-sm font-semibold text-mary-soft">Datos para seguimiento</p>
+                <h3 className="mt-3 font-heading text-4xl italic leading-[0.95] tracking-[-1px] text-white md:text-5xl">Ahora dime cómo puede contactarte Maricela.</h3>
+                <div className="mt-7 grid gap-4 md:grid-cols-2">
+                  {[
+                    ["nombre", "Nombre completo"],
+                    ["whatsapp", "WhatsApp"],
+                    ["ciudad", "Ciudad"],
+                    ["horario", "Horario preferido"]
+                  ].map(([key, label]) => (
+                    <label key={key} className="block">
+                      <span className="font-body text-xs font-semibold uppercase tracking-[0.12em] text-white/60">{label}</span>
+                      <input
+                        defaultValue={form[key]}
+                        ref={(node) => { if (node) formRefs.current[key] = node; }}
+                        className="mt-2 w-full rounded-[1rem] border border-white/14 bg-white/10 px-4 py-3 font-body text-base text-white outline-none transition placeholder:text-white/35 focus:border-mary-soft"
+                        placeholder={label}
+                      />
+                    </label>
+                  ))}
+                </div>
+                <label className="mt-4 block">
+                  <span className="font-body text-xs font-semibold uppercase tracking-[0.12em] text-white/60">Comentario opcional</span>
+                  <textarea
+                    defaultValue={form.comentario}
+                    ref={(node) => { if (node) formRefs.current.comentario = node; }}
+                    className="mt-2 min-h-[96px] w-full rounded-[1rem] border border-white/14 bg-white/10 px-4 py-3 font-body text-base text-white outline-none transition placeholder:text-white/35 focus:border-mary-soft"
+                    placeholder="Puedes contarle qué duda o meta tienes."
+                  />
+                </label>
+                <label className="mt-4 flex items-start gap-3 rounded-[1rem] bg-white/10 p-4">
+                  <input
+                    type="checkbox"
+                    defaultChecked={form.permiso}
+                    ref={(node) => { if (node) formRefs.current.permiso = node; }}
+                    className="mt-1 h-5 w-5 accent-mary-pink"
+                  />
+                  <span className="font-body text-sm leading-relaxed text-white/82">Acepto que Maricela me contacte por WhatsApp para brindarme información sobre la oportunidad Mary Kay.</span>
+                </label>
+                {touched && !dataIsValid && (
+                  <p className="mt-4 rounded-full bg-white/12 px-4 py-3 font-body text-sm font-semibold text-mary-soft">Completa nombre, WhatsApp, ciudad, horario y la autorización para continuar.</p>
+                )}
+              </motion.div>
+            )}
+
+            {isResultStep && (
+              <motion.div key="result" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }}>
+                <p className="font-body text-sm font-semibold text-mary-soft">Tu resultado</p>
+                <h3 className="mt-3 font-heading text-5xl italic leading-[0.9] tracking-[-1px] text-white md:text-6xl">{profile}</h3>
+                <p className="mt-5 font-body text-base leading-relaxed text-white/86">{profileCopy[profile]}</p>
+                <div className="mt-6 grid gap-3 rounded-[1.25rem] bg-white/10 p-4 font-body text-sm text-white/82 sm:grid-cols-2">
+                  <span><strong className="text-white">Interés:</strong> {answers.motivacion}</span>
+                  <span><strong className="text-white">Objeción:</strong> {answers.objecion}</span>
+                  <span><strong className="text-white">Reunión:</strong> {answers.reunion}</span>
+                  <span><strong className="text-white">Horario:</strong> {form.horario}</span>
+                </div>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="liquid-glass-strong mt-7 inline-flex w-full items-center justify-center rounded-full px-6 py-4 font-body text-base font-semibold text-white sm:w-auto">
+                  <span className="glass-content flex items-center gap-2">Solicitar reunión con Maricela <ArrowUpRight className="h-5 w-5" /></span>
+                </a>
+              </motion.div>
+            )}
+
+            <div className="mt-7 flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <button
+                type="button"
+                onClick={() => setStep((current) => Math.max(0, current - 1))}
+                disabled={step === 0}
+                className="rounded-full border border-white/16 px-5 py-3 font-body text-sm font-semibold text-white/80 transition disabled:cursor-not-allowed disabled:opacity-35"
+              >
+                Volver
+              </button>
+              {isDataStep && (
+                <button type="button" onClick={continueFromData} className="rounded-full bg-gradient-to-br from-mary-pink to-mary-vivid px-6 py-3 font-body text-sm font-semibold text-white shadow-[0_16px_40px_rgba(232,62,157,0.35)]">
+                  Ver mi resultado
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    function OpportunityBusinessPage() {
+      useEffect(() => {
+        const previousTitle = document.title;
+        document.title = "Oportunidad Mary Kay | Maricela Monchez";
+        return () => {
+          document.title = previousTitle;
+        };
+      }, []);
+
+      const identityBlocks = [
+        "Quieres generar ingresos extra sin dejar de ser tú.",
+        "Quieres sentir que estás construyendo algo propio.",
+        "Quieres crecer, aprender y recuperar confianza.",
+        "Quieres tener una guía, no sentirte sola ni improvisar."
+      ];
+
+      const painBlocks = [
+        ["Ingresos extra", "A veces no se trata de querer lujos. A veces solo quieres respirar un poco más tranquila, tener un ingreso extra, darte tus gustos sin culpa o aportar más en casa sin sentirte limitada."],
+        ["Estancamiento", "Tal vez llevas tiempo sintiendo que quieres algo más, pero no sabes por dónde empezar."],
+        ["Reconocimiento", "Hay mujeres que dan mucho por todos, pero pocas veces se detienen a preguntarse: ¿qué estoy construyendo para mí?"],
+        ["Miedo a vender", "Tu miedo no significa que no puedas. Significa que necesitas guía, práctica y una forma más natural de compartir."],
+        ["Primer paso", "No necesitas tenerlo todo claro para empezar a preguntar. A veces el primer paso no es decidir, es permitirte conocer."],
+        ["Comunidad", "No tienes que hacerlo sola. Una guía cercana y una comunidad pueden hacer que el camino se sienta más humano."],
+        ["Confianza", "No se trata de convertirte en alguien más. Se trata de descubrir lo que puedes construir siendo tú."]
+      ];
+
+      const objections = [
+        ["Me da pena vender", "No empiezas presionando. Empiezas aprendiendo a compartir desde tu experiencia."],
+        ["No tengo mucho tiempo", "La idea es conocer si esta oportunidad puede adaptarse a tu ritmo actual."],
+        ["No conozco muchas personas", "Se puede empezar con conversaciones sencillas, acompañamiento y una guía paso a paso."],
+        ["No sé si soy buena para esto", "Muchas habilidades se desarrollan en el camino: seguridad, comunicación, constancia y liderazgo."],
+        ["Me preocupa invertir", "La reunión te ayuda a entender qué implica iniciar, sin presión y con información clara."],
+        ["Me da miedo que me digan que no", "El rechazo se aprende a manejar con guía, práctica y una forma más natural de compartir."]
+      ];
+
+      return (
+        <div className="min-h-screen bg-dark-rose text-white">
+          <OpportunityLandingNav />
+
+          <section id="inicio-oportunidad" className="opportunity-hero-page viewport-fill relative flex min-h-[100svh] items-center overflow-hidden px-5 pb-16 pt-28 md:px-16 lg:px-20">
+            <img className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center opacity-42" src={OPPORTUNITY_IMAGE} alt="" aria-hidden="true" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(255,139,202,0.18),transparent_34%),linear-gradient(115deg,rgba(75,6,55,0.96)_0%,rgba(146,11,98,0.86)_46%,rgba(185,20,124,0.48)_100%)]" />
+
+            <div className="relative z-10 mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.76fr] lg:items-center">
+              <motion.div {...fadeIn(0)}>
+                <p className="mb-5 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 font-body text-sm font-semibold text-white/86 backdrop-blur-xl">Maricela Monchez · Oportunidad Mary Kay</p>
+                <h1 className="max-w-[840px] font-heading text-[4rem] italic leading-[0.86] tracking-[-3px] text-white sm:text-[5.4rem] lg:text-[6.4rem]">
+                  Descubre si la oportunidad Mary Kay puede ser para ti
+                </h1>
+                <p className="mt-7 max-w-2xl font-body text-lg font-normal leading-relaxed text-white/90">
+                  No tienes que decidir hoy. Solo date la oportunidad de entender si este camino conecta con tus metas, tu tiempo y tu momento de vida.
+                </p>
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <a href="#diagnostico" className="liquid-glass-strong inline-flex justify-center rounded-full px-6 py-3.5 font-body text-sm font-semibold text-white">
+                    <span className="glass-content flex items-center gap-2">Comenzar experiencia <PlayIcon /></span>
+                  </a>
+                  <a href={WHATSAPP_OPPORTUNITY} target="_blank" rel="noopener noreferrer" className="rounded-full bg-gradient-to-br from-mary-pink to-mary-vivid px-6 py-3.5 text-center font-body text-sm font-semibold text-white shadow-[0_18px_45px_rgba(232,62,157,0.35)]">
+                    Solicitar reunión con Maricela
+                  </a>
+                </div>
+              </motion.div>
+
+              <motion.div {...fadeIn(0.16)} className="liquid-glass rounded-[2rem] p-6 md:p-8">
+                <div className="glass-content">
+                  <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-white/60">Una conversación antes de decidir</p>
+                  <p className="mt-5 font-heading text-4xl italic leading-none text-white">La oportunidad no empieza con presión. Empieza con una conversación.</p>
+                  <p className="mt-5 font-body text-base leading-relaxed text-white/82">Antes de decir “esto no es para mí”, date permiso de entender cómo funciona.</p>
+                </div>
+              </motion.div>
+            </div>
+          </section>
+
+          <section id="modelo" className="viewport-fill relative overflow-hidden bg-dark-rose px-5 py-16 md:px-16 md:py-20 lg:px-20">
+            <img className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[center_32%] opacity-42" src={OPPORTUNITY_CONVERSATION_IMAGE} alt="" aria-hidden="true" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(112deg,rgba(75,6,55,0.97)_0%,rgba(146,11,98,0.86)_48%,rgba(185,20,124,0.42)_100%)]" />
+            <div className="relative z-10 mx-auto max-w-7xl">
+              <motion.div {...fadeIn(0)} className="max-w-3xl">
+                <p className="mb-5 font-body text-sm font-medium text-white/70">// Identificación</p>
+                <h2 className="font-heading text-5xl italic leading-[0.92] tracking-[-2px] text-white md:text-7xl">A veces no buscas vender. Buscas una nueva posibilidad.</h2>
+              </motion.div>
+              <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+                {identityBlocks.map((item, index) => <OpportunityPillCard key={item} delay={index * 0.06}>{item}</OpportunityPillCard>)}
+              </div>
+            </div>
+          </section>
+
+          <section id="camino" className="viewport-fill relative overflow-hidden bg-soft-blush px-5 py-16 text-mary-ink md:px-16 md:py-20 lg:px-20">
+            <img className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center opacity-28" src={OPPORTUNITY_GUIDE_IMAGE} alt="" aria-hidden="true" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(105deg,rgba(255,246,251,0.96)_0%,rgba(255,246,251,0.9)_45%,rgba(255,232,244,0.78)_100%)]" />
+            <div className="relative z-10 mx-auto max-w-7xl">
+              <motion.div {...fadeIn(0)} className="max-w-3xl">
+                <p className="mb-5 font-body text-sm font-semibold uppercase tracking-[0.18em] text-mary-pink">Lo que puede estar pasando por dentro</p>
+                <h2 className="font-heading text-5xl italic leading-[0.92] tracking-[-2px] text-mary-ink md:text-7xl">Quizá no estás buscando vender. Quizá estás buscando crecer.</h2>
+              </motion.div>
+              <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                {painBlocks.map(([title, text], index) => (
+                  <motion.div key={title} {...fadeIn(index * 0.04)} className="rounded-[1.35rem] border border-[rgba(232,62,157,0.14)] bg-white/84 p-6 shadow-[0_18px_48px_rgba(74,18,58,0.08)]">
+                    <h3 className="font-heading text-3xl italic text-mary-ink">{title}</h3>
+                    <p className="mt-3 font-body text-[15px] leading-relaxed text-mary-muted">{text}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section id="objeciones" className="viewport-fill relative overflow-hidden bg-dark-rose px-5 py-16 md:px-16 md:py-20 lg:px-20">
+            <img className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[center_28%] opacity-36" src={OPPORTUNITY_CONFIDENCE_IMAGE} alt="" aria-hidden="true" style={{ transform: "scaleX(-1)" }} />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,rgba(75,6,55,0.98)_0%,rgba(146,11,98,0.87)_50%,rgba(185,20,124,0.42)_100%)]" />
+            <div className="relative z-10 mx-auto max-w-7xl">
+              <motion.div {...fadeIn(0)} className="max-w-3xl">
+                <p className="mb-5 font-body text-sm font-medium text-white/70">// Objeciones reales</p>
+                <h2 className="font-heading text-5xl italic leading-[0.92] tracking-[-2px] text-white md:text-7xl">Si tienes dudas, eso no te descalifica. Eso te hace humana.</h2>
+              </motion.div>
+              <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                {objections.map(([title, text], index) => <OpportunityObjectionCard key={title} title={title} text={text} delay={index * 0.05} />)}
+              </div>
+            </div>
+          </section>
+
+          <section id="vision" className="viewport-fill relative overflow-hidden bg-dark-rose px-5 py-16 md:px-16 md:py-20 lg:px-20">
+            <img className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center opacity-35" src={BEAUTY_DETAIL_IMAGE} alt="" aria-hidden="true" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgba(75,6,55,0.95),rgba(146,11,98,0.84),rgba(185,20,124,0.36))]" />
+            <div className="relative z-10 mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+              <motion.div {...fadeIn(0)}>
+                <p className="mb-5 font-body text-sm font-medium text-white/70">// Futuro posible</p>
+                <h2 className="font-heading text-5xl italic leading-[0.92] tracking-[-2px] text-white md:text-7xl">No tienes que hacerlo sola.</h2>
+              </motion.div>
+              <motion.div {...fadeIn(0.15)} className="liquid-glass rounded-[2rem] p-7 md:p-9">
+                <div className="glass-content">
+                  <p className="font-body text-lg leading-relaxed text-white/90">
+                    Imagina tener una actividad que te ayude a crecer, aprender de belleza, conectar con otras mujeres y abrir una posibilidad de ingresos extra. No desde la presión. Desde una ruta clara, femenina y acompañada.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </section>
+
+          <section id="preguntas-negocio" className="viewport-fill relative overflow-hidden bg-dark-rose px-5 pb-28 pt-16 md:px-16 md:pb-32 md:pt-20 lg:px-20">
+            <img className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center opacity-26" src={OPPORTUNITY_PRODUCT_IMAGE} alt="" aria-hidden="true" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(112deg,rgba(75,6,55,0.98)_0%,rgba(146,11,98,0.88)_48%,rgba(185,20,124,0.36)_100%)]" />
+            <div className="relative z-10 mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.78fr_1fr] lg:items-start">
+              <motion.div {...fadeIn(0)}>
+                <p className="mb-5 font-body text-sm font-medium text-white/70">// Compromiso pequeño</p>
+                <h2 className="font-heading text-5xl italic leading-[0.92] tracking-[-2px] text-white md:text-7xl">Responde la experiencia y descubre qué tipo de conversación te conviene.</h2>
+                <p className="mt-6 max-w-xl font-body text-base leading-relaxed text-white/82">No es un examen. Es una forma de ordenar tus metas, tus dudas y tu momento para pedir una reunión más clara.</p>
+              </motion.div>
+              <OpportunityQuiz />
+            </div>
+          </section>
+
+          <AuthorCredit />
+          <a href={WHATSAPP_OPPORTUNITY} className="whatsapp-float" aria-label="Consultar oportunidad Mary Kay por WhatsApp" target="_blank" rel="noopener noreferrer">
+            <span className="whatsapp-float-icon"><WhatsAppIcon /></span>
+            <span>Consultar</span>
+          </a>
+        </div>
+      );
+    }
+
+    function App() {
+      if (window.location.pathname.endsWith("/oportunidad-negocio")) {
+        return <OpportunityBusinessPage />;
+      }
+
+      return (
+        <>
+          <Navbar />
+          <Hero />
+          <Details />
+          <Story />
+          <Opportunity />
+          <Testimonials />
+          <Conversion />
+          <AuthorCredit />
+          <a
+            href={WHATSAPP_MAIN}
+            className="whatsapp-float"
+            aria-label="Agendar por WhatsApp con Maricela"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="whatsapp-float-icon"><WhatsAppIcon /></span>
+            <span>Agendar</span>
+          </a>
+        </>
+      );
+    }
+
+    Object.assign(window, { ArrowUpRight, WhatsAppIcon, Navbar, StatCard, Hero, FeatureCard, ProcessTabs, Details, Story, Opportunity, OpportunityLandingNav, OpportunityBusinessPage, Testimonials, Conversion, AuthorCredit, App });
+  </script>
+
+  <script type="text/babel">
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    try {
+      root.render(<window.App />);
+    } catch (error) {
+      console.error(error);
+      document.getElementById("root").innerHTML = `
+        <main style="min-height:100vh;display:grid;place-items:center;padding:32px;background:linear-gradient(180deg,#FFF3F9,#FCE7F3);color:#24121F;font-family:Barlow,Arial,sans-serif;text-align:center;">
+          <div style="max-width:780px;">
+            <p style="margin:0 0 16px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#E83E9D;">Maricela Monchez · Mary Kay</p>
+            <h1 style="margin:0;font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:clamp(54px,10vw,118px);line-height:.82;font-weight:400;">Una experiencia de belleza pensada para ti</h1>
+            <p style="margin:24px auto 0;max-width:620px;font-size:18px;line-height:1.35;color:#6F5365;">Agenda por WhatsApp: 7087-6214 · Instagram: @maricelamonchez</p>
+          </div>
+        </main>
+      `;
+    }
+  </script>
+</body>
 </html>
+
 
