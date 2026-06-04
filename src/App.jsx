@@ -8,6 +8,7 @@ const asset = (fileName) => `${ASSET_BASE}${fileName}`;
 
 const WHATSAPP_MAIN = "https://wa.me/50370876214?text=Hola%20Maricela%2C%20me%20gustar%C3%ADa%20agendar%20mi%20experiencia%20personalizada%20Mary%20Kay.";
     const WHATSAPP_OPPORTUNITY = "https://wa.me/50370876214?text=Hola%20Maricela%2C%20me%20gustar%C3%ADa%20conocer%20la%20oportunidad%20Mary%20Kay.%20%C2%BFMe%20puedes%20contar%20m%C3%A1s%3F";
+    const OPPORTUNITY_PAGE_PATH = `${import.meta.env.BASE_URL}oportunidad-negocio`;
     const HERO_IMAGE = asset("mpdo9hna-ChatGPT-Image-20-may-2026_-12_13_08-a.m.-_3_.webp");
     const EXPERIENCE_IMAGE = asset("mpdo98nr-ChatGPT-Image-20-may-2026_-12_03_44-a.m.-_1_.webp");
     const CONSULTATION_IMAGE = asset("mpdo8scb-ChatGPT-Image-18-may-2026_-10_35_51-p.m..webp");
@@ -640,8 +641,8 @@ const entrance = {
                 ))}
               </div>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <a href={WHATSAPP_OPPORTUNITY} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-full bg-gradient-to-br from-mary-pink to-mary-vivid px-5 py-3 font-body text-sm font-semibold text-white shadow-[0_18px_45px_rgba(232,62,157,0.35)]">
-                  Conocer la oportunidad <ArrowUpRight className="ml-2 h-4 w-4" />
+                <a href={OPPORTUNITY_PAGE_PATH} className="inline-flex items-center justify-center rounded-full bg-gradient-to-br from-mary-pink to-mary-vivid px-5 py-3 font-body text-sm font-semibold text-white shadow-[0_18px_45px_rgba(232,62,157,0.35)]">
+                  Ver landing de negocio <ArrowUpRight className="ml-2 h-4 w-4" />
                 </a>
                 <a href={WHATSAPP_MAIN} target="_blank" rel="noopener noreferrer" className="liquid-glass inline-flex items-center justify-center rounded-full px-5 py-3 font-body text-sm font-semibold text-white">
                   Primero quiero mi experiencia
@@ -1049,7 +1050,222 @@ const entrance = {
       );
     }
 
+    function OpportunityLandingNav() {
+      return (
+        <nav className="fixed left-0 right-0 top-4 z-[9999] px-4 lg:px-6 xl:px-16" aria-label="Navegación oportunidad Mary Kay">
+          <div className="relative mx-auto flex max-w-7xl items-center justify-between">
+            <a href={import.meta.env.BASE_URL} className="nav-brand liquid-glass flex h-12 w-12 items-center justify-center rounded-full text-white" aria-label="Volver a la landing principal">
+              <span className="glass-content">
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M10.8 6 5 12l5.8 6M6 12h13" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+            </a>
+
+            <div className="liquid-glass rounded-full px-2 py-1.5">
+              <div className="glass-content flex items-center gap-1">
+                <a href="#modelo" className="nav-link px-3 py-2 font-body text-sm font-medium text-white/90">Modelo</a>
+                <a href="#camino" className="nav-link px-3 py-2 font-body text-sm font-medium text-white/90">Camino</a>
+                <a href="#preguntas-negocio" className="nav-link hidden px-3 py-2 font-body text-sm font-medium text-white/90 sm:inline-flex">Preguntas</a>
+                <a href={WHATSAPP_OPPORTUNITY} target="_blank" rel="noopener noreferrer" className="ml-1 flex items-center gap-2 rounded-full bg-gradient-to-br from-mary-pink to-mary-vivid px-4 py-2 font-body text-sm font-semibold text-white shadow-[0_14px_34px_rgba(232,62,157,0.35)]">
+                  Conversar
+                  <ArrowUpRight className="h-4 w-4" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      );
+    }
+
+    function OpportunityBenefit({ title, text }) {
+      return (
+        <div className="liquid-glass rounded-[1.5rem] p-5">
+          <div className="glass-content">
+            <h3 className="font-body text-lg font-semibold text-white">{title}</h3>
+            <p className="mt-3 font-body text-[15px] font-normal leading-relaxed text-white/86">{text}</p>
+          </div>
+        </div>
+      );
+    }
+
+    function OpportunityBusinessPage() {
+      useEffect(() => {
+        const previousTitle = document.title;
+        document.title = "Oportunidad Mary Kay | Maricela Monchez";
+        return () => {
+          document.title = previousTitle;
+        };
+      }, []);
+
+      const benefits = [
+        ["Ingresos extra con intención", "Puedes conocer una forma de generar ingresos compartiendo belleza, cuidado personal y recomendaciones desde una conversación cercana."],
+        ["Acompañamiento desde el inicio", "No se trata de adivinar qué hacer. Hay guía, herramientas y una ruta para entender el negocio paso a paso."],
+        ["Crecimiento personal", "La oportunidad también desarrolla seguridad, comunicación, constancia y liderazgo femenino."],
+        ["Flexibilidad real", "Puedes explorar el camino a tu ritmo, según tu tiempo, tus metas y el momento de vida en el que estás."]
+      ];
+
+      const steps = [
+        ["Conversamos", "Me cuentas qué buscas, qué dudas tienes y qué te llama la atención de Mary Kay."],
+        ["Entiendes el modelo", "Te explico cómo funciona la oportunidad, qué implica iniciar y qué recursos tienes disponibles."],
+        ["Defines si conecta contigo", "La decisión se toma con claridad. Sin presión, sin promesas irreales y con información honesta."]
+      ];
+
+      return (
+        <div className="min-h-screen bg-dark-rose text-white">
+          <OpportunityLandingNav />
+
+          <section className="opportunity-hero-page viewport-fill relative flex min-h-[100svh] items-center overflow-hidden px-5 pb-16 pt-28 md:px-16 lg:px-20">
+            <img className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center opacity-45" src={OPPORTUNITY_IMAGE} alt="" aria-hidden="true" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_76%_16%,rgba(255,79,174,0.28),transparent_34%),linear-gradient(115deg,rgba(42,11,36,0.96)_0%,rgba(74,18,58,0.88)_48%,rgba(232,62,157,0.58)_100%)]" />
+
+            <div className="relative z-10 mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.82fr] lg:items-center">
+              <motion.div {...fadeIn(0)}>
+                <p className="mb-5 font-body text-sm font-semibold uppercase tracking-[0.2em] text-mary-soft">Oportunidad de negocio Mary Kay</p>
+                <h1 className="max-w-[780px] font-heading text-[4.2rem] italic leading-[0.86] tracking-[-3px] text-white sm:text-[5.6rem] lg:text-[6.8rem]">
+                  Construye algo propio sin dejar de ser tú.
+                </h1>
+                <p className="mt-7 max-w-2xl font-body text-lg font-normal leading-relaxed text-white/90">
+                  Si te gusta la belleza, conectar con otras mujeres y crecer con propósito, esta página te ayuda a entender si la oportunidad Mary Kay puede ser una ruta para ti.
+                </p>
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <a href={WHATSAPP_OPPORTUNITY} target="_blank" rel="noopener noreferrer" className="liquid-glass-strong inline-flex justify-center rounded-full px-6 py-3.5 font-body text-sm font-semibold text-white">
+                    <span className="glass-content flex items-center gap-2">Quiero conocer la oportunidad <ArrowUpRight /></span>
+                  </a>
+                  <a href="#modelo" className="cta-secondary rounded-full px-6 py-3.5 font-body text-sm font-semibold">
+                    Ver cómo funciona
+                    <PlayIcon />
+                  </a>
+                </div>
+              </motion.div>
+
+              <motion.div {...fadeIn(0.18)} className="liquid-glass rounded-[2rem] p-6 md:p-8">
+                <div className="glass-content">
+                  <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-white/60">Para mujeres que quieren</p>
+                  <div className="mt-5 space-y-4">
+                    {["Aprender de belleza con guía", "Compartir desde su experiencia", "Crear ingresos adicionales", "Crecer en comunidad"].map((item) => (
+                      <div key={item} className="flex items-center gap-3 rounded-[1.15rem] bg-white/10 px-4 py-3">
+                        <span className="grid h-8 w-8 place-items-center rounded-full bg-white/15 text-mary-soft">✓</span>
+                        <span className="font-body text-base font-semibold text-white">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </section>
+
+          <section id="modelo" className="viewport-fill bg-dark-rose px-5 py-16 md:px-16 md:py-20 lg:px-20">
+            <div className="mx-auto max-w-7xl">
+              <motion.div {...fadeIn(0)} className="max-w-3xl">
+                <p className="mb-5 font-body text-sm font-medium text-white/70">// Modelo claro</p>
+                <h2 className="font-heading text-5xl italic leading-[0.92] tracking-[-2px] text-white md:text-7xl">
+                  No es solo vender. Es acompañar, aprender y construir confianza.
+                </h2>
+                <p className="mt-6 max-w-2xl font-body text-base leading-relaxed text-white/86 md:text-lg">
+                  La oportunidad empieza con entender el producto, vivir la experiencia y compartir desde una recomendación honesta. El enfoque es crear relaciones, no presionar decisiones.
+                </p>
+              </motion.div>
+
+              <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+                {benefits.map(([title, text], index) => (
+                  <motion.div key={title} {...fadeIn(0.08 * index)}>
+                    <OpportunityBenefit title={title} text={text} />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section id="camino" className="viewport-fill bg-soft-blush px-5 py-16 text-mary-ink md:px-16 md:py-20 lg:px-20">
+            <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+              <motion.div {...fadeIn(0)}>
+                <p className="mb-5 font-body text-sm font-semibold uppercase tracking-[0.18em] text-mary-pink">Tu camino para iniciar</p>
+                <h2 className="font-heading text-5xl italic leading-[0.9] tracking-[-2px] text-mary-ink md:text-7xl">
+                  Primero entiendes. Luego decides.
+                </h2>
+                <p className="mt-6 max-w-xl font-body text-base leading-relaxed text-mary-muted md:text-lg">
+                  La primera conversación es para resolver dudas y darte contexto. Si conecta contigo, vemos juntas el siguiente paso.
+                </p>
+              </motion.div>
+
+              <div className="grid gap-5">
+                {steps.map(([title, text], index) => (
+                  <motion.div key={title} {...fadeIn(0.08 * index)} className="rounded-[1.5rem] border border-[rgba(232,62,157,0.16)] bg-white/80 p-6 shadow-[0_18px_50px_rgba(74,18,58,0.08)]">
+                    <div className="flex gap-5">
+                      <span className="grid h-12 w-12 flex-none place-items-center rounded-full bg-mary-pink font-heading text-3xl italic text-white">{index + 1}</span>
+                      <div>
+                        <h3 className="font-body text-xl font-semibold text-mary-ink">{title}</h3>
+                        <p className="mt-2 font-body text-base leading-relaxed text-mary-muted">{text}</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="viewport-fill relative overflow-hidden bg-dark-rose px-5 py-16 md:px-16 md:py-20 lg:px-20">
+            <img className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center opacity-35" src={BEAUTY_DETAIL_IMAGE} alt="" aria-hidden="true" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgba(42,11,36,0.95),rgba(74,18,58,0.9),rgba(232,62,157,0.42))]" />
+            <div className="relative z-10 mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+              <motion.div {...fadeIn(0)}>
+                <p className="mb-5 font-body text-sm font-medium text-white/70">// Una invitación honesta</p>
+                <h2 className="font-heading text-5xl italic leading-[0.92] tracking-[-2px] text-white md:text-7xl">
+                  Puede ser una oportunidad si hace sentido para tu vida.
+                </h2>
+              </motion.div>
+              <motion.div {...fadeIn(0.15)} className="liquid-glass rounded-[2rem] p-7">
+                <div className="glass-content">
+                  <p className="font-body text-base leading-relaxed text-white/90">
+                    No necesitas tenerlo todo resuelto. Puedes empezar con una conversación, entender las bases y decidir con calma si quieres explorar este camino conmigo.
+                  </p>
+                  <a href={WHATSAPP_OPPORTUNITY} target="_blank" rel="noopener noreferrer" className="liquid-glass-strong mt-7 inline-flex rounded-full px-6 py-3 font-body text-sm font-semibold text-white">
+                    <span className="glass-content flex items-center gap-2">Hablar con Maricela <ArrowUpRight /></span>
+                  </a>
+                </div>
+              </motion.div>
+            </div>
+          </section>
+
+          <section id="preguntas-negocio" className="viewport-fill bg-dark-rose px-5 pb-28 pt-16 md:px-16 md:pb-32 md:pt-20 lg:px-20">
+            <div className="mx-auto max-w-4xl">
+              <motion.div {...fadeIn(0)} className="text-center">
+                <p className="mb-5 font-body text-sm font-medium text-white/70">// Antes de conversar</p>
+                <h2 className="font-heading text-5xl italic leading-[0.92] tracking-[-2px] text-white md:text-7xl">
+                  Preguntas frecuentes
+                </h2>
+              </motion.div>
+              <div className="mt-9 space-y-4">
+                {[
+                  ["¿Tengo que vender inmediatamente?", "No. Primero necesitas entender la oportunidad, conocer los productos y definir si este camino se adapta a ti."],
+                  ["¿Necesito experiencia previa?", "No necesitas experiencia previa. Lo importante es tener disposición para aprender, conversar y construir confianza."],
+                  ["¿Hay presión para iniciar?", "No. La conversación es informativa. La decisión se toma con calma y con claridad."],
+                  ["¿Puedo hacerlo si tengo poco tiempo?", "Sí, puedes conocer opciones según tu ritmo. La idea es revisar expectativas reales antes de decidir."]
+                ].map(([question, answer], index) => (
+                  <motion.details key={question} {...fadeIn(0.05 * index)} className="liquid-glass rounded-[1.35rem] p-5" open={index === 0}>
+                    <summary className="glass-content cursor-pointer font-body text-base font-semibold text-white">{question}</summary>
+                    <p className="glass-content mt-3 font-body text-[15px] leading-relaxed text-white/86">{answer}</p>
+                  </motion.details>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <AuthorCredit />
+          <a href={WHATSAPP_OPPORTUNITY} className="whatsapp-float" aria-label="Consultar oportunidad Mary Kay por WhatsApp" target="_blank" rel="noopener noreferrer">
+            <span className="whatsapp-float-icon"><WhatsAppIcon /></span>
+            <span>Consultar</span>
+          </a>
+        </div>
+      );
+    }
+
     function App() {
+      if (window.location.pathname.endsWith("/oportunidad-negocio")) {
+        return <OpportunityBusinessPage />;
+      }
+
       return (
         <>
           <Navbar />
