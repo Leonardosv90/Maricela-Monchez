@@ -382,26 +382,81 @@ const entrance = {
       {
         title: "Diagnóstico facial",
         body: "Juntas identificamos cómo se siente tu piel, qué rutina llevas hoy y qué puedes simplificar para cuidarte con constancia.",
-        tags: ["Escucha real", "Tipo de piel", "Rutina simple", "Seguimiento"]
+        tags: ["Escucha real", "Tipo de piel", "Rutina simple", "Seguimiento"],
+        detail: "Es una conversación guiada para entender cómo se comporta tu piel, qué cambios has notado y qué resultados deseas conseguir. Observamos tus hábitos actuales y organizamos una ruta de cuidado clara, realista y fácil de mantener.",
+        points: ["Conversación sobre hábitos y necesidades", "Observación de señales visibles de la piel", "Identificación de prioridades de cuidado", "Propuesta de una rutina sencilla", "Espacio para resolver todas tus dudas"],
+        image: asset("mpdo8src-ChatGPT-Image-18-may-2026_-10_26_19-p.m.-_1_.png"),
+        mobileFocus: "center 38%",
+        imageAlt: "Maricela conversando con una clienta durante un diagnóstico facial"
       },
       {
         title: "Manos de Seda",
         body: "Un momento sensorial para probar texturas, sentir suavidad y descubrir una forma práctica de regalarte cuidado.",
-        tags: ["Sensorial", "Suavidad", "Autocuidado", "Uso diario"]
+        tags: ["Sensorial", "Suavidad", "Autocuidado", "Uso diario"],
+        detail: "Vives una experiencia paso a paso para limpiar, exfoliar e hidratar tus manos. Puedes comparar cómo se sienten antes y después, conocer las texturas y aprender una rutina corta que puedes repetir fácilmente en casa.",
+        points: ["Preparación y limpieza de las manos", "Exfoliación suave para renovar la textura", "Aplicación guiada de productos", "Comparación visible y sensorial", "Consejos para conservar la suavidad"],
+        image: asset("mpdo8scb-ChatGPT-Image-18-may-2026_-10_35_51-p.m..png"),
+        mobileFocus: "center 58%",
+        imageAlt: "Demostración de Manos de Seda con comparación antes y después"
       },
       {
         title: "Maquillaje express",
         body: "Elegimos tonos, acabados y pasos sencillos para resaltar tu belleza natural sin sentirte recargada ni disfrazada.",
-        tags: ["Tonos", "Look natural", "Tips claros", "Seguridad"]
+        tags: ["Tonos", "Look natural", "Tips claros", "Seguridad"],
+        detail: "Creamos un maquillaje fresco y práctico pensado para tu estilo, tus rasgos y el tiempo que tienes disponible. Aprendes pasos simples para repetirlo, elegir tonos con mayor seguridad y lograr un acabado natural.",
+        points: ["Preparación básica de la piel", "Elección de tonos y acabados", "Aplicación guiada frente al espejo", "Técnicas rápidas para ojos, rostro y labios", "Recomendaciones para repetir el look"],
+        image: asset("mpdo8sk3-ChatGPT-Image-18-may-2026_-10_26_23-p.m.-_9_.png"),
+        mobileFocus: "center 38%",
+        imageAlt: "Maricela orientando un maquillaje express frente al espejo"
       }
     ];
 
     const experienceIncludes = [
-      ["Orientación sobre tu rutina actual", "Conversamos sobre lo que usas, lo que te preocupa y lo que deseas mejorar."],
-      ["Recomendación según tu tipo de piel", "Te oriento con una guía clara para cuidar tu piel de forma sencilla."],
-      ["Prueba de texturas y productos", "Te muestro opciones Mary Kay con calma y sin presión."],
-      ["Maquillaje natural o express", "Si lo deseas, te ayudo a descubrir tonos y acabados que resalten tu belleza."],
-      ["Seguimiento por WhatsApp", "Puedo acompañarte después para resolver dudas y ayudarte a mantener tu rutina."]
+      {
+        title: "Orientación sobre tu rutina actual",
+        body: "Conversamos sobre lo que usas, lo que te preocupa y lo que deseas mejorar.",
+        detail: "Revisamos juntas cómo cuidas tu piel por la mañana y por la noche, qué productos utilizas, cómo se siente tu piel y cuáles son tus principales inquietudes. La idea es identificar lo que ya funciona, lo que puede simplificarse y qué hábitos pueden ayudarte a tener una rutina más constante.",
+        points: ["Revisión de tus hábitos actuales", "Identificación de necesidades y prioridades", "Pasos realistas según tu tiempo"],
+        image: asset("mpdo8sun-ChatGPT-Image-18-may-2026_-10_26_19-p.m.-_2_.png"),
+        mobileFocus: "center 44%",
+        imageAlt: "Conversación personalizada sobre el cuidado de la piel"
+      },
+      {
+        title: "Recomendación según tu tipo de piel",
+        body: "Te oriento con una guía clara para cuidar tu piel de forma sencilla.",
+        detail: "A partir de lo que observamos y conversamos, te explico qué características presenta tu piel y qué tipo de cuidado puede adaptarse mejor a ti. Recibes una recomendación ordenada y fácil de seguir, sin llenarte de pasos innecesarios.",
+        points: ["Guía de cuidado personalizada", "Orden recomendado de los productos", "Alternativas según tus necesidades"],
+        image: asset("mpdo8sht-ChatGPT-Image-18-may-2026_-10_26_23-p.m.-_8_.png"),
+        mobileFocus: "center 42%",
+        imageAlt: "Asesoría para elegir una rutina según el tipo de piel"
+      },
+      {
+        title: "Prueba de texturas y productos",
+        body: "Te muestro opciones Mary Kay con calma y sin presión.",
+        detail: "Puedes sentir las texturas, conocer cómo se aplican los productos y observar cómo se comportan en tu piel. Te explico para qué sirve cada opción y resolvemos tus dudas para que puedas comparar y decidir con mayor seguridad.",
+        points: ["Prueba guiada de texturas", "Explicación de uso y beneficios", "Elección informada y sin presión"],
+        image: asset("mpdo8sp4-ChatGPT-Image-18-may-2026_-10_26_20-p.m.-_5_.png"),
+        mobileFocus: "center 62%",
+        imageAlt: "Prueba guiada de productos y texturas Mary Kay"
+      },
+      {
+        title: "Maquillaje natural o express",
+        body: "Si lo deseas, te ayudo a descubrir tonos y acabados que resalten tu belleza.",
+        detail: "Creamos un look natural y práctico que puedas repetir en casa. Probamos tonos, acabados y técnicas sencillas para destacar tus rasgos sin sentirte recargada, siempre respetando tu estilo y el tiempo que tienes disponible.",
+        points: ["Selección de tonos favorecedores", "Aplicación sencilla paso a paso", "Consejos para un resultado natural"],
+        image: asset("mpdo8s96-a918ed39-7ece-4593-88f5-532f981e120c.png"),
+        mobileFocus: "center 42%",
+        imageAlt: "Aplicación de maquillaje natural durante una asesoría"
+      },
+      {
+        title: "Seguimiento por WhatsApp",
+        body: "Puedo acompañarte después para resolver dudas y ayudarte a mantener tu rutina.",
+        detail: "Después de la experiencia puedes contarme cómo te has sentido, consultar el orden de aplicación o resolver dudas que aparezcan al usar tu rutina. El seguimiento ayuda a hacer ajustes y a mantener hábitos que realmente funcionen para ti.",
+        points: ["Resolución de dudas posteriores", "Recordatorio del orden de aplicación", "Ajustes según tu experiencia"],
+        image: asset("mpdo8emj-ChatGPT-Image-18-may-2026_-10_14_13-p.m.-_9_.png"),
+        mobileFocus: "center 42%",
+        imageAlt: "Maricela brindando seguimiento personalizado por WhatsApp"
+      }
     ];
 
     const processCards = [
@@ -410,10 +465,14 @@ const entrance = {
       ["Vives tu experiencia", "Pruebas, resuelves dudas y sales con una guía clara para cuidar tu piel con constancia."]
     ];
 
-    function FeatureCard({ card, index }) {
+    function FeatureCard({ card, index, onOpen }) {
       return (
-        <motion.article
-          className="liquid-glass flex min-h-[290px] flex-col rounded-[1.25rem] p-6"
+        <motion.button
+          type="button"
+          onClick={onOpen}
+          aria-haspopup="dialog"
+          aria-label={`Ver detalles de ${card.title}`}
+          className="experience-detail-card liquid-glass group flex min-h-[290px] flex-col rounded-[1.25rem] p-6 text-left"
           initial={{ filter: "blur(10px)", opacity: 0, y: 24 }}
           whileInView={{ filter: "blur(0px)", opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
@@ -438,9 +497,12 @@ const entrance = {
             <div className="mt-6">
               <h3 className="font-body text-2xl font-semibold leading-tight text-white md:text-3xl">{card.title}</h3>
               <p className="mt-3 max-w-[34ch] font-body text-[15px] font-normal leading-relaxed text-white/90">{card.body}</p>
+              <span className="mt-5 inline-flex items-center gap-2 font-body text-xs font-semibold uppercase tracking-[0.12em] text-white/75">
+                Ver detalles <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </span>
             </div>
           </div>
-        </motion.article>
+        </motion.button>
       );
     }
 
@@ -472,7 +534,77 @@ const entrance = {
     }
 
     function Details() {
+      const [selectedExperience, setSelectedExperience] = useState(null);
+      const [selectedOption, setSelectedOption] = useState(null);
+      const experienceCloseRef = useRef(null);
+      const optionCloseRef = useRef(null);
+      const selectedExperienceIndex = selectedExperience ? experienceIncludes.indexOf(selectedExperience) : -1;
+      const selectedOptionIndex = selectedOption ? experienceCards.indexOf(selectedOption) : -1;
+
+      const changeExperience = (step) => {
+        if (selectedExperienceIndex < 0) return;
+        const nextIndex = selectedExperienceIndex + step;
+        if (nextIndex >= 0 && nextIndex < experienceIncludes.length) {
+          setSelectedExperience(experienceIncludes[nextIndex]);
+        }
+      };
+
+      const changeOption = (step) => {
+        if (selectedOptionIndex < 0) return;
+        const nextIndex = selectedOptionIndex + step;
+        if (nextIndex >= 0 && nextIndex < experienceCards.length) {
+          setSelectedOption(experienceCards[nextIndex]);
+        }
+      };
+
+      useEffect(() => {
+        if (!selectedExperience) return undefined;
+        const previousOverflow = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+        window.setTimeout(() => experienceCloseRef.current?.focus(), 0);
+
+        const handleKeyDown = (event) => {
+          if (event.key === "Escape") {
+            setSelectedExperience(null);
+          } else if (event.key === "ArrowRight") {
+            changeExperience(1);
+          } else if (event.key === "ArrowLeft") {
+            changeExperience(-1);
+          }
+        };
+
+        document.addEventListener("keydown", handleKeyDown);
+        return () => {
+          document.body.style.overflow = previousOverflow;
+          document.removeEventListener("keydown", handleKeyDown);
+        };
+      }, [selectedExperience]);
+
+      useEffect(() => {
+        if (!selectedOption) return undefined;
+        const previousOverflow = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+        window.setTimeout(() => optionCloseRef.current?.focus(), 0);
+
+        const handleKeyDown = (event) => {
+          if (event.key === "Escape") {
+            setSelectedOption(null);
+          } else if (event.key === "ArrowRight") {
+            changeOption(1);
+          } else if (event.key === "ArrowLeft") {
+            changeOption(-1);
+          }
+        };
+
+        document.addEventListener("keydown", handleKeyDown);
+        return () => {
+          document.body.style.overflow = previousOverflow;
+          document.removeEventListener("keydown", handleKeyDown);
+        };
+      }, [selectedOption]);
+
       return (
+        <>
         <section id="experiencia" className="viewport-fill relative overflow-hidden bg-dark-rose">
           <SoftCrossfadeImage images={[EXPERIENCE_IMAGE, CONSULTATION_IMAGE, BEAUTY_DETAIL_IMAGE]} label="Asesoría personalizada de belleza y piel" />
 
@@ -511,10 +643,14 @@ const entrance = {
               </div>
 
               <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
-                {experienceIncludes.map(([title, body], index) => (
-                  <motion.article
-                    key={title}
-                    className="liquid-glass rounded-[1.25rem] p-5"
+                {experienceIncludes.map((item, index) => (
+                  <motion.button
+                    key={item.title}
+                    type="button"
+                    onClick={() => setSelectedExperience(item)}
+                    aria-haspopup="dialog"
+                    aria-label={`Ver más sobre ${item.title}`}
+                    className="experience-detail-card liquid-glass group rounded-[1.25rem] p-5 text-left"
                     initial={{ filter: "blur(10px)", opacity: 0, y: 20 }}
                     whileInView={{ filter: "blur(0px)", opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
@@ -522,10 +658,13 @@ const entrance = {
                   >
                     <div className="glass-content">
                       <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/10 font-body text-xs font-semibold text-white/90">0{index + 1}</span>
-                      <h3 className="mt-5 font-body text-base font-semibold leading-snug text-white">{title}</h3>
-                      <p className="mt-3 font-body text-[15px] font-normal leading-relaxed text-white/90">{body}</p>
+                      <h3 className="mt-5 font-body text-base font-semibold leading-snug text-white">{item.title}</h3>
+                      <p className="mt-3 font-body text-[15px] font-normal leading-relaxed text-white/90">{item.body}</p>
+                      <span className="mt-5 inline-flex items-center gap-2 font-body text-xs font-semibold uppercase tracking-[0.12em] text-white/75">
+                        Ver más <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </span>
                     </div>
-                  </motion.article>
+                  </motion.button>
                 ))}
               </div>
 
@@ -536,7 +675,7 @@ const entrance = {
                 </a>
               </div>
 
-              <div id="opciones" className="mt-14">
+              <div id="opciones" className="mt-5 md:mt-6">
                 <div className="mb-6 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
                   <div>
                     <p className="font-body text-sm font-semibold uppercase tracking-[0.16em] text-white/80">Opciones de experiencia</p>
@@ -545,13 +684,120 @@ const entrance = {
                 </div>
                 <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
                 {experienceCards.map((card, index) => (
-                  <FeatureCard key={card.title} card={card} index={index} />
+                  <FeatureCard key={card.title} card={card} index={index} onOpen={() => setSelectedOption(card)} />
                 ))}
                 </div>
               </div>
             </div>
           </div>
         </section>
+        {selectedExperience && (
+          <div
+            className="testimonial-overlay"
+            onMouseDown={(event) => {
+              if (event.target === event.currentTarget) setSelectedExperience(null);
+            }}
+          >
+            <div className="testimonial-modal" role="dialog" aria-modal="true" aria-labelledby="experience-dialog-title">
+              <button
+                ref={experienceCloseRef}
+                type="button"
+                className="testimonial-modal-close"
+                onClick={() => setSelectedExperience(null)}
+                aria-label="Cerrar información"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div className="testimonial-modal-grid">
+                <figure className="testimonial-modal-photo">
+                  <img
+                    src={selectedExperience.image}
+                    alt={selectedExperience.imageAlt}
+                    style={{ "--mobile-focus": selectedExperience.mobileFocus }}
+                  />
+                </figure>
+                <div className="testimonial-modal-copy text-white">
+                  <p className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-mary-gold">Tu experiencia personalizada</p>
+                  <h3 id="experience-dialog-title" className="mt-4 max-w-[16ch] font-heading text-4xl italic leading-[0.94] tracking-[-1px] text-white sm:text-5xl">
+                    {selectedExperience.title}
+                  </h3>
+                  <p className="mt-5 max-w-[48ch] font-body text-base font-normal leading-relaxed text-white/90 md:text-lg">
+                    {selectedExperience.detail}
+                  </p>
+                  <ul className="mt-6 grid gap-3">
+                    {selectedExperience.points.map((point) => (
+                      <li key={point} className="flex items-start gap-3 rounded-[1rem] bg-white/10 px-4 py-3 font-body text-sm text-white/90">
+                        <span className="mt-0.5 text-mary-soft" aria-hidden="true">✓</span>
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-7 flex flex-wrap items-center gap-3">
+                    <button
+                      type="button"
+                      className="testimonial-nav-button"
+                      onClick={() => changeExperience(-1)}
+                      disabled={selectedExperienceIndex === 0}
+                      aria-label="Punto anterior"
+                    >
+                      <span aria-hidden="true">&larr;</span> Anterior
+                    </button>
+                    <button
+                      type="button"
+                      className="testimonial-nav-button"
+                      onClick={() => changeExperience(1)}
+                      disabled={selectedExperienceIndex === experienceIncludes.length - 1}
+                      aria-label="Punto siguiente"
+                    >
+                      Siguiente <span aria-hidden="true">&rarr;</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+        {selectedOption && (
+          <div
+            className="testimonial-overlay"
+            onMouseDown={(event) => {
+              if (event.target === event.currentTarget) setSelectedOption(null);
+            }}
+          >
+            <div className="testimonial-modal" role="dialog" aria-modal="true" aria-labelledby="option-dialog-title">
+              <button ref={optionCloseRef} type="button" className="testimonial-modal-close" onClick={() => setSelectedOption(null)} aria-label="Cerrar opción">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div className="testimonial-modal-grid">
+                <figure className="testimonial-modal-photo">
+                  <img src={selectedOption.image} alt={selectedOption.imageAlt} style={{ "--mobile-focus": selectedOption.mobileFocus }} />
+                </figure>
+                <div className="testimonial-modal-copy text-white">
+                  <p className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-mary-gold">Opción de experiencia</p>
+                  <h3 id="option-dialog-title" className="mt-4 max-w-[16ch] font-heading text-4xl italic leading-[0.94] tracking-[-1px] text-white sm:text-5xl">{selectedOption.title}</h3>
+                  <p className="mt-5 max-w-[48ch] font-body text-base font-normal leading-relaxed text-white/90 md:text-lg">{selectedOption.detail}</p>
+                  <ul className="mt-6 grid gap-3">
+                    {selectedOption.points.map((point) => (
+                      <li key={point} className="flex items-start gap-3 rounded-[1rem] bg-white/10 px-4 py-3 font-body text-sm text-white/90">
+                        <span className="mt-0.5 text-mary-soft" aria-hidden="true">✓</span>
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-7 flex flex-wrap items-center gap-3">
+                    <button type="button" className="testimonial-nav-button" onClick={() => changeOption(-1)} disabled={selectedOptionIndex === 0} aria-label="Opción anterior">
+                      <span aria-hidden="true">&larr;</span> Anterior
+                    </button>
+                    <button type="button" className="testimonial-nav-button" onClick={() => changeOption(1)} disabled={selectedOptionIndex === experienceCards.length - 1} aria-label="Opción siguiente">
+                      Siguiente <span aria-hidden="true">&rarr;</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+        </>
       );
     }
 
@@ -642,7 +888,7 @@ const entrance = {
               </div>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a href={OPPORTUNITY_PAGE_PATH} className="inline-flex items-center justify-center rounded-full bg-gradient-to-br from-mary-pink to-mary-vivid px-5 py-3 font-body text-sm font-semibold text-white shadow-[0_18px_45px_rgba(232,62,157,0.35)]">
-                  Ver landing de negocio <ArrowUpRight className="ml-2 h-4 w-4" />
+                  Ver oportunidad de negocio <ArrowUpRight className="ml-2 h-4 w-4" />
                 </a>
                 <a href={WHATSAPP_MAIN} target="_blank" rel="noopener noreferrer" className="liquid-glass inline-flex items-center justify-center rounded-full px-5 py-3 font-body text-sm font-semibold text-white">
                   Primero quiero mi experiencia

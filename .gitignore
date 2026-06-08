@@ -4,6 +4,10 @@ dist/
 .DS_Store
 vite-dev.log
 vite-dev.err.log
+servidor.log
+vite-local.log
+vite-local-error.log
+scripts/build-opportunity-leads-sheet.mjs
 *.pid
 *.docx
 *.pdf
