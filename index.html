@@ -548,6 +548,35 @@
         rgba(255, 255, 255, 0.05);
     }
 
+    .opportunity-modal-photo {
+      position: relative;
+      flex: 0 0 auto;
+      height: clamp(190px, 25dvh, 250px);
+      margin: 0 0 clamp(22px, 3vw, 30px);
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 1.25rem;
+      background: rgba(255, 246, 251, 0.08);
+      box-shadow: 0 18px 42px rgba(42, 11, 36, 0.24);
+    }
+
+    .opportunity-modal-photo::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 34%;
+      background: linear-gradient(to top, rgba(74, 18, 58, 0.24), transparent);
+      pointer-events: none;
+    }
+
+    .opportunity-modal-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: var(--desktop-focus, center 28%);
+    }
+
     .identity-modal-details {
       padding-top: clamp(52px, 5vw, 64px);
     }
@@ -692,6 +721,15 @@
 
       .identity-modal-intro {
         padding-top: 64px;
+      }
+
+      .opportunity-modal-photo {
+        height: clamp(210px, 34svh, 320px);
+        margin-bottom: 24px;
+      }
+
+      .opportunity-modal-photo img {
+        object-position: var(--mobile-focus, center 24%);
       }
 
       .identity-modal-details {
@@ -1001,6 +1039,12 @@
     const OPPORTUNITY_PRODUCT_IMAGE = "/assets/mpkgdnpi-ChatGPT-Image-19-may-2026_-11_37_26-p.m.-_1_.webp";
     const OPPORTUNITY_LISTENING_IMAGE = "/assets/opportunity-listening.webp";
     const OPPORTUNITY_GUIDANCE_IMAGE = "/assets/opportunity-guidance.webp";
+    const MODAL_PLANNING_IMAGE = "/assets/main-maricela-planning.webp";
+    const MODAL_CONVERSATION_IMAGE = "/assets/main-opportunity-conversation.webp";
+    const MODAL_COMMUNITY_IMAGE = "/assets/mpdo8sht-ChatGPT-Image-18-may-2026_-10_26_23-p.m.-_8_.webp";
+    const MODAL_DEMONSTRATION_IMAGE = "/assets/mpdo8s96-a918ed39-7ece-4593-88f5-532f981e120c.webp";
+    const MODAL_CONFIDENCE_IMAGE = "/assets/mpdo8sk3-ChatGPT-Image-18-may-2026_-10_26_23-p.m.-_9_.webp";
+    const MODAL_LISTENING_IMAGE = "/assets/mpdo8src-ChatGPT-Image-18-may-2026_-10_26_19-p.m.-_1_.webp";
 
     function ArrowUpRight({ className = "h-5 w-5" }) {
       return (
@@ -3272,6 +3316,118 @@
         }
       ];
 
+      const opportunityModalVisuals = {
+        "Quieres generar ingresos extra sin dejar de ser tú.": {
+          image: MODAL_PLANNING_IMAGE,
+          alt: "Maricela planificando metas y próximos pasos en su escritorio",
+          focus: "center 34%",
+          mobileFocus: "center 28%"
+        },
+        "Quieres sentir que estás construyendo algo propio.": {
+          image: EXPERIENCE_IMAGE,
+          alt: "Maricela trabajando en la organización de su proyecto",
+          focus: "center 32%",
+          mobileFocus: "center 26%"
+        },
+        "Quieres crecer, aprender y recuperar confianza.": {
+          image: HERO_IMAGE,
+          alt: "Maricela compartiendo una explicación con seguridad y cercanía",
+          focus: "center 28%",
+          mobileFocus: "center 24%"
+        },
+        "Quieres tener una guía, no sentirte sola ni improvisar.": {
+          image: MAIN_AGENDA_IMAGE,
+          alt: "Maricela guiando a una mujer durante una conversación personal",
+          focus: "center 30%",
+          mobileFocus: "center 25%"
+        },
+        "Ingresos extra": {
+          image: MODAL_PLANNING_IMAGE,
+          alt: "Maricela revisando una planificación de metas e ingresos",
+          focus: "center 34%",
+          mobileFocus: "center 28%"
+        },
+        "Estancamiento": {
+          image: HERO_IMAGE,
+          alt: "Maricela presentando una nueva posibilidad de crecimiento",
+          focus: "center 28%",
+          mobileFocus: "center 24%"
+        },
+        "Reconocimiento": {
+          image: MAIN_AGENDA_IMAGE,
+          alt: "Maricela reconociendo los avances de una mujer durante una asesoría",
+          focus: "center 30%",
+          mobileFocus: "center 25%"
+        },
+        "Miedo a vender": {
+          image: MODAL_CONVERSATION_IMAGE,
+          alt: "Maricela conversando de forma natural y respetuosa con una mujer",
+          focus: "center 32%",
+          mobileFocus: "center 27%"
+        },
+        "Primer paso": {
+          image: MODAL_LISTENING_IMAGE,
+          alt: "Maricela escuchando y explicando un primer paso con claridad",
+          focus: "center 31%",
+          mobileFocus: "center 25%"
+        },
+        "Comunidad": {
+          image: MODAL_COMMUNITY_IMAGE,
+          alt: "Maricela compartiendo una conversación cercana con otra mujer",
+          focus: "center 35%",
+          mobileFocus: "center 28%"
+        },
+        "Confianza": {
+          image: MODAL_DEMONSTRATION_IMAGE,
+          alt: "Maricela acompañando a mujeres durante una demostración de belleza",
+          focus: "center 24%",
+          mobileFocus: "center 20%"
+        },
+        "“Me da pena vender. No quiero incomodar a nadie.”": {
+          image: MODAL_CONVERSATION_IMAGE,
+          alt: "Maricela conversando con honestidad y sin presión",
+          focus: "center 32%",
+          mobileFocus: "center 27%"
+        },
+        "“No tengo mucho tiempo. Mi vida ya está llena.”": {
+          image: MODAL_PLANNING_IMAGE,
+          alt: "Maricela organizando prioridades y tiempo en su escritorio",
+          focus: "center 34%",
+          mobileFocus: "center 28%"
+        },
+        "“No conozco a tanta gente. ¿A quién le voy a hablar?”": {
+          image: MODAL_COMMUNITY_IMAGE,
+          alt: "Maricela creando una relación cercana a través de una conversación",
+          focus: "center 35%",
+          mobileFocus: "center 28%"
+        },
+        "“No sé si soy buena para esto.”": {
+          image: MODAL_CONFIDENCE_IMAGE,
+          alt: "Maricela guiando a una mujer mientras aprende una nueva habilidad",
+          focus: "center 23%",
+          mobileFocus: "center 19%"
+        },
+        "“Me preocupa invertir y después arrepentirme.”": {
+          image: EXPERIENCE_IMAGE,
+          alt: "Maricela revisando información para tomar una decisión con claridad",
+          focus: "center 32%",
+          mobileFocus: "center 26%"
+        },
+        "“Me da miedo que me digan que no.”": {
+          image: MODAL_LISTENING_IMAGE,
+          alt: "Maricela escuchando con empatía las dudas de una mujer",
+          focus: "center 31%",
+          mobileFocus: "center 25%"
+        }
+      };
+
+      const getOpportunityModalVisual = (item) => opportunityModalVisuals[item.title] || {
+        image: MAIN_AGENDA_IMAGE,
+        alt: "Maricela acompañando personalmente a una mujer",
+        focus: "center 30%",
+        mobileFocus: "center 25%"
+      };
+
       return (
         <div className="min-h-screen bg-dark-rose text-white">
           <OpportunityLandingNav />
@@ -3346,6 +3502,16 @@
                 </button>
                 <div className="identity-modal-layout">
                   <div className="identity-modal-intro">
+                    <figure className="opportunity-modal-photo">
+                      <img
+                        src={getOpportunityModalVisual(selectedIdentity).image}
+                        alt={getOpportunityModalVisual(selectedIdentity).alt}
+                        style={{
+                          "--desktop-focus": getOpportunityModalVisual(selectedIdentity).focus,
+                          "--mobile-focus": getOpportunityModalVisual(selectedIdentity).mobileFocus
+                        }}
+                      />
+                    </figure>
                     <p className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-mary-gold">{selectedIdentity.eyebrow}</p>
                     <h3 id="identity-dialog-title" className="mt-4 font-heading text-4xl italic leading-[0.92] tracking-[-1px] text-white sm:text-5xl">
                       {selectedIdentity.headline}
@@ -3439,6 +3605,16 @@
                 </button>
                 <div className="identity-modal-layout">
                   <div className="identity-modal-intro">
+                    <figure className="opportunity-modal-photo">
+                      <img
+                        src={getOpportunityModalVisual(selectedPain).image}
+                        alt={getOpportunityModalVisual(selectedPain).alt}
+                        style={{
+                          "--desktop-focus": getOpportunityModalVisual(selectedPain).focus,
+                          "--mobile-focus": getOpportunityModalVisual(selectedPain).mobileFocus
+                        }}
+                      />
+                    </figure>
                     <p className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-mary-gold">{selectedPain.eyebrow}</p>
                     <h3 id="pain-dialog-title" className="mt-4 font-heading text-4xl italic leading-[0.92] tracking-[-1px] text-white sm:text-5xl">
                       {selectedPain.headline}
@@ -3539,6 +3715,16 @@
                 </button>
                 <div className="identity-modal-layout">
                   <div className="identity-modal-intro">
+                    <figure className="opportunity-modal-photo">
+                      <img
+                        src={getOpportunityModalVisual(selectedObjection).image}
+                        alt={getOpportunityModalVisual(selectedObjection).alt}
+                        style={{
+                          "--desktop-focus": getOpportunityModalVisual(selectedObjection).focus,
+                          "--mobile-focus": getOpportunityModalVisual(selectedObjection).mobileFocus
+                        }}
+                      />
+                    </figure>
                     <p className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-mary-gold">{selectedObjection.eyebrow}</p>
                     <h3 id="objection-dialog-title" className="mt-4 font-heading text-4xl italic leading-[0.92] tracking-[-1px] text-white sm:text-5xl">
                       {selectedObjection.headline}
