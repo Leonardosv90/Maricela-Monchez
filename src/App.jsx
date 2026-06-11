@@ -16,6 +16,7 @@ const WHATSAPP_MAIN = "https://wa.me/50370876214?text=Hola%20Maricela%2C%20me%20
     const BEAUTY_DETAIL_IMAGE = asset("mpdo91gn-ChatGPT-Image-19-may-2026_-11_37_37-p.m.-_1_.webp");
     const OPPORTUNITY_IMAGE = asset("mpkgappv-ChatGPT-Image-18-may-2026_-10_26_23-p.m.-_10_.webp");
     const AGENDA_IMAGE = asset("mpkgz26m-ChatGPT-Image-19-may-2026_-11_47_01-p.m.-_7_.webp");
+    const MAIN_AGENDA_IMAGE = asset("main-agenda-guidance.webp");
 
     function ArrowUpRight({ className = "h-5 w-5" }) {
       return (
@@ -472,7 +473,7 @@ const entrance = {
           onClick={onOpen}
           aria-haspopup="dialog"
           aria-label={`Ver detalles de ${card.title}`}
-          className="experience-detail-card liquid-glass group flex min-h-[290px] flex-col rounded-[1.25rem] p-6 text-left"
+          className="interactive-modal-trigger experience-detail-card liquid-glass group flex min-h-[290px] flex-col rounded-[1.25rem] p-6 text-left"
           initial={{ filter: "blur(10px)", opacity: 0, y: 24 }}
           whileInView={{ filter: "blur(0px)", opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
@@ -497,8 +498,10 @@ const entrance = {
             <div className="mt-6">
               <h3 className="font-body text-2xl font-semibold leading-tight text-white md:text-3xl">{card.title}</h3>
               <p className="mt-3 max-w-[34ch] font-body text-[15px] font-normal leading-relaxed text-white/90">{card.body}</p>
-              <span className="mt-5 inline-flex items-center gap-2 font-body text-xs font-semibold uppercase tracking-[0.12em] text-white/75">
-                Ver detalles <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <span className="interaction-hint mt-5">
+                <span className="interaction-hint-touch">Toca para abrir</span>
+                <span className="interaction-hint-pointer">Ver detalles</span>
+                <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </span>
             </div>
           </div>
@@ -510,23 +513,23 @@ const entrance = {
       const [active, setActive] = useState(0);
 
       return (
-        <div id="proceso" className="liquid-glass rounded-[1.75rem] p-4 md:p-5">
-          <div className="glass-content">
-            <div className="grid gap-2 md:grid-cols-3">
+        <div id="proceso" className="liquid-glass min-w-0 max-w-full rounded-[1.5rem] p-3 sm:p-4 md:rounded-[1.75rem] md:p-5">
+          <div className="glass-content min-w-0">
+            <div className="grid min-w-0 grid-cols-1 gap-2 md:grid-cols-3">
               {processCards.map(([title], index) => (
                 <button
                   key={title}
                   type="button"
                   onClick={() => setActive(index)}
-                  className={`rounded-full px-4 py-3 text-left font-body text-sm font-medium ${active === index ? "bg-white text-mary-ink" : "text-white/80"}`}
+                  className={`min-h-10 w-full rounded-full px-3 py-2 text-center font-body text-[13px] font-medium leading-tight md:whitespace-nowrap lg:text-sm ${active === index ? "bg-white text-mary-ink" : "text-white/80"}`}
                 >
                   0{index + 1} · {title}
                 </button>
               ))}
             </div>
-            <div className="mt-5 rounded-[1.25rem] bg-white/10 p-5">
-              <p className="font-body text-2xl font-semibold leading-tight text-white">{processCards[active][0]}</p>
-              <p className="mt-3 max-w-2xl font-body text-[15px] font-normal leading-relaxed text-white/90">{processCards[active][1]}</p>
+            <div className="mt-4 min-w-0 rounded-[1.1rem] bg-white/10 p-4 sm:p-5 md:mt-5 md:rounded-[1.25rem]">
+              <p className="break-words font-body text-xl font-semibold leading-tight text-white sm:text-2xl">{processCards[active][0]}</p>
+              <p className="mt-3 max-w-full break-words font-body text-sm font-normal leading-relaxed text-white/90 sm:text-[15px]">{processCards[active][1]}</p>
             </div>
           </div>
         </div>
@@ -650,7 +653,7 @@ const entrance = {
                     onClick={() => setSelectedExperience(item)}
                     aria-haspopup="dialog"
                     aria-label={`Ver más sobre ${item.title}`}
-                    className="experience-detail-card liquid-glass group rounded-[1.25rem] p-5 text-left"
+                    className="interactive-modal-trigger experience-detail-card liquid-glass group rounded-[1.25rem] p-5 text-left"
                     initial={{ filter: "blur(10px)", opacity: 0, y: 20 }}
                     whileInView={{ filter: "blur(0px)", opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
@@ -660,8 +663,10 @@ const entrance = {
                       <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/10 font-body text-xs font-semibold text-white/90">0{index + 1}</span>
                       <h3 className="mt-5 font-body text-base font-semibold leading-snug text-white">{item.title}</h3>
                       <p className="mt-3 font-body text-[15px] font-normal leading-relaxed text-white/90">{item.body}</p>
-                      <span className="mt-5 inline-flex items-center gap-2 font-body text-xs font-semibold uppercase tracking-[0.12em] text-white/75">
-                        Ver más <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      <span className="interaction-hint mt-5">
+                        <span className="interaction-hint-touch">Toca para abrir</span>
+                        <span className="interaction-hint-pointer">Ver más</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                       </span>
                     </div>
                   </motion.button>
@@ -1071,7 +1076,7 @@ const entrance = {
                     aria-haspopup="dialog"
                     aria-label={`Leer testimonio completo de ${testimonial.name}`}
                     {...fadeIn(0.1 + (index * 0.08))}
-                    className="testimonial-card liquid-glass group flex flex-col rounded-[1.5rem] p-2"
+                    className="interactive-modal-trigger testimonial-card liquid-glass group flex flex-col rounded-[1.5rem] p-2"
                   >
                     <div className="glass-content flex h-full flex-col">
                       <div className="relative overflow-hidden rounded-[1.1rem]">
@@ -1090,6 +1095,11 @@ const entrance = {
                       <div className="mx-5 mb-5 mt-5 border-t border-white/10 pt-4 font-body">
                         <p className="text-base font-semibold text-white">{testimonial.name}</p>
                         <p className="mt-1 text-xs font-medium uppercase tracking-[0.12em] text-white/70">Clienta de Maricela</p>
+                        <span className="interaction-hint mt-4">
+                          <span className="interaction-hint-touch">Toca para leer</span>
+                          <span className="interaction-hint-pointer">Leer historia</span>
+                          <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                        </span>
                       </div>
                     </div>
                   </motion.button>
@@ -1177,7 +1187,7 @@ const entrance = {
 
     function Conversion() {
       return (
-        <section id="agenda" className="viewport-fill bg-dark-rose px-5 pb-28 pt-14 text-white md:px-16 md:pb-32 md:pt-16 lg:px-20 lg:pb-36 lg:pt-20">
+        <section id="agenda" className="viewport-fill overflow-hidden bg-dark-rose px-4 pb-28 pt-24 text-white sm:px-5 md:px-16 md:pb-32 md:pt-20 lg:px-20 lg:pb-36">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
             <img
               className="h-full w-full object-cover object-center opacity-55"
@@ -1186,18 +1196,43 @@ const entrance = {
             />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(248,182,216,0.16),transparent_32%),linear-gradient(110deg,rgba(100,22,78,0.86)_0%,rgba(74,18,58,0.82)_45%,rgba(42,11,36,0.92)_100%)]" />
           </div>
-          <div className="relative z-10">
-          <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            <div>
-              <p className="mb-6 font-body text-sm font-medium text-white/80">// Agenda en 3 pasos</p>
-              <h2 className="font-heading text-6xl italic leading-[0.9] tracking-[-3px] text-white md:text-7xl">
+          <div className="relative z-10 min-w-0">
+          <div className="mx-auto grid min-w-0 max-w-7xl gap-6 md:gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
+            <div className="min-w-0">
+              <p className="mb-4 font-body text-sm font-medium text-white/80 sm:mb-6">// Agenda en 3 pasos</p>
+              <h2 className="max-w-full break-words font-heading text-[3.35rem] italic leading-[0.88] tracking-[-2px] text-white sm:text-6xl md:text-7xl md:tracking-[-3px]">
                 Sin presión.<br />Con claridad.
               </h2>
-              <p className="mt-6 max-w-xl font-body text-base font-normal leading-snug text-white/90">
+              <p className="mt-5 max-w-full break-words font-body text-[15px] font-normal leading-relaxed text-white/90 sm:mt-6 sm:max-w-xl sm:text-base sm:leading-snug">
                 No necesitas saber tu tipo de piel ni tener una rutina perfecta. Empezamos conversando y terminas con una guía más clara para cuidarte.
               </p>
+              <figure className="liquid-glass mt-6 min-w-0 max-w-full overflow-hidden rounded-[1.35rem] p-2 sm:mt-7 sm:rounded-[1.6rem]">
+                <div className="glass-content min-w-0">
+                  <img className="h-[250px] max-w-full rounded-[1.05rem] object-cover object-[58%_center] sm:h-[330px] sm:w-full sm:rounded-[1.25rem] sm:object-[center_38%]" src={MAIN_AGENDA_IMAGE} alt="Maricela explicando una guía de cuidado durante una asesoría" />
+                  <figcaption className="break-words px-3 py-3 font-body text-[13px] font-semibold leading-relaxed text-white/80 sm:px-4 sm:py-4 sm:text-sm">Conversamos, revisamos opciones y organizamos una rutina posible para ti.</figcaption>
+                </div>
+              </figure>
             </div>
-            <ProcessTabs />
+            <div className="flex min-w-0 max-w-full flex-col gap-5">
+              <ProcessTabs />
+              <div className="liquid-glass min-w-0 max-w-full flex-1 rounded-[1.5rem] p-5 sm:p-6 md:rounded-[1.75rem] md:p-7">
+                <div className="glass-content flex h-full min-w-0 flex-col">
+                  <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-mary-soft">Lo que puedes esperar</p>
+                  <h3 className="mt-3 max-w-full break-words font-heading text-[2rem] italic leading-[0.94] text-white sm:text-4xl">Una conversación clara y personalizada.</h3>
+                  <div className="mt-5 grid min-w-0 gap-3 sm:mt-6 sm:grid-cols-3 lg:grid-cols-1">
+                    {["Escucha antes de recomendar", "Opciones adaptadas a tu rutina", "Libertad para decidir sin presión"].map((item) => (
+                      <div key={item} className="flex min-w-0 items-center gap-3 rounded-[1rem] bg-white/10 px-3 py-3 sm:px-4">
+                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/10 text-sm text-mary-soft" aria-hidden="true">✓</span>
+                        <p className="min-w-0 break-words font-body text-sm font-semibold text-white/90">{item}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <a href={WHATSAPP_MAIN} target="_blank" rel="noopener noreferrer" className="liquid-glass-strong mt-6 inline-flex w-full justify-center rounded-full px-4 py-2.5 font-body text-sm font-medium text-white sm:w-fit sm:px-5 lg:mt-auto">
+                    <span className="glass-content flex items-center justify-center gap-2">Iniciar conversación <ArrowUpRight /></span>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="mx-auto mt-14 grid max-w-7xl gap-8 lg:mt-16 lg:grid-cols-[0.95fr_1.05fr]">

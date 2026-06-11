@@ -331,6 +331,109 @@
       outline-offset: 4px;
     }
 
+    .interactive-modal-trigger {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .interactive-modal-trigger::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      border: 1px solid transparent;
+      border-radius: inherit;
+      pointer-events: none;
+      transition: border-color 220ms ease, box-shadow 220ms ease;
+    }
+
+    .interactive-modal-trigger:hover::after,
+    .interactive-modal-trigger:focus-visible::after {
+      border-color: rgba(255, 255, 255, 0.48);
+      box-shadow: inset 0 0 0 1px rgba(248, 182, 216, 0.18);
+    }
+
+    .interaction-hint {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 9999px;
+      padding: 7px 11px;
+      color: rgba(255, 255, 255, 0.94);
+      background: rgba(255, 255, 255, 0.1);
+      font: 600 11px/1 "Barlow", sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.14);
+      transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+    }
+
+    .interactive-modal-trigger:hover .interaction-hint,
+    .interactive-modal-trigger:focus-visible .interaction-hint {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.42);
+      transform: translateX(2px);
+    }
+
+    .interaction-hint-touch {
+      display: none;
+    }
+
+    @media (hover: none), (pointer: coarse) {
+      .interaction-hint-pointer {
+        display: none;
+      }
+
+      .interaction-hint-touch {
+        display: inline;
+      }
+
+      .interactive-modal-trigger {
+        animation: interactive-card-pulse 3.8s ease-in-out infinite;
+      }
+
+      .interactive-modal-trigger:nth-child(2n) {
+        animation-delay: 0.65s;
+      }
+
+      .interactive-modal-trigger:nth-child(3n) {
+        animation-delay: 1.3s;
+      }
+    }
+
+    @keyframes interactive-card-pulse {
+      0%, 72%, 100% {
+        box-shadow: inset 0 1px 1px rgba(255,255,255,0.16), 0 20px 50px rgba(232,62,157,0.12);
+      }
+      82% {
+        box-shadow: inset 0 1px 1px rgba(255,255,255,0.24), 0 20px 52px rgba(248,182,216,0.3), 0 0 0 2px rgba(248,182,216,0.18);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .interactive-modal-trigger {
+        animation: none;
+      }
+    }
+
+    .opportunity-guidance-photo {
+      object-position: center 18%;
+    }
+
+    @media (min-width: 640px) {
+      .opportunity-guidance-photo {
+        object-position: center 21%;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .opportunity-guidance-photo {
+        object-position: center 24%;
+      }
+    }
+
     .testimonial-overlay {
       position: fixed;
       inset: 0;
@@ -338,6 +441,7 @@
       display: grid;
       place-items: center;
       padding: clamp(16px, 3vw, 34px);
+      overflow-y: auto;
       background: rgba(138, 15, 99, 0.68);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
@@ -351,7 +455,8 @@
     .testimonial-modal {
       position: relative;
       width: min(1120px, 100%);
-      max-height: min(88svh, 760px);
+      height: min(88dvh, 760px);
+      max-height: calc(100dvh - clamp(32px, 6vw, 68px));
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.24);
       border-radius: clamp(1.4rem, 3vw, 2.1rem);
@@ -369,13 +474,15 @@
     .testimonial-modal-grid {
       display: grid;
       grid-template-columns: minmax(300px, 0.94fr) minmax(360px, 1.06fr);
-      min-height: min(78svh, 650px);
+      height: 100%;
+      min-height: 0;
     }
 
     .testimonial-modal-photo {
       display: grid;
       place-items: center;
-      min-height: 100%;
+      min-width: 0;
+      min-height: 0;
       padding: clamp(14px, 2vw, 20px);
       background: rgba(255, 246, 251, 0.06);
       overflow: hidden;
@@ -384,7 +491,8 @@
     .testimonial-modal-photo img {
       display: block;
       width: 100%;
-      height: min(72svh, 610px);
+      height: 100%;
+      min-height: 0;
       object-fit: cover;
       object-position: center center;
       border-radius: 1.35rem;
@@ -394,10 +502,54 @@
     .testimonial-modal-copy {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       min-width: 0;
+      min-height: 0;
       overflow-y: auto;
+      overscroll-behavior: contain;
       padding: clamp(30px, 4.5vw, 52px);
+      scrollbar-gutter: stable;
+    }
+
+    .identity-modal-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      height: auto;
+      min-height: 0;
+    }
+
+    .identity-modal-intro,
+    .identity-modal-details {
+      min-width: 0;
+      min-height: 0;
+      overflow: visible;
+      padding: clamp(34px, 4.5vw, 54px);
+    }
+
+    .testimonial-modal:has(.identity-modal-layout) {
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .testimonial-modal:has(.identity-modal-layout)::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+
+    .identity-modal-intro {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background:
+        radial-gradient(circle at 18% 14%, rgba(248, 182, 216, 0.16), transparent 38%),
+        rgba(255, 255, 255, 0.05);
+    }
+
+    .identity-modal-details {
+      padding-top: clamp(52px, 5vw, 64px);
     }
 
     .testimonial-modal-close,
@@ -495,7 +647,8 @@
       }
 
       .testimonial-modal {
-        max-height: calc(100svh - 24px);
+        height: auto;
+        max-height: calc(100dvh - 24px);
         overflow-y: auto;
       }
 
@@ -518,11 +671,64 @@
       .testimonial-modal-copy {
         overflow: visible;
         padding: 24px 20px 22px;
+        scrollbar-gutter: auto;
       }
 
       .testimonial-modal-close {
         top: 20px;
         right: 20px;
+      }
+
+      .identity-modal-layout {
+        display: block;
+        height: auto;
+      }
+
+      .identity-modal-intro,
+      .identity-modal-details {
+        overflow: visible;
+        padding: 28px 20px;
+      }
+
+      .identity-modal-intro {
+        padding-top: 64px;
+      }
+
+      .identity-modal-details {
+        padding-top: 8px;
+        padding-bottom: 24px;
+      }
+    }
+
+    @media (min-width: 768px) and (max-height: 820px) {
+      .testimonial-overlay {
+        padding: 16px;
+      }
+
+      .testimonial-modal {
+        height: calc(100dvh - 32px);
+        max-height: 760px;
+      }
+
+      .testimonial-modal-copy {
+        padding: 34px 38px 26px;
+      }
+
+      .testimonial-modal-copy > .mt-4 {
+        margin-top: 0.65rem;
+      }
+
+      .testimonial-modal-copy > .mt-5 {
+        margin-top: 0.85rem;
+      }
+
+      .testimonial-modal-copy > .mt-6 {
+        margin-top: 1rem;
+        gap: 0.65rem;
+      }
+
+      .testimonial-modal-copy > .mt-7 {
+        margin-top: 1.1rem;
       }
     }
 
@@ -727,9 +933,14 @@
       .whatsapp-float {
         right: 14px;
         bottom: calc(14px + env(safe-area-inset-bottom));
-        gap: 8px;
-        padding: 10px 14px 10px 10px;
-        font-size: 13px;
+        width: 48px;
+        height: 48px;
+        padding: 8px;
+        gap: 0;
+      }
+
+      .whatsapp-float > span:last-child {
+        display: none;
       }
     }
   </style>
@@ -772,7 +983,7 @@
 
     const WHATSAPP_MAIN = "https://wa.me/50370876214?text=Hola%20Maricela%2C%20me%20gustar%C3%ADa%20agendar%20mi%20experiencia%20personalizada%20Mary%20Kay.";
     const WHATSAPP_OPPORTUNITY = "https://wa.me/50370876214?text=Hola%20Maricela%2C%20me%20gustar%C3%ADa%20conocer%20la%20oportunidad%20Mary%20Kay.%20%C2%BFMe%20puedes%20contar%20m%C3%A1s%3F";
-    const GOOGLE_SHEETS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyz8-BwPi4wdvRtkdyefvjtcV5KNOf7K2mgCONeiaUHCKIi47yVlUSaL_b9_TcmhPU/exec";
+    const GOOGLE_SHEETS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycby5SyzfsX79XYn5HIZIbreUuXQON6z_jUM64g5AmCfbzGv8cbVEXQNkJeW9DbK0BA/exec";
     const OPPORTUNITY_PAGE_PATH = "/oportunidad-negocio";
     const HERO_IMAGE = "/assets/mpdo9hna-ChatGPT-Image-20-may-2026_-12_13_08-a.m.-_3_.webp";
     const EXPERIENCE_IMAGE = "/assets/mpdo98nr-ChatGPT-Image-20-may-2026_-12_03_44-a.m.-_1_.webp";
@@ -1276,7 +1487,7 @@
           onClick={onOpen}
           aria-haspopup="dialog"
           aria-label={`Ver detalles de ${card.title}`}
-          className="experience-detail-card liquid-glass group flex min-h-[290px] flex-col rounded-[1.25rem] p-6 text-left"
+          className="interactive-modal-trigger experience-detail-card liquid-glass group flex min-h-[290px] flex-col rounded-[1.25rem] p-6 text-left"
           initial={{ filter: "blur(10px)", opacity: 0, y: 24 }}
           whileInView={{ filter: "blur(0px)", opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
@@ -1301,8 +1512,10 @@
             <div className="mt-6">
               <h3 className="font-body text-2xl font-semibold leading-tight text-white md:text-3xl">{card.title}</h3>
               <p className="mt-3 max-w-[34ch] font-body text-[15px] font-normal leading-relaxed text-white/90">{card.body}</p>
-              <span className="mt-5 inline-flex items-center gap-2 font-body text-xs font-semibold uppercase tracking-[0.12em] text-white/75">
-                Ver detalles <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <span className="interaction-hint mt-5">
+                <span className="interaction-hint-touch">Toca para abrir</span>
+                <span className="interaction-hint-pointer">Ver detalles</span>
+                <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </span>
             </div>
           </div>
@@ -1314,23 +1527,23 @@
       const [active, setActive] = useState(0);
 
       return (
-        <div id="proceso" className="liquid-glass rounded-[1.75rem] p-4 md:p-5">
-          <div className="glass-content">
-            <div className="grid gap-2 md:grid-cols-3">
+        <div id="proceso" className="liquid-glass min-w-0 max-w-full rounded-[1.5rem] p-3 sm:p-4 md:rounded-[1.75rem] md:p-5">
+          <div className="glass-content min-w-0">
+            <div className="grid min-w-0 grid-cols-1 gap-2 md:grid-cols-3">
               {processCards.map(([title], index) => (
                 <button
                   key={title}
                   type="button"
                   onClick={() => setActive(index)}
-                  className={`rounded-full px-4 py-3 text-left font-body text-sm font-medium ${active === index ? "bg-white text-mary-ink" : "text-white/80"}`}
+                  className={`min-h-10 w-full rounded-full px-3 py-2 text-center font-body text-[13px] font-medium leading-tight md:whitespace-nowrap lg:text-sm ${active === index ? "bg-white text-mary-ink" : "text-white/80"}`}
                 >
                   0{index + 1} · {title}
                 </button>
               ))}
             </div>
-            <div className="mt-5 rounded-[1.25rem] bg-white/10 p-5">
-              <p className="font-body text-2xl font-semibold leading-tight text-white">{processCards[active][0]}</p>
-              <p className="mt-3 max-w-2xl font-body text-[15px] font-normal leading-relaxed text-white/90">{processCards[active][1]}</p>
+            <div className="mt-4 min-w-0 rounded-[1.1rem] bg-white/10 p-4 sm:p-5 md:mt-5 md:rounded-[1.25rem]">
+              <p className="break-words font-body text-xl font-semibold leading-tight text-white sm:text-2xl">{processCards[active][0]}</p>
+              <p className="mt-3 max-w-full break-words font-body text-sm font-normal leading-relaxed text-white/90 sm:text-[15px]">{processCards[active][1]}</p>
             </div>
           </div>
         </div>
@@ -1454,7 +1667,7 @@
                     onClick={() => setSelectedExperience(item)}
                     aria-haspopup="dialog"
                     aria-label={`Ver más sobre ${item.title}`}
-                    className="experience-detail-card liquid-glass group rounded-[1.25rem] p-5 text-left"
+                    className="interactive-modal-trigger experience-detail-card liquid-glass group rounded-[1.25rem] p-5 text-left"
                     initial={{ filter: "blur(10px)", opacity: 0, y: 20 }}
                     whileInView={{ filter: "blur(0px)", opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
@@ -1464,8 +1677,10 @@
                       <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/10 font-body text-xs font-semibold text-white/90">0{index + 1}</span>
                       <h3 className="mt-5 font-body text-base font-semibold leading-snug text-white">{item.title}</h3>
                       <p className="mt-3 font-body text-[15px] font-normal leading-relaxed text-white/90">{item.body}</p>
-                      <span className="mt-5 inline-flex items-center gap-2 font-body text-xs font-semibold uppercase tracking-[0.12em] text-white/75">
-                        Ver más <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      <span className="interaction-hint mt-5">
+                        <span className="interaction-hint-touch">Toca para abrir</span>
+                        <span className="interaction-hint-pointer">Ver más</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                       </span>
                     </div>
                   </motion.button>
@@ -1866,7 +2081,7 @@
                     aria-haspopup="dialog"
                     aria-label={`Leer testimonio completo de ${testimonial.name}`}
                     {...fadeIn(0.1 + (index * 0.08))}
-                    className="testimonial-card liquid-glass group flex flex-col rounded-[1.5rem] p-2"
+                    className="interactive-modal-trigger testimonial-card liquid-glass group flex flex-col rounded-[1.5rem] p-2"
                   >
                     <div className="glass-content flex h-full flex-col">
                       <div className="relative overflow-hidden rounded-[1.1rem]">
@@ -1885,6 +2100,11 @@
                       <div className="mx-5 mb-5 mt-5 border-t border-white/10 pt-4 font-body">
                         <p className="text-base font-semibold text-white">{testimonial.name}</p>
                         <p className="mt-1 text-xs font-medium uppercase tracking-[0.12em] text-white/70">Clienta de Maricela</p>
+                        <span className="interaction-hint mt-4">
+                          <span className="interaction-hint-touch">Toca para leer</span>
+                          <span className="interaction-hint-pointer">Leer historia</span>
+                          <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                        </span>
                       </div>
                     </div>
                   </motion.button>
@@ -1972,7 +2192,7 @@
 
     function Conversion() {
       return (
-        <section id="agenda" className="viewport-fill bg-dark-rose px-5 pb-28 pt-14 text-white md:px-16 md:pb-32 md:pt-16 lg:px-20 lg:pb-36 lg:pt-20">
+        <section id="agenda" className="viewport-fill overflow-hidden bg-dark-rose px-4 pb-28 pt-24 text-white sm:px-5 md:px-16 md:pb-32 md:pt-20 lg:px-20 lg:pb-36">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
             <img
               className="h-full w-full object-cover object-center opacity-55"
@@ -1981,24 +2201,43 @@
             />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(255,182,216,0.12),transparent_32%),linear-gradient(110deg,rgba(185,20,124,0.58)_0%,rgba(146,11,98,0.8)_45%,rgba(75,6,55,0.93)_100%)]" />
           </div>
-          <div className="relative z-10">
-          <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            <div>
-              <p className="mb-6 font-body text-sm font-medium text-white/80">// Agenda en 3 pasos</p>
-              <h2 className="font-heading text-6xl italic leading-[0.9] tracking-[-3px] text-white md:text-7xl">
+          <div className="relative z-10 min-w-0">
+          <div className="mx-auto grid min-w-0 max-w-7xl gap-6 md:gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
+            <div className="min-w-0">
+              <p className="mb-4 font-body text-sm font-medium text-white/80 sm:mb-6">// Agenda en 3 pasos</p>
+              <h2 className="max-w-full break-words font-heading text-[3.35rem] italic leading-[0.88] tracking-[-2px] text-white sm:text-6xl md:text-7xl md:tracking-[-3px]">
                 Sin presión.<br />Con claridad.
               </h2>
-              <p className="mt-6 max-w-xl font-body text-base font-normal leading-snug text-white/90">
+              <p className="mt-5 max-w-full break-words font-body text-[15px] font-normal leading-relaxed text-white/90 sm:mt-6 sm:max-w-xl sm:text-base sm:leading-snug">
                 No necesitas saber tu tipo de piel ni tener una rutina perfecta. Empezamos conversando y terminas con una guía más clara para cuidarte.
               </p>
-              <figure className="liquid-glass mt-7 overflow-hidden rounded-[1.6rem] p-2">
-                <div className="glass-content">
-                  <img className="h-[260px] w-full rounded-[1.25rem] object-cover object-[center_38%] sm:h-[330px]" src={MAIN_AGENDA_IMAGE} alt="Maricela explicando una guía de cuidado durante una asesoría" />
-                  <figcaption className="px-4 py-4 font-body text-sm font-semibold text-white/82">Conversamos, revisamos opciones y organizamos una rutina posible para ti.</figcaption>
+              <figure className="liquid-glass mt-6 min-w-0 max-w-full overflow-hidden rounded-[1.35rem] p-2 sm:mt-7 sm:rounded-[1.6rem]">
+                <div className="glass-content min-w-0">
+                  <img className="h-[250px] max-w-full rounded-[1.05rem] object-cover object-[58%_center] sm:h-[330px] sm:w-full sm:rounded-[1.25rem] sm:object-[center_38%]" src={MAIN_AGENDA_IMAGE} alt="Maricela explicando una guía de cuidado durante una asesoría" />
+                  <figcaption className="break-words px-3 py-3 font-body text-[13px] font-semibold leading-relaxed text-white/80 sm:px-4 sm:py-4 sm:text-sm">Conversamos, revisamos opciones y organizamos una rutina posible para ti.</figcaption>
                 </div>
               </figure>
             </div>
-            <ProcessTabs />
+            <div className="flex min-w-0 max-w-full flex-col gap-5">
+              <ProcessTabs />
+              <div className="liquid-glass min-w-0 max-w-full flex-1 rounded-[1.5rem] p-5 sm:p-6 md:rounded-[1.75rem] md:p-7">
+                <div className="glass-content flex h-full min-w-0 flex-col">
+                  <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-mary-soft">Lo que puedes esperar</p>
+                  <h3 className="mt-3 max-w-full break-words font-heading text-[2rem] italic leading-[0.94] text-white sm:text-4xl">Una conversación clara y personalizada.</h3>
+                  <div className="mt-5 grid min-w-0 gap-3 sm:mt-6 sm:grid-cols-3 lg:grid-cols-1">
+                    {["Escucha antes de recomendar", "Opciones adaptadas a tu rutina", "Libertad para decidir sin presión"].map((item) => (
+                      <div key={item} className="flex min-w-0 items-center gap-3 rounded-[1rem] bg-white/10 px-3 py-3 sm:px-4">
+                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/10 text-sm text-mary-soft" aria-hidden="true">✓</span>
+                        <p className="min-w-0 break-words font-body text-sm font-semibold text-white/90">{item}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <a href={WHATSAPP_MAIN} target="_blank" rel="noopener noreferrer" className="liquid-glass-strong mt-6 inline-flex w-full justify-center rounded-full px-4 py-2.5 font-body text-sm font-medium text-white sm:w-fit sm:px-5 lg:mt-auto">
+                    <span className="glass-content flex items-center justify-center gap-2">Iniciar conversación <ArrowUpRight /></span>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="mx-auto mt-14 grid max-w-7xl gap-8 lg:mt-16 lg:grid-cols-[0.95fr_1.05fr]">
@@ -2169,7 +2408,7 @@
                   </a>
                 ))}
                 <a href={WHATSAPP_OPPORTUNITY} target="_blank" rel="noopener noreferrer" className="ml-1 flex items-center gap-2 rounded-full bg-gradient-to-br from-mary-pink to-mary-vivid px-3 py-2 font-body text-xs font-semibold text-white shadow-[0_14px_34px_rgba(232,62,157,0.35)] whitespace-nowrap xl:px-4 xl:text-sm">
-                  Conversar
+                  Hablar conmigo
                   <ArrowUpRight className="h-4 w-4" />
                 </a>
               </div>
@@ -2203,7 +2442,7 @@
                     </a>
                   ))}
                   <a href={WHATSAPP_OPPORTUNITY} target="_blank" rel="noopener noreferrer" className="mt-1 flex items-center justify-center gap-2 rounded-full bg-gradient-to-br from-mary-pink to-mary-vivid px-4 py-3.5 font-body text-sm font-semibold text-white shadow-[0_14px_34px_rgba(232,62,157,0.35)]">
-                    Conversar con Maricela
+                    Conversar conmigo
                     <ArrowUpRight className="h-4 w-4" />
                   </a>
                 </div>
@@ -2400,16 +2639,30 @@
     }
 
 
-    function OpportunityPillCard({ children, delay = 0 }) {
+    function OpportunityPillCard({ item, delay = 0, onOpen }) {
       return (
-        <motion.div {...fadeIn(delay)} className="liquid-glass rounded-[1.45rem] p-5">
+        <motion.button
+          type="button"
+          onClick={onOpen}
+          aria-haspopup="dialog"
+          aria-label={`Conocer más: ${item.title}`}
+          {...fadeIn(delay)}
+          className="interactive-modal-trigger experience-detail-card liquid-glass group w-full rounded-[1.45rem] p-5 text-left"
+        >
           <div className="glass-content flex items-start gap-4">
             <span className="mt-1 grid h-9 w-9 flex-none place-items-center rounded-full bg-white/14 text-mary-soft">
               <SparkleIcon className="h-5 w-5" />
             </span>
-            <p className="font-body text-[15px] font-semibold leading-relaxed text-white/90">{children}</p>
+            <div className="min-w-0">
+              <p className="font-body text-[15px] font-semibold leading-relaxed text-white/90">{item.title}</p>
+              <span className="interaction-hint mt-4">
+                <span className="interaction-hint-touch">Toca para identificarte</span>
+                <span className="interaction-hint-pointer">Quiero saber más</span>
+                <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </span>
+            </div>
           </div>
-        </motion.div>
+        </motion.button>
       );
     }
 
@@ -2428,7 +2681,7 @@
       const questions = [
         {
           key: "motivacion",
-          label: "Lo que más me interesa",
+          label: "Quiero conocerte mejor",
           question: "¿Qué fue lo que más te llamó la atención de esta oportunidad?",
           options: [
             "Generar ingresos extra",
@@ -2441,7 +2694,7 @@
         },
         {
           key: "dolor",
-          label: "Lo que quiero mejorar",
+          label: "Cuéntame qué quieres mejorar",
           question: "¿Qué te gustaría cambiar o mejorar en esta etapa de tu vida?",
           options: [
             "Tener más ingresos",
@@ -2454,7 +2707,7 @@
         },
         {
           key: "objecion",
-          label: "Lo que más me detiene",
+          label: "Quiero entender qué te detiene",
           question: "¿Qué es lo que más te detiene?",
           options: [
             "Me da pena vender",
@@ -2467,13 +2720,13 @@
         },
         {
           key: "tiempo",
-          label: "Tiempo disponible",
+          label: "Veamos qué cabe en tu vida",
           question: "¿Cuánto tiempo real podrías dedicarle por semana si esto te interesa?",
           options: ["1 a 2 horas", "3 a 5 horas", "6 a 10 horas", "Más de 10 horas", "Aún no lo sé"]
         },
         {
           key: "apoyo",
-          label: "Apoyo que necesito",
+          label: "Así puedo acompañarte",
           question: "¿Qué tipo de apoyo necesitarías para sentirte más segura?",
           options: [
             "Guía paso a paso",
@@ -2486,7 +2739,7 @@
         },
         {
           key: "interes",
-          label: "Nivel de interés",
+          label: "Dime cómo te sientes ahora",
           question: "¿Qué tan interesada estás en conocer más?",
           options: [
             "Solo tengo curiosidad",
@@ -2498,7 +2751,7 @@
         },
         {
           key: "reunion",
-          label: "Tipo de reunión",
+          label: "Elige cómo quieres que conversemos",
           question: "¿Qué tipo de reunión prefieres?",
           options: ["Videollamada", "Llamada por WhatsApp", "Reunión presencial", "Solo mensajes por ahora"]
         }
@@ -2530,12 +2783,14 @@
 
       const profile = getProfile();
       const profileCopy = {
-        "Exploradora": "Estás en una etapa de curiosidad. Tal vez aún no tienes claro si esto es para ti, pero te interesa conocer opciones para crecer, aprender y generar algo adicional. La mejor reunión para ti sería una conversación tranquila, sin compromiso, donde puedas hacer preguntas y entender el modelo.",
-        "Interesada con dudas": "Te llama la atención la oportunidad, pero hay algo que todavía necesitas aclarar: tiempo, ventas, inversión o confianza. La reunión ideal para ti será enfocada en resolver tus dudas y explicarte cómo puedes iniciar paso a paso.",
-        "Lista para conocer el modelo": "Tus respuestas muestran que tienes interés real en entender cómo funciona Mary Kay y qué camino podrías seguir. El siguiente paso recomendado es agendar una reunión de oportunidad para conocer el proceso con más claridad."
+        "Exploradora": "Veo que estás en una etapa de curiosidad. Tal vez aún no tienes claro si esto es para ti, y está bien. Me gustaría conversar contigo sin compromiso, escuchar tus preguntas y explicarte el modelo con calma.",
+        "Interesada con dudas": "Veo que la oportunidad te llama la atención, pero todavía necesitas aclarar algo sobre tiempo, ventas, inversión o confianza. En nuestra conversación me enfocaré en esas dudas y te explicaré cómo sería avanzar paso a paso.",
+        "Lista para conocer el modelo": "Tus respuestas me muestran que quieres entender en serio cómo funciona Mary Kay y qué camino podrías seguir. Te propongo una conversación para explicarte el proceso con claridad y ayudarte a evaluar si encaja contigo."
       };
 
-      const isCompleteForm = (data) => data.nombre.trim() && data.whatsapp.trim() && data.ciudad.trim() && data.horario.trim() && data.permiso;
+      const normalizeSalvadorPhone = (value) => value.replace(/\D/g, "").replace(/^503/, "").slice(0, 8);
+      const isValidSalvadorPhone = (value) => /^[267]\d{7}$/.test(normalizeSalvadorPhone(value));
+      const isCompleteForm = (data) => data.nombre.trim() && isValidSalvadorPhone(data.whatsapp) && data.ciudad.trim() && data.horario.trim() && data.permiso;
       const dataIsValid = isCompleteForm(form);
       const message = [
         "Hola Maricela, acabo de completar la experiencia de oportunidad Mary Kay.",
@@ -2566,7 +2821,7 @@
       const continueFromData = async () => {
         const nextForm = {
           nombre: formRefs.current.nombre ? formRefs.current.nombre.value : "",
-          whatsapp: formRefs.current.whatsapp ? formRefs.current.whatsapp.value : "",
+          whatsapp: formRefs.current.whatsapp ? normalizeSalvadorPhone(formRefs.current.whatsapp.value) : "",
           ciudad: formRefs.current.ciudad ? formRefs.current.ciudad.value : "",
           horario: formRefs.current.horario ? formRefs.current.horario.value : "",
           comentario: formRefs.current.comentario ? formRefs.current.comentario.value : "",
@@ -2597,11 +2852,15 @@
 
         setSaveStatus("saving");
         try {
+          const formBody = new URLSearchParams();
+          Object.entries(payload).forEach(([key, value]) => {
+            formBody.append(key, String(value ?? ""));
+          });
+
           await fetch(GOOGLE_SHEETS_WEB_APP_URL, {
             method: "POST",
             mode: "no-cors",
-            headers: { "Content-Type": "text/plain;charset=utf-8" },
-            body: JSON.stringify(payload)
+            body: formBody
           });
           setSaveStatus("saved");
           setStep(questions.length + 1);
@@ -2616,7 +2875,7 @@
           <div className="glass-content">
             <div className="mb-7">
               <div className="flex items-center justify-between gap-4">
-                <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-white/62">Experiencia de validación</p>
+                <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-white/62">Una conversación conmigo, paso a paso</p>
                 <p className="font-body text-xs font-semibold text-white/70">{Math.min(step + 1, questions.length + 2)} / {questions.length + 2}</p>
               </div>
               <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/12">
@@ -2645,25 +2904,44 @@
 
             {isDataStep && (
               <motion.div key="data" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }}>
-                <p className="font-body text-sm font-semibold text-mary-soft">Datos para seguimiento</p>
-                <h3 className="mt-3 font-heading text-4xl italic leading-[0.95] tracking-[-1px] text-white md:text-5xl">Ahora dime cómo puede contactarte Maricela.</h3>
+                <p className="font-body text-sm font-semibold text-mary-soft">Quiero continuar contigo</p>
+                <h3 className="mt-3 font-heading text-4xl italic leading-[0.95] tracking-[-1px] text-white md:text-5xl">Ahora dime cómo prefieres que te contacte.</h3>
                 <div className="mt-7 grid gap-4 md:grid-cols-2">
                   {[
                     ["nombre", "Nombre completo"],
                     ["whatsapp", "WhatsApp"],
-                    ["ciudad", "Ciudad"],
-                    ["horario", "Horario preferido"]
+                    ["ciudad", "Ciudad"]
                   ].map(([key, label]) => (
                     <label key={key} className="block">
                       <span className="font-body text-xs font-semibold uppercase tracking-[0.12em] text-white/60">{label}</span>
                       <input
                         defaultValue={form[key]}
                         ref={(node) => { if (node) formRefs.current[key] = node; }}
+                        type={key === "whatsapp" ? "tel" : "text"}
+                        inputMode={key === "whatsapp" ? "numeric" : undefined}
+                        maxLength={key === "whatsapp" ? 8 : undefined}
+                        pattern={key === "whatsapp" ? "[267][0-9]{7}" : undefined}
+                        onInput={key === "whatsapp" ? (event) => {
+                          event.currentTarget.value = normalizeSalvadorPhone(event.currentTarget.value);
+                        } : undefined}
                         className="mt-2 w-full rounded-[1rem] border border-white/14 bg-white/10 px-4 py-3 font-body text-base text-white outline-none transition placeholder:text-white/35 focus:border-mary-soft"
-                        placeholder={label}
+                        placeholder={key === "whatsapp" ? "Ejemplo: 70876214" : label}
                       />
                     </label>
                   ))}
+                  <label className="block">
+                    <span className="font-body text-xs font-semibold uppercase tracking-[0.12em] text-white/60">Horario preferido</span>
+                    <select
+                      defaultValue={form.horario}
+                      ref={(node) => { if (node) formRefs.current.horario = node; }}
+                      className="mt-2 w-full rounded-[1rem] border border-white/14 bg-white/10 px-4 py-3 font-body text-base text-white outline-none transition focus:border-mary-soft"
+                    >
+                      <option value="" className="text-mary-ink">Selecciona un horario</option>
+                      <option value="Mañana" className="text-mary-ink">Mañana</option>
+                      <option value="Tarde" className="text-mary-ink">Tarde</option>
+                      <option value="Noche" className="text-mary-ink">Noche</option>
+                    </select>
+                  </label>
                 </div>
                 <label className="mt-4 block">
                   <span className="font-body text-xs font-semibold uppercase tracking-[0.12em] text-white/60">Comentario opcional</span>
@@ -2671,7 +2949,7 @@
                     defaultValue={form.comentario}
                     ref={(node) => { if (node) formRefs.current.comentario = node; }}
                     className="mt-2 min-h-[96px] w-full rounded-[1rem] border border-white/14 bg-white/10 px-4 py-3 font-body text-base text-white outline-none transition placeholder:text-white/35 focus:border-mary-soft"
-                    placeholder="Puedes contarle qué duda o meta tienes."
+                    placeholder="Me interesa conocer cómo puedo comenzar y cuánto tiempo necesitaría dedicarle."
                   />
                 </label>
                 <label className="mt-4 flex items-start gap-3 rounded-[1rem] bg-white/10 p-4">
@@ -2681,10 +2959,10 @@
                     ref={(node) => { if (node) formRefs.current.permiso = node; }}
                     className="mt-1 h-5 w-5 accent-mary-pink"
                   />
-                  <span className="font-body text-sm leading-relaxed text-white/82">Acepto que Maricela me contacte por WhatsApp para brindarme información sobre la oportunidad Mary Kay.</span>
+                  <span className="font-body text-sm leading-relaxed text-white/82">Acepto que Maricela me contacte por WhatsApp para conversar conmigo sobre la oportunidad Mary Kay.</span>
                 </label>
                 {touched && !dataIsValid && (
-                  <p className="mt-4 rounded-full bg-white/12 px-4 py-3 font-body text-sm font-semibold text-mary-soft">Completa nombre, WhatsApp, ciudad, horario y la autorización para continuar.</p>
+                  <p className="mt-4 rounded-[1rem] bg-white/12 px-4 py-3 font-body text-sm font-semibold text-mary-soft">Completa todos los campos. El WhatsApp debe ser un número salvadoreño válido de 8 dígitos que comience con 2, 6 o 7.</p>
                 )}
                 {saveStatus === "error" && (
                   <p className="mt-4 rounded-[1rem] border border-red-200/30 bg-red-950/30 px-4 py-3 font-body text-sm font-semibold text-red-100">No pudimos guardar la información. Revisa tu conexión e inténtalo nuevamente.</p>
@@ -2694,7 +2972,7 @@
 
             {isResultStep && (
               <motion.div key="result" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35 }}>
-                <p className="font-body text-sm font-semibold text-mary-soft">Tu resultado</p>
+                <p className="font-body text-sm font-semibold text-mary-soft">Esto es lo que veo en tus respuestas</p>
                 <h3 className="mt-3 font-heading text-5xl italic leading-[0.9] tracking-[-1px] text-white md:text-6xl">{profile}</h3>
                 <p className="mt-5 font-body text-base leading-relaxed text-white/86">{profileCopy[profile]}</p>
                 <div className="mt-6 grid gap-3 rounded-[1.25rem] bg-white/10 p-4 font-body text-sm text-white/82 sm:grid-cols-2">
@@ -2704,13 +2982,13 @@
                   <span><strong className="text-white">Horario:</strong> {form.horario}</span>
                 </div>
                 {saveStatus === "saved" && (
-                  <p className="mt-4 rounded-full bg-white/12 px-4 py-3 font-body text-sm font-semibold text-mary-soft">Tu información completa quedó registrada correctamente.</p>
+                  <p className="mt-4 rounded-[1rem] bg-white/12 px-4 py-3 font-body text-sm font-semibold text-mary-soft">La solicitud fue enviada al registro. Maricela podrá confirmar tus datos al contactarte.</p>
                 )}
                 {saveStatus === "setup" && (
                   <p className="mt-4 rounded-[1rem] border border-amber-200/25 bg-amber-950/25 px-4 py-3 font-body text-sm font-semibold text-amber-100">El resultado está listo. El registro automático en Google Sheets está pendiente de activación.</p>
                 )}
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="liquid-glass-strong mt-7 inline-flex w-full items-center justify-center rounded-full px-6 py-4 font-body text-base font-semibold text-white sm:w-auto">
-                  <span className="glass-content flex items-center gap-2">Solicitar reunión con Maricela <ArrowUpRight className="h-5 w-5" /></span>
+                  <span className="glass-content flex items-center gap-2">Quiero conversar contigo, Maricela <ArrowUpRight className="h-5 w-5" /></span>
                 </a>
               </motion.div>
             )}
@@ -2736,6 +3014,13 @@
     }
 
     function OpportunityBusinessPage() {
+      const [selectedIdentity, setSelectedIdentity] = useState(null);
+      const [selectedPain, setSelectedPain] = useState(null);
+      const [selectedObjection, setSelectedObjection] = useState(null);
+      const identityCloseRef = useRef(null);
+      const painCloseRef = useRef(null);
+      const objectionCloseRef = useRef(null);
+
       useEffect(() => {
         const previousTitle = document.title;
         document.title = "Oportunidad Mary Kay | Maricela Monchez";
@@ -2744,48 +3029,247 @@
         };
       }, []);
 
+      useEffect(() => {
+        if (!selectedIdentity) return undefined;
+        const previousOverflow = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+        window.setTimeout(() => identityCloseRef.current?.focus(), 0);
+
+        const handleKeyDown = (event) => {
+          if (event.key === "Escape") setSelectedIdentity(null);
+        };
+
+        document.addEventListener("keydown", handleKeyDown);
+        return () => {
+          document.body.style.overflow = previousOverflow;
+          document.removeEventListener("keydown", handleKeyDown);
+        };
+      }, [selectedIdentity]);
+
+      useEffect(() => {
+        if (!selectedPain) return undefined;
+        const previousOverflow = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+        window.setTimeout(() => painCloseRef.current?.focus(), 0);
+
+        const handleKeyDown = (event) => {
+          if (event.key === "Escape") setSelectedPain(null);
+        };
+
+        document.addEventListener("keydown", handleKeyDown);
+        return () => {
+          document.body.style.overflow = previousOverflow;
+          document.removeEventListener("keydown", handleKeyDown);
+        };
+      }, [selectedPain]);
+
+      useEffect(() => {
+        if (!selectedObjection) return undefined;
+        const previousOverflow = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+        window.setTimeout(() => objectionCloseRef.current?.focus(), 0);
+
+        const handleKeyDown = (event) => {
+          if (event.key === "Escape") setSelectedObjection(null);
+        };
+
+        document.addEventListener("keydown", handleKeyDown);
+        return () => {
+          document.body.style.overflow = previousOverflow;
+          document.removeEventListener("keydown", handleKeyDown);
+        };
+      }, [selectedObjection]);
+
       const identityBlocks = [
-        "Quieres generar ingresos extra sin dejar de ser tú.",
-        "Quieres sentir que estás construyendo algo propio.",
-        "Quieres crecer, aprender y recuperar confianza.",
-        "Quieres tener una guía, no sentirte sola ni improvisar."
+        {
+          title: "Quieres generar ingresos extra sin dejar de ser tú.",
+          eyebrow: "Cuando el dinero se siente limitado",
+          headline: "No siempre buscas más cosas. A veces buscas respirar con más tranquilidad.",
+          reality: "Quizá haces rendir cada dólar, pospones algo para ti o deseas aportar más en casa sin abandonar tus responsabilidades actuales.",
+          tension: "Seguir esperando el momento perfecto puede mantenerte en el mismo lugar. Pero empezar tampoco significa arriesgar tu estabilidad ni aceptar promesas rápidas.",
+          possibility: "Yo puedo explicarte una actividad flexible basada en relaciones, servicio y recomendaciones. También seré clara contigo: los ingresos no están garantizados y dependen de ventas, constancia, tiempo y aprendizaje.",
+          support: ["Revisaremos costos y expectativas antes de decidir", "Te ayudaré a definir una meta adicional realista", "Practicaremos cómo compartir sin presionar"],
+          question: "¿Qué cambiaría para ti contar con un ingreso adicional construido a tu ritmo?"
+        },
+        {
+          title: "Quieres sentir que estás construyendo algo propio.",
+          eyebrow: "Cuando das mucho, pero extrañas una meta tuya",
+          headline: "También puedes reservar una parte de tu energía para algo que lleve tu nombre.",
+          reality: "Tal vez cumples con muchas responsabilidades y aun así sientes que te falta un proyecto donde tus decisiones, avances y aprendizajes también sean tuyos.",
+          tension: "Esa inquietud no desaparece solamente manteniéndote ocupada. A veces crece cuando vuelves a dejarte para después.",
+          possibility: "Puedo mostrarte cómo un negocio independiente puede darte un espacio para fijar metas y desarrollar una cartera de clientas. También te explicaré el trabajo constante que requiere y por qué los resultados varían.",
+          support: ["Crearemos objetivos pequeños y medibles", "Buscaremos una forma de avanzar sin abandonar tu vida actual", "Te ayudaré a reconocer progreso más allá de una venta"],
+          question: "¿Hace cuánto no trabajas en una meta elegida principalmente por ti?"
+        },
+        {
+          title: "Quieres crecer, aprender y recuperar confianza.",
+          eyebrow: "Cuando sabes que puedes dar más",
+          headline: "La confianza no siempre llega antes de empezar. Muchas veces se construye practicando.",
+          reality: "Puedes sentir que has perdido seguridad, que te cuesta hablar de lo que haces o que llevas tiempo sin aprender algo que te entusiasme.",
+          tension: "Esperar a sentirte completamente preparada puede convertirse en otra forma de postergar aquello que podría ayudarte a crecer.",
+          possibility: "Yo puedo acompañarte a practicar comunicación, seguimiento, organización y liderazgo. No voy a prometerte cambios inmediatos, pero sí oportunidades reales para desarrollar esas habilidades.",
+          support: ["Practicaremos juntas antes de que lo hagas sola", "Te compartiré herramientas para conversar con naturalidad", "Te daré retroalimentación para mejorar paso a paso"],
+          question: "¿Qué versión de ti podría aparecer si vuelves a darte permiso de aprender?"
+        },
+        {
+          title: "Quieres tener una guía, no sentirte sola ni improvisar.",
+          eyebrow: "Cuando el miedo no es empezar, sino no saber cómo",
+          headline: "No necesitas tener todas las respuestas para hacer una primera pregunta.",
+          reality: "Tal vez la idea te interesa, pero te preocupa vender, equivocarte, invertir sin entender o no saber a quién acudir cuando aparezcan dudas.",
+          tension: "Improvisar puede generar frustración. Una explicación clara antes de decidir te permite distinguir una oportunidad adecuada de una decisión impulsiva.",
+          possibility: "Yo te explicaré el modelo, los costos, las actividades y el acompañamiento disponible antes de que te comprometas. La decisión final seguirá siendo completamente tuya.",
+          support: ["Te explicaré la ruta inicial paso a paso", "Podrás preguntarme sin sentir presión", "Tendrás mi acompañamiento y una comunidad durante el aprendizaje"],
+          question: "¿Te sentirías diferente si pudieras entender el camino antes de decidir recorrerlo?"
+        }
       ];
 
       const painBlocks = [
-        ["Ingresos extra", "A veces no se trata de querer lujos. A veces solo quieres respirar un poco más tranquila, tener un ingreso extra, darte tus gustos sin culpa o aportar más en casa sin sentirte limitada."],
-        ["Estancamiento", "Tal vez llevas tiempo sintiendo que quieres algo más, pero no sabes por dónde empezar."],
-        ["Reconocimiento", "Hay mujeres que dan mucho por todos, pero pocas veces se detienen a preguntarse: ¿qué estoy construyendo para mí?"],
-        ["Miedo a vender", "Tu miedo no significa que no puedas. Significa que necesitas guía, práctica y una forma más natural de compartir."],
-        ["Primer paso", "No necesitas tenerlo todo claro para empezar a preguntar. A veces el primer paso no es decidir, es permitirte conocer."],
-        ["Comunidad", "No tienes que hacerlo sola. Una guía cercana y una comunidad pueden hacer que el camino se sienta más humano."],
-        ["Confianza", "No se trata de convertirte en alguien más. Se trata de descubrir lo que puedes construir siendo tú."]
+        {
+          title: "Ingresos extra",
+          summary: "A veces no se trata de querer lujos. A veces solo quieres respirar un poco más tranquila, tener un ingreso extra, darte tus gustos sin culpa o aportar más en casa sin sentirte limitada.",
+          eyebrow: "Cuando cada gasto requiere pensarlo dos veces",
+          headline: "Querer más tranquilidad económica no te hace inconforme. Puede ser una señal de que deseas ampliar tus opciones.",
+          reality: "Quizá el dinero alcanza justo, dependes de un solo ingreso o te cuesta destinar algo para una meta personal. Esa presión puede sentirse silenciosa, pero constante.",
+          tension: "Un ingreso adicional no aparece de inmediato ni está garantizado. Ignorar la inquietud tampoco cambia la situación: necesitas información para evaluar caminos posibles sin poner en riesgo lo que ya tienes.",
+          possibility: "Puedo explicarte qué requiere realmente una actividad comercial flexible: costos, ventas, seguimiento, tiempo y constancia. Con esos datos te ayudaré a evaluar si encaja en tu economía.",
+          support: ["Revisaremos expectativas y costos con claridad", "Te ayudaré a definir una meta de ingreso posible", "Te enseñaré hábitos comerciales paso a paso"],
+          question: "¿Qué preocupación concreta aliviarías primero si lograras generar un ingreso adicional?"
+        },
+        {
+          title: "Estancamiento",
+          summary: "Tal vez llevas tiempo sintiendo que quieres algo más, pero no sabes por dónde empezar.",
+          eyebrow: "Cuando los días avanzan, pero tú sientes que sigues igual",
+          headline: "Sentirte estancada no significa que hayas fracasado. Puede indicar que necesitas una meta nueva.",
+          reality: "Tal vez tienes ideas, energía o deseos de crecer, pero ninguna ruta clara. Postergas el comienzo porque no sabes cuál debería ser el primer movimiento.",
+          tension: "Esperar certeza absoluta suele prolongar la sensación de inmovilidad. Sin embargo, moverte no exige comprometerte de inmediato: primero puedes investigar y comparar.",
+          possibility: "Puedo mostrarte el modelo para que evalúes tus habilidades, tiempo y objetivos. Incluso si decides no iniciar, quiero que nuestra conversación te ayude a definir qué buscas.",
+          support: ["Convertiremos tu inquietud en preguntas concretas", "Te mostraré la ruta antes de que te comprometas", "Definiremos un primer objetivo pequeño"],
+          question: "Si dentro de seis meses todo siguiera igual, ¿qué sería lo que más te pesaría?"
+        },
+        {
+          title: "Reconocimiento",
+          summary: "Hay mujeres que dan mucho por todos, pero pocas veces se detienen a preguntarse: ¿qué estoy construyendo para mí?",
+          eyebrow: "Cuando todos cuentan contigo, pero tú también necesitas verte avanzar",
+          headline: "Tu valor no depende del reconocimiento externo, pero también mereces construir algo que te haga sentir orgullosa.",
+          reality: "Puedes ser quien resuelve, acompaña y sostiene a otros, mientras tus propias metas quedan para después. Con el tiempo, eso puede hacerte sentir invisible.",
+          tension: "Buscar reconocimiento no significa competir ni demostrarle algo a nadie. Se trata de recuperar evidencia personal de que puedes aprender, crear y avanzar.",
+          possibility: "Quiero mostrarte cómo un proyecto independiente puede ofrecerte metas, responsabilidades y resultados observables. Seré honesta: requiere esfuerzo y no garantiza éxito, pero puede darte un espacio propio de desarrollo.",
+          support: ["Definiremos metas basadas en acciones medibles", "Reconoceré contigo tu aprendizaje y constancia", "Te acompañaré a construir una identidad profesional auténtica"],
+          question: "¿Qué logro personal te gustaría poder mirar y decir: esto también lo construí yo?"
+        },
+        {
+          title: "Miedo a vender",
+          summary: "Tu miedo no significa que no puedas. Significa que necesitas guía, práctica y una forma más natural de compartir.",
+          eyebrow: "Cuando vender se siente como presionar",
+          headline: "No tienes que convertirte en una persona insistente para aprender a recomendar.",
+          reality: "Quizá temes incomodar, recibir un no o sentir que tus relaciones cambian. Ese miedo es comprensible si tu idea de vender está asociada con perseguir o convencer.",
+          tension: "Evitar toda conversación te protege del rechazo, pero también impide descubrir una manera ética de comunicar valor. El objetivo no es convencer a cualquiera.",
+          possibility: "Puedo enseñarte a preguntar, escuchar necesidades, explicar opciones y respetar decisiones. Practicaremos una forma honesta de vender, incluyendo seguimiento y manejo del rechazo.",
+          support: ["Te compartiré guiones flexibles para conversar", "Practicaremos antes de hablar con clientas", "Te ayudaré a recibir un no sin tomarlo personal"],
+          question: "¿Cambiaría tu percepción si vender significara orientar y dejar que la otra persona decida?"
+        },
+        {
+          title: "Primer paso",
+          summary: "No necesitas tenerlo todo claro para empezar a preguntar. A veces el primer paso no es decidir, es permitirte conocer.",
+          eyebrow: "Cuando la decisión completa se siente demasiado grande",
+          headline: "Tu siguiente paso puede ser pequeño: entender antes de elegir.",
+          reality: "Puedes sentir curiosidad y miedo al mismo tiempo. Quizá piensas que pedir información ya te obliga a iniciar, invertir o comprometerte.",
+          tension: "Confundir información con compromiso hace que muchas decisiones se posterguen. Conocer no te obliga; te permite evaluar con mejores criterios.",
+          possibility: "En nuestra primera conversación te explicaré funcionamiento, costos, actividades, apoyo y expectativas. Después tendrás espacio para decidir con calma si deseas avanzar.",
+          support: ["Prepararé contigo preguntas importantes", "Te explicaré todo sin obligación de iniciar", "Te daré tiempo para evaluar después de conversar"],
+          question: "¿Qué necesitarías entender para sentir que estás tomando una decisión informada?"
+        },
+        {
+          title: "Comunidad",
+          summary: "No tienes que hacerlo sola. Una guía cercana y una comunidad pueden hacer que el camino se sienta más humano.",
+          eyebrow: "Cuando avanzar sola se siente pesado",
+          headline: "El acompañamiento no hace el trabajo por ti, pero puede evitar que cada duda se convierta en una barrera.",
+          reality: "Empezar algo nuevo puede sentirse aislado cuando no sabes a quién preguntar, cómo corregir un error o si lo que estás viviendo es normal.",
+          tension: "Una comunidad no sustituye tu constancia ni garantiza resultados. Su valor está en compartir experiencia, práctica y apoyo mientras desarrollas autonomía.",
+          possibility: "Te explicaré qué acompañamiento puedo darte, con qué frecuencia, qué herramientas tendrás y qué responsabilidades seguirán siendo tuyas.",
+          support: ["Estaré disponible para tus dudas iniciales", "Te integraré a espacios de aprendizaje compartido", "Te acompañaré mientras desarrollas autonomía"],
+          question: "¿Qué tipo de apoyo te ayudaría a avanzar sin sentir que tienes que improvisarlo todo?"
+        },
+        {
+          title: "Confianza",
+          summary: "No se trata de convertirte en alguien más. Se trata de descubrir lo que puedes construir siendo tú.",
+          eyebrow: "Cuando dudas de ti antes de intentarlo",
+          headline: "La confianza suele ser el resultado de pequeñas acciones repetidas, no un requisito para comenzar.",
+          reality: "Quizá comparas tu forma de hablar, tu experiencia o tu seguridad con la de otras personas y concluyes que no tienes el perfil.",
+          tension: "Esperar a sentirte segura puede mantenerte lejos de las experiencias que precisamente desarrollan seguridad. Pero crecer tampoco requiere fingir una personalidad que no tienes.",
+          possibility: "Puedo ayudarte a practicar habilidades concretas conservando tu estilo: escuchar, explicar, organizarte y dar seguimiento. Avanzaremos gradualmente y tu progreso dependerá de la práctica.",
+          support: ["Te propondré retos pequeños y progresivos", "Te daré retroalimentación específica", "Construiremos desde tus fortalezas personales"],
+          question: "¿Qué intentarías si no necesitaras hacerlo perfecto desde la primera vez?"
+        }
       ];
 
       const objections = [
-        [
-          "“Me da pena vender. No quiero incomodar a nadie.”",
-          "Es normal que no quieras presionar a nadie. Puedes aprender a escuchar, recomendar con honestidad y respetar un “no” sin dejar de ser tú."
-        ],
-        [
-          "“No tengo mucho tiempo. Mi vida ya está llena.”",
-          "Sí requiere tiempo y constancia, pero no tienes que descuidar tu vida. Lo importante es descubrir si puedes reservar un espacio pequeño y realista."
-        ],
-        [
-          "“No conozco a tanta gente. ¿A quién le voy a hablar?”",
-          "No necesitas una agenda llena ni hablarle a todo el mundo. Puedes comenzar con conversaciones naturales y construir relaciones poco a poco."
-        ],
-        [
-          "“No sé si soy buena para esto.”",
-          "Nadie comienza sabiéndolo todo. La seguridad, la comunicación y el seguimiento son habilidades que puedes aprender con práctica y acompañamiento."
-        ],
-        [
-          "“Me preocupa invertir y después arrepentirme.”",
-          "Es una preocupación válida cuando cada gasto cuenta. Antes de decidir, debes conocer claramente los costos y confirmar que sea adecuado para tu economía."
-        ],
-        [
-          "“Me da miedo que me digan que no.”",
-          "Un “no” puede doler, pero no define tu valor ni tu capacidad. Aprenderás a recibirlo sin tomarlo como algo personal y seguir adelante."
-        ]
+        {
+          title: "“Me da pena vender. No quiero incomodar a nadie.”",
+          summary: "Es normal que no quieras presionar a nadie. Puedes aprender a escuchar, recomendar con honestidad y respetar un “no” sin dejar de ser tú.",
+          eyebrow: "Cuando vender se siente contrario a tu forma de ser",
+          headline: "No necesitas perseguir ni convencer. Necesitas aprender a conversar con respeto.",
+          reality: "La pena suele aparecer cuando imaginas que tendrás que insistir, escribirle a todo el mundo o convertir cada relación en una venta. Es lógico rechazar esa forma de actuar.",
+          verify: "Antes de iniciar, quiero que me preguntes cómo contactarías personas, qué prácticas considero adecuadas y cómo puedes trabajar desde recomendaciones honestas sin presionar.",
+          approach: "Yo practicaré contigo preguntas abiertas, escucha de necesidades, explicación de alternativas y aceptación de un no. Te mostraré que una conversación útil también puede terminar sin venta.",
+          criteria: ["Te enseñaré a respetar límites y decisiones", "Practicaremos escuchar antes de recomendar", "No te pediré fingir una personalidad insistente"],
+          question: "¿Te sentirías diferente si supieras que orientar bien también significa saber cuándo no recomendar?"
+        },
+        {
+          title: "“No tengo mucho tiempo. Mi vida ya está llena.”",
+          summary: "Sí requiere tiempo y constancia, pero no tienes que descuidar tu vida. Lo importante es descubrir si puedes reservar un espacio pequeño y realista.",
+          eyebrow: "Cuando el interés existe, pero tu agenda ya está llena",
+          headline: "La flexibilidad no significa que no requiera tiempo. Significa que puedes evaluar dónde cabe de forma realista.",
+          reality: "Entre trabajo, familia y responsabilidades, una nueva actividad puede sentirse imposible. El riesgo está en aceptar expectativas que no coinciden con tu vida.",
+          verify: "Pregúntame cuántas horas suelen requerir las tareas, qué actividades son indispensables y qué resultados serían razonables con el tiempo que realmente tienes.",
+          approach: "Te propondré comenzar midiendo una franja pequeña durante varias semanas. Si no puedes sostenerla sin afectar prioridades importantes, te diré con honestidad que también es válido esperar.",
+          criteria: ["Definiremos un horario semanal concreto", "Protegeremos tus prioridades familiares y personales", "Ajustaremos expectativas al tiempo disponible"],
+          question: "¿Qué espacio podrías reservar de forma constante sin vivir agotada ni descuidar lo importante?"
+        },
+        {
+          title: "“No conozco a tanta gente. ¿A quién le voy a hablar?”",
+          summary: "No necesitas una agenda llena ni hablarle a todo el mundo. Puedes comenzar con conversaciones naturales y construir relaciones poco a poco.",
+          eyebrow: "Cuando crees que tu red es demasiado pequeña",
+          headline: "Una lista enorme de contactos no reemplaza la confianza ni el servicio.",
+          reality: "Es fácil pensar que el negocio depende únicamente de cuántas personas conoces hoy. Esa idea puede hacerte sentir limitada antes de aprender a crear nuevas relaciones.",
+          verify: "Pregúntame cómo puedes conocer clientas de manera ética, qué herramientas te compartiré para seguimiento y qué prácticas debes evitar para no invadir contactos.",
+          approach: "Te enseñaré a atender bien, pedir referencias con permiso, participar en espacios adecuados y construir presencia poco a poco. Seré clara contigo: una red requiere tiempo.",
+          criteria: ["Usaremos métodos que respeten privacidad y consentimiento", "Te enseñaré seguimiento basado en servicio", "Mantendremos expectativas de crecimiento gradual"],
+          question: "¿Podrías comenzar cuidando muy bien unas pocas relaciones en lugar de intentar hablarle a todo el mundo?"
+        },
+        {
+          title: "“No sé si soy buena para esto.”",
+          summary: "Nadie comienza sabiéndolo todo. La seguridad, la comunicación y el seguimiento son habilidades que puedes aprender con práctica y acompañamiento.",
+          eyebrow: "Cuando te comparas con alguien que ya tiene experiencia",
+          headline: "No saber todavía no significa no poder aprender.",
+          reality: "Puedes mirar a otras personas comunicándose con seguridad y asumir que ellas nacieron con esa habilidad. Generalmente estás comparando tu inicio con su proceso avanzado.",
+          verify: "Pregúntame qué capacitación concreta recibirás, cómo practicaremos antes de atender a alguien y cómo te acompañaré cuando cometas errores.",
+          approach: "Yo dividiré contigo el aprendizaje en habilidades pequeñas: explicar un producto, hacer preguntas, registrar seguimiento y cerrar una conversación con respeto.",
+          criteria: ["Te daré capacitación práctica y comprensible", "Recibirás retroalimentación específica", "Mediremos progreso por acciones, no por perfección"],
+          question: "¿Qué habilidad te gustaría comprobar que sí puedes aprender si tuvieras práctica y guía?"
+        },
+        {
+          title: "“Me preocupa invertir y después arrepentirme.”",
+          summary: "Es una preocupación válida cuando cada gasto cuenta. Antes de decidir, debes conocer claramente los costos y confirmar que sea adecuado para tu economía.",
+          eyebrow: "Cuando una inversión puede afectar tu tranquilidad",
+          headline: "La emoción nunca debería sustituir una revisión clara de costos, riesgos y condiciones.",
+          reality: "Si el dinero está ajustado, cualquier desembolso merece cuidado. Sentir dudas no es falta de compromiso: es una señal para pedir información completa.",
+          verify: "Pídeme costos iniciales y recurrentes, políticas de devolución, obligaciones, inventario requerido y gastos adicionales. Yo te recomendaré proteger siempre el dinero de tus necesidades esenciales.",
+          approach: "Revisaré contigo un escenario sin ventas y uno conservador, no solo el optimista. Quiero que decidas únicamente si puedes asumir el costo sin deuda problemática ni presión.",
+          criteria: ["Te explicaré los costos totales con claridad", "Protegeremos tu dinero esencial", "No te presionaré con urgencia ni endeudamiento"],
+          question: "¿Podrías asumir el costo incluso si los resultados tardaran más de lo esperado?"
+        },
+        {
+          title: "“Me da miedo que me digan que no.”",
+          summary: "Un “no” puede doler, pero no define tu valor ni tu capacidad. Aprenderás a recibirlo sin tomarlo como algo personal y seguir adelante.",
+          eyebrow: "Cuando el rechazo se siente personal",
+          headline: "Un no habla de una decisión en ese momento. No es una evaluación de tu valor.",
+          reality: "Si te importa hacer las cosas bien, un rechazo puede sentirse como señal de que fallaste. Eso puede llevarte a evitar conversaciones o insistir demasiado para cambiar la respuesta.",
+          verify: "Pregúntame cómo te enseñaré a manejar objeciones y cómo respetaremos la decisión de cada persona. Quiero que sepas que recibir un no no será motivo de culpa.",
+          approach: "Te ayudaré a separar tu identidad del resultado, revisar lo aprendido y cerrar con respeto. También te enseñaré que constancia no significa insistirle a la misma persona.",
+          criteria: ["Respetaremos inmediatamente cada respuesta", "Aprenderás sin culpa ni humillación", "Darás seguimiento solo cuando exista permiso"],
+          question: "¿Qué cambiaría si vieras cada no como información y no como una sentencia sobre ti?"
+        }
       ];
 
       return (
@@ -2800,17 +3284,17 @@
               <motion.div {...fadeIn(0)}>
                 <p className="mb-5 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 font-body text-sm font-semibold text-white/86 backdrop-blur-xl">Maricela Monchez · Oportunidad Mary Kay</p>
                 <h1 className="max-w-[840px] font-heading text-[4rem] italic leading-[0.86] tracking-[-3px] text-white sm:text-[5.4rem] lg:text-[6.4rem]">
-                  Descubre si la oportunidad Mary Kay puede ser para ti
+                  Quiero ayudarte a descubrir si esta oportunidad puede ser para ti
                 </h1>
                 <p className="mt-7 max-w-2xl font-body text-lg font-normal leading-relaxed text-white/90">
-                  No tienes que decidir hoy. Solo date la oportunidad de entender si este camino conecta con tus metas, tu tiempo y tu momento de vida.
+                  No tienes que decidir hoy. Primero quiero escucharte, conocer tus metas y explicarte con honestidad cómo funciona este camino.
                 </p>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   <a href="#diagnostico" className="liquid-glass-strong inline-flex justify-center rounded-full px-6 py-3.5 font-body text-sm font-semibold text-white">
-                    <span className="glass-content flex items-center gap-2">Comenzar experiencia <PlayIcon /></span>
+                    <span className="glass-content flex items-center gap-2">Quiero que me conozcas <PlayIcon /></span>
                   </a>
                   <a href={WHATSAPP_OPPORTUNITY} target="_blank" rel="noopener noreferrer" className="rounded-full bg-gradient-to-br from-mary-pink to-mary-vivid px-6 py-3.5 text-center font-body text-sm font-semibold text-white shadow-[0_18px_45px_rgba(232,62,157,0.35)]">
-                    Solicitar reunión con Maricela
+                    Quiero conversar contigo
                   </a>
                 </div>
               </motion.div>
@@ -2820,7 +3304,7 @@
                   <img className="h-[300px] w-full rounded-[1.55rem] object-cover object-[center_30%] sm:h-[390px] lg:h-[430px]" src={OPPORTUNITY_CONVERSATION_IMAGE} alt="Maricela conversando con una mujer sobre productos Mary Kay" />
                   <div className="px-4 pb-5 pt-5 md:px-6">
                     <p className="font-body text-xs font-semibold uppercase tracking-[0.18em] text-white/60">Una conversación antes de decidir</p>
-                    <p className="mt-3 font-heading text-3xl italic leading-none text-white">Primero entiende cómo funciona. Después decides.</p>
+                    <p className="mt-3 font-heading text-3xl italic leading-none text-white">Quiero escucharte y explicártelo con claridad. Después tú decides.</p>
                   </div>
                 </div>
               </motion.div>
@@ -2832,14 +3316,71 @@
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(112deg,rgba(75,6,55,0.97)_0%,rgba(146,11,98,0.86)_48%,rgba(185,20,124,0.42)_100%)]" />
             <div className="relative z-10 mx-auto max-w-7xl">
               <motion.div {...fadeIn(0)} className="max-w-3xl">
-                <p className="mb-5 font-body text-sm font-medium text-white/70">// Identificación</p>
-                <h2 className="font-heading text-5xl italic leading-[0.92] tracking-[-2px] text-white md:text-7xl">A veces no buscas vender. Buscas una nueva posibilidad.</h2>
+                <p className="mb-5 font-body text-sm font-medium text-white/70">// Quiero entender qué estás buscando</p>
+                <h2 className="font-heading text-5xl italic leading-[0.92] tracking-[-2px] text-white md:text-7xl">Tal vez no estás buscando vender. Tal vez estás buscando una nueva posibilidad.</h2>
               </motion.div>
               <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-                {identityBlocks.map((item, index) => <OpportunityPillCard key={item} delay={index * 0.06}>{item}</OpportunityPillCard>)}
+                {identityBlocks.map((item, index) => (
+                  <OpportunityPillCard key={item.title} item={item} delay={index * 0.06} onOpen={() => setSelectedIdentity(item)} />
+                ))}
               </div>
             </div>
           </section>
+
+          {selectedIdentity && (
+            <div
+              className="testimonial-overlay"
+              onMouseDown={(event) => {
+                if (event.target === event.currentTarget) setSelectedIdentity(null);
+              }}
+            >
+              <div className="testimonial-modal" role="dialog" aria-modal="true" aria-labelledby="identity-dialog-title">
+                <button
+                  ref={identityCloseRef}
+                  type="button"
+                  className="testimonial-modal-close"
+                  onClick={() => setSelectedIdentity(null)}
+                  aria-label="Cerrar reflexión"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <div className="identity-modal-layout">
+                  <div className="identity-modal-intro">
+                    <p className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-mary-gold">{selectedIdentity.eyebrow}</p>
+                    <h3 id="identity-dialog-title" className="mt-4 font-heading text-4xl italic leading-[0.92] tracking-[-1px] text-white sm:text-5xl">
+                      {selectedIdentity.headline}
+                    </h3>
+                    <p className="mt-6 font-body text-base leading-relaxed text-white/90">{selectedIdentity.reality}</p>
+                    <p className="mt-5 rounded-[1.1rem] border border-white/12 bg-white/10 p-4 font-body text-[15px] leading-relaxed text-white/84">
+                      {selectedIdentity.question}
+                    </p>
+                  </div>
+                  <div className="identity-modal-details">
+                    <div>
+                      <p className="font-body text-xs font-semibold uppercase tracking-[0.16em] text-mary-soft">Esto es lo que quiero ayudarte a reconocer</p>
+                      <p className="mt-3 font-body text-[15px] leading-relaxed text-white/86">{selectedIdentity.tension}</p>
+                    </div>
+                    <div className="mt-6">
+                      <p className="font-body text-xs font-semibold uppercase tracking-[0.16em] text-mary-soft">Así podemos explorarlo juntas</p>
+                      <p className="mt-3 font-body text-[15px] leading-relaxed text-white/86">{selectedIdentity.possibility}</p>
+                    </div>
+                    <div className="mt-6 grid gap-3">
+                      {selectedIdentity.support.map((item) => (
+                        <div key={item} className="flex items-center gap-3 rounded-[1rem] bg-white/10 px-4 py-3">
+                          <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-white/10 text-mary-soft" aria-hidden="true">✓</span>
+                          <p className="font-body text-sm font-semibold text-white/90">{item}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <a href={WHATSAPP_OPPORTUNITY} target="_blank" rel="noopener noreferrer" className="liquid-glass-strong mt-7 inline-flex w-full justify-center rounded-full px-5 py-3 font-body text-sm font-semibold text-white sm:w-auto">
+                      <span className="glass-content flex items-center gap-2">Quiero hablarlo contigo, Maricela <ArrowUpRight /></span>
+                    </a>
+                    <p className="mt-4 font-body text-xs leading-relaxed text-white/60">Mi conversación contigo será informativa, sin obligación de iniciar y sin garantía de ingresos.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
 
           <section id="camino" className="viewport-fill relative overflow-hidden bg-soft-blush px-5 py-16 text-mary-ink md:px-16 md:py-20 lg:px-20">
             <img className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center opacity-28" src={OPPORTUNITY_GUIDE_IMAGE} alt="" aria-hidden="true" />
@@ -2847,24 +3388,92 @@
             <div className="relative z-10 mx-auto max-w-7xl">
               <div className="grid gap-8 lg:grid-cols-[1fr_0.72fr] lg:items-center">
                 <motion.div {...fadeIn(0)} className="max-w-3xl">
-                  <p className="mb-5 font-body text-sm font-semibold uppercase tracking-[0.18em] text-mary-pink">Lo que puede estar pasando por dentro</p>
-                  <h2 className="font-heading text-5xl italic leading-[0.92] tracking-[-2px] text-mary-ink md:text-7xl">Quizá no estás buscando vender. Quizá estás buscando crecer.</h2>
+                  <p className="mb-5 font-body text-sm font-semibold uppercase tracking-[0.18em] text-mary-pink">Quiero hablarte de lo que puedes estar sintiendo</p>
+                  <h2 className="font-heading text-5xl italic leading-[0.92] tracking-[-2px] text-mary-ink md:text-7xl">Quizá no estás buscando vender. Yo veo que quizá estás buscando crecer.</h2>
                 </motion.div>
                 <motion.figure {...fadeIn(0.12)} className="overflow-hidden rounded-[2rem] bg-white p-2 shadow-[0_22px_60px_rgba(74,18,58,0.15)]">
-                  <img className="h-[280px] w-full rounded-[1.55rem] object-cover object-[center_38%] sm:h-[360px] lg:h-[410px]" src={OPPORTUNITY_GUIDANCE_IMAGE} alt="Maricela revisando una guía junto a una mujer" />
-                  <figcaption className="px-5 py-4 font-body text-sm font-semibold text-mary-muted">Con guía clara, cada paso se siente más posible.</figcaption>
+                  <img className="opportunity-guidance-photo h-[280px] w-full rounded-[1.55rem] object-cover sm:h-[360px] lg:h-[410px]" src={OPPORTUNITY_GUIDANCE_IMAGE} alt="Maricela revisando una guía junto a una mujer" />
+                  <figcaption className="px-5 py-4 font-body text-sm font-semibold text-mary-muted">Quiero darte una guía clara para que cada paso se sienta más posible.</figcaption>
                 </motion.figure>
               </div>
               <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-                {painBlocks.map(([title, text], index) => (
-                  <motion.div key={title} {...fadeIn(index * 0.04)} className="rounded-[1.35rem] border border-[rgba(232,62,157,0.14)] bg-white/84 p-6 shadow-[0_18px_48px_rgba(74,18,58,0.08)]">
-                    <h3 className="font-heading text-3xl italic text-mary-ink">{title}</h3>
-                    <p className="mt-3 font-body text-[15px] leading-relaxed text-mary-muted">{text}</p>
-                  </motion.div>
+                {painBlocks.map((item, index) => (
+                  <motion.button
+                    key={item.title}
+                    type="button"
+                    onClick={() => setSelectedPain(item)}
+                    aria-haspopup="dialog"
+                    aria-label={`Profundizar en ${item.title}`}
+                    {...fadeIn(index * 0.04)}
+                    className="interactive-modal-trigger group rounded-[1.35rem] border border-[rgba(232,62,157,0.14)] bg-white/84 p-6 text-left shadow-[0_18px_48px_rgba(74,18,58,0.08)] transition hover:-translate-y-1 hover:border-[rgba(232,62,157,0.32)] hover:shadow-[0_24px_56px_rgba(74,18,58,0.14)]"
+                  >
+                    <h3 className="font-heading text-3xl italic text-mary-ink">{item.title}</h3>
+                    <p className="mt-3 font-body text-[15px] leading-relaxed text-mary-muted">{item.summary}</p>
+                    <span className="mt-5 inline-flex items-center gap-2 rounded-full border border-[rgba(232,62,157,0.2)] bg-white/70 px-3 py-2 font-body text-[11px] font-semibold uppercase tracking-[0.08em] text-mary-pink">
+                      <span className="interaction-hint-touch">Toca para profundizar</span>
+                      <span className="interaction-hint-pointer">Explorar este tema</span>
+                      <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </span>
+                  </motion.button>
                 ))}
               </div>
             </div>
           </section>
+
+          {selectedPain && (
+            <div
+              className="testimonial-overlay"
+              onMouseDown={(event) => {
+                if (event.target === event.currentTarget) setSelectedPain(null);
+              }}
+            >
+              <div className="testimonial-modal" role="dialog" aria-modal="true" aria-labelledby="pain-dialog-title">
+                <button
+                  ref={painCloseRef}
+                  type="button"
+                  className="testimonial-modal-close"
+                  onClick={() => setSelectedPain(null)}
+                  aria-label="Cerrar tema"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <div className="identity-modal-layout">
+                  <div className="identity-modal-intro">
+                    <p className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-mary-gold">{selectedPain.eyebrow}</p>
+                    <h3 id="pain-dialog-title" className="mt-4 font-heading text-4xl italic leading-[0.92] tracking-[-1px] text-white sm:text-5xl">
+                      {selectedPain.headline}
+                    </h3>
+                    <p className="mt-6 font-body text-base leading-relaxed text-white/90">{selectedPain.reality}</p>
+                    <p className="mt-5 rounded-[1.1rem] border border-white/12 bg-white/10 p-4 font-body text-[15px] leading-relaxed text-white/84">
+                      {selectedPain.question}
+                    </p>
+                  </div>
+                  <div className="identity-modal-details">
+                    <div>
+                      <p className="font-body text-xs font-semibold uppercase tracking-[0.16em] text-mary-soft">Esto es lo que quiero invitarte a observar</p>
+                      <p className="mt-3 font-body text-[15px] leading-relaxed text-white/86">{selectedPain.tension}</p>
+                    </div>
+                    <div className="mt-6">
+                      <p className="font-body text-xs font-semibold uppercase tracking-[0.16em] text-mary-soft">Así puedo ayudarte a explorarlo</p>
+                      <p className="mt-3 font-body text-[15px] leading-relaxed text-white/86">{selectedPain.possibility}</p>
+                    </div>
+                    <div className="mt-6 grid gap-3">
+                      {selectedPain.support.map((item) => (
+                        <div key={item} className="flex items-center gap-3 rounded-[1rem] bg-white/10 px-4 py-3">
+                          <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-white/10 text-mary-soft" aria-hidden="true">✓</span>
+                          <p className="font-body text-sm font-semibold text-white/90">{item}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <a href={WHATSAPP_OPPORTUNITY} target="_blank" rel="noopener noreferrer" className="liquid-glass-strong mt-7 inline-flex w-full justify-center rounded-full px-5 py-3 font-body text-sm font-semibold text-white sm:w-auto">
+                      <span className="glass-content flex items-center gap-2">Quiero contarte lo que estoy viviendo <ArrowUpRight /></span>
+                    </a>
+                    <p className="mt-4 font-body text-xs leading-relaxed text-white/60">Te daré información sin obligación de iniciar. Seré clara: los resultados e ingresos dependen del trabajo y no están garantizados.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
 
           <section id="objeciones" className="viewport-fill relative overflow-hidden bg-dark-rose px-5 py-16 md:px-16 md:py-20 lg:px-20">
             <img className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[center_28%] opacity-36" src={OPPORTUNITY_CONFIDENCE_IMAGE} alt="" aria-hidden="true" style={{ transform: "scaleX(-1)" }} />
@@ -2872,35 +3481,136 @@
             <div className="relative z-10 mx-auto max-w-7xl">
               <div className="grid gap-8 lg:grid-cols-[1fr_0.72fr] lg:items-center">
                 <motion.div {...fadeIn(0)} className="max-w-3xl">
-                  <p className="mb-5 font-body text-sm font-medium text-white/70">// Objeciones reales</p>
-                  <h2 className="font-heading text-5xl italic leading-[0.92] tracking-[-2px] text-white md:text-7xl">Si tienes dudas, eso no te descalifica. Eso te hace humana.</h2>
+                  <p className="mb-5 font-body text-sm font-medium text-white/70">// Quiero escuchar tus dudas reales</p>
+                  <h2 className="font-heading text-5xl italic leading-[0.92] tracking-[-2px] text-white md:text-7xl">Si tienes dudas, quiero que sepas que eso no te descalifica. Eso te hace humana.</h2>
                   <p className="mt-6 max-w-2xl font-body text-base leading-relaxed text-white/86 md:text-lg">
-                    Tus dudas son válidas. Puedes hablarlas con honestidad, resolverlas con calma y decidir si este camino tiene sentido para ti.
+                    Tus dudas son válidas. Puedes hablarlas conmigo con honestidad; yo te ayudaré a aclararlas para que decidas con calma.
                   </p>
                 </motion.div>
                 <motion.figure {...fadeIn(0.12)} className="liquid-glass overflow-hidden rounded-[2rem] p-2">
                   <div className="glass-content">
                     <img className="h-[280px] w-full rounded-[1.55rem] object-cover object-[center_32%] sm:h-[360px] lg:h-[410px]" src={OPPORTUNITY_LISTENING_IMAGE} alt="Maricela escuchando atentamente las dudas de una mujer" />
-                    <figcaption className="px-5 py-4 font-body text-sm font-semibold text-white/82">Una conversación honesta también incluye tus miedos y preguntas.</figcaption>
+                    <figcaption className="px-5 py-4 font-body text-sm font-semibold text-white/82">Cuando conversemos, quiero escucharte con atención, incluyendo tus miedos y preguntas.</figcaption>
                   </div>
                 </motion.figure>
               </div>
               <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-                {objections.map(([title, text], index) => <OpportunityObjectionCard key={title} title={title} text={text} delay={index * 0.05} />)}
+                {objections.map((item, index) => (
+                  <motion.button
+                    key={item.title}
+                    type="button"
+                    onClick={() => setSelectedObjection(item)}
+                    aria-haspopup="dialog"
+                    aria-label={`Resolver objeción: ${item.title}`}
+                    {...fadeIn(index * 0.05)}
+                    className="interactive-modal-trigger experience-detail-card liquid-glass group w-full rounded-[1.35rem] p-5 text-left"
+                  >
+                    <div className="glass-content">
+                      <h3 className="font-body text-lg font-semibold leading-relaxed text-white">{item.title}</h3>
+                      <p className="mt-3 font-body text-[15px] leading-relaxed text-white/82">{item.summary}</p>
+                      <span className="interaction-hint mt-5">
+                        <span className="interaction-hint-touch">Toca para resolverla</span>
+                        <span className="interaction-hint-pointer">Profundizar respuesta</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </span>
+                    </div>
+                  </motion.button>
+                ))}
               </div>
             </div>
           </section>
+
+          {selectedObjection && (
+            <div
+              className="testimonial-overlay"
+              onMouseDown={(event) => {
+                if (event.target === event.currentTarget) setSelectedObjection(null);
+              }}
+            >
+              <div className="testimonial-modal" role="dialog" aria-modal="true" aria-labelledby="objection-dialog-title">
+                <button
+                  ref={objectionCloseRef}
+                  type="button"
+                  className="testimonial-modal-close"
+                  onClick={() => setSelectedObjection(null)}
+                  aria-label="Cerrar objeción"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <div className="identity-modal-layout">
+                  <div className="identity-modal-intro">
+                    <p className="font-body text-xs font-semibold uppercase tracking-[0.2em] text-mary-gold">{selectedObjection.eyebrow}</p>
+                    <h3 id="objection-dialog-title" className="mt-4 font-heading text-4xl italic leading-[0.92] tracking-[-1px] text-white sm:text-5xl">
+                      {selectedObjection.headline}
+                    </h3>
+                    <p className="mt-6 font-body text-base leading-relaxed text-white/90">{selectedObjection.reality}</p>
+                    <p className="mt-5 rounded-[1.1rem] border border-white/12 bg-white/10 p-4 font-body text-[15px] leading-relaxed text-white/84">
+                      {selectedObjection.question}
+                    </p>
+                  </div>
+                  <div className="identity-modal-details">
+                    <div>
+                      <p className="font-body text-xs font-semibold uppercase tracking-[0.16em] text-mary-soft">Esto es lo que revisaré contigo antes de decidir</p>
+                      <p className="mt-3 font-body text-[15px] leading-relaxed text-white/86">{selectedObjection.verify}</p>
+                    </div>
+                    <div className="mt-6">
+                      <p className="font-body text-xs font-semibold uppercase tracking-[0.16em] text-mary-soft">Así puedo ayudarte a abordarlo</p>
+                      <p className="mt-3 font-body text-[15px] leading-relaxed text-white/86">{selectedObjection.approach}</p>
+                    </div>
+                    <div className="mt-6 grid gap-3">
+                      {selectedObjection.criteria.map((item) => (
+                        <div key={item} className="flex items-center gap-3 rounded-[1rem] bg-white/10 px-4 py-3">
+                          <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-white/10 text-mary-soft" aria-hidden="true">✓</span>
+                          <p className="font-body text-sm font-semibold text-white/90">{item}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <a href={WHATSAPP_OPPORTUNITY} target="_blank" rel="noopener noreferrer" className="liquid-glass-strong mt-7 inline-flex w-full justify-center rounded-full px-5 py-3 font-body text-sm font-semibold text-white sm:w-auto">
+                      <span className="glass-content flex items-center gap-2">Quiero aclarar esta duda contigo <ArrowUpRight /></span>
+                    </a>
+                    <p className="mt-4 font-body text-xs leading-relaxed text-white/60">Pregúntame por costos, condiciones y expectativas antes de decidir. No te pediré iniciar y no existe garantía de resultados.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
 
           <section id="vision" className="viewport-fill relative overflow-hidden bg-dark-rose px-5 py-16 md:px-16 md:py-20 lg:px-20">
             <img className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center opacity-35" src={BEAUTY_DETAIL_IMAGE} alt="" aria-hidden="true" />
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgba(75,6,55,0.95),rgba(146,11,98,0.84),rgba(185,20,124,0.36))]" />
             <div className="relative z-10 mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
-              <motion.div {...fadeIn(0)}>
-                <p className="mb-5 font-body text-sm font-medium text-white/70">// Futuro posible</p>
-                <h2 className="font-heading text-5xl italic leading-[0.92] tracking-[-2px] text-white md:text-7xl">No tienes que hacerlo sola.</h2>
+              <motion.div {...fadeIn(0)} className="max-w-xl">
+                <p className="mb-5 font-body text-sm font-medium text-white/70">// Lo que quiero construir contigo</p>
+                <h2 className="font-heading text-5xl italic leading-[0.92] tracking-[-2px] text-white md:text-7xl">No tienes que hacerlo sola. Yo puedo acompañarte.</h2>
                 <p className="mt-6 font-body text-lg leading-relaxed text-white/90">
-                  Imagina crecer, aprender y conectar con otras mujeres desde una ruta clara y acompañada.
+                  Quiero que puedas crecer, aprender y conectar con otras mujeres desde una ruta clara, humana y acompañada.
                 </p>
+                <div className="mt-7 grid gap-3">
+                  {[
+                    ["01", "Te explico una ruta", "Conmigo conocerás productos, conversaciones y seguimiento paso a paso."],
+                    ["02", "Practicamos juntas", "Te acompañaré mientras desarrollas habilidades y ganas seguridad."],
+                    ["03", "Construyes relaciones", "Te enseñaré a avanzar desde el servicio, la confianza y recomendaciones honestas."]
+                  ].map(([number, title, text]) => (
+                    <div key={number} className="liquid-glass rounded-[1.15rem] px-4 py-3.5">
+                      <div className="glass-content flex items-start gap-4">
+                        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/10 font-body text-xs font-semibold text-mary-soft">{number}</span>
+                        <div>
+                          <p className="font-body text-sm font-semibold text-white">{title}</p>
+                          <p className="mt-1 font-body text-[13px] leading-relaxed text-white/72">{text}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                  <a href="#diagnostico" className="liquid-glass-strong inline-flex justify-center rounded-full px-5 py-3 font-body text-sm font-semibold text-white">
+                    <span className="glass-content flex items-center gap-2">Quiero descubrir mi siguiente paso contigo <ArrowUpRight /></span>
+                  </a>
+                  <a href={WHATSAPP_OPPORTUNITY} target="_blank" rel="noopener noreferrer" className="cta-secondary rounded-full px-5 py-3 font-body text-sm font-semibold">
+                    Quiero hablar contigo
+                  </a>
+                </div>
+                <p className="mt-4 font-body text-xs leading-relaxed text-white/58">Hablar conmigo no te obliga a iniciar. Primero te explico y te escucho; después tú decides.</p>
               </motion.div>
               <motion.div {...fadeIn(0.15)} className="liquid-glass overflow-hidden rounded-[2rem] p-2">
                 <div className="glass-content">
@@ -2920,9 +3630,9 @@
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(112deg,rgba(75,6,55,0.98)_0%,rgba(146,11,98,0.88)_48%,rgba(185,20,124,0.36)_100%)]" />
             <div className="relative z-10 mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.78fr_1fr] lg:items-start">
               <motion.div {...fadeIn(0)}>
-                <p className="mb-5 font-body text-sm font-medium text-white/70">// Compromiso pequeño</p>
-                <h2 className="font-heading text-5xl italic leading-[0.92] tracking-[-2px] text-white md:text-7xl">Responde la experiencia y descubre qué tipo de conversación te conviene.</h2>
-                <p className="mt-6 max-w-xl font-body text-base leading-relaxed text-white/82">No es un examen. Es una forma de ordenar tus metas, tus dudas y tu momento para pedir una reunión más clara.</p>
+                <p className="mb-5 font-body text-sm font-medium text-white/70">// Quiero conocerte antes de conversar</p>
+                <h2 className="font-heading text-5xl italic leading-[0.92] tracking-[-2px] text-white md:text-7xl">Cuéntame un poco de ti y prepararé una conversación más útil para ti.</h2>
+                <p className="mt-6 max-w-xl font-body text-base leading-relaxed text-white/82">No es un examen. Tus respuestas me ayudarán a entender tus metas, tus dudas y el tipo de orientación que necesitas de mí.</p>
               </motion.div>
               <OpportunityQuiz />
             </div>
@@ -2931,7 +3641,7 @@
           <AuthorCredit />
           <a href={WHATSAPP_OPPORTUNITY} className="whatsapp-float" aria-label="Consultar oportunidad Mary Kay por WhatsApp" target="_blank" rel="noopener noreferrer">
             <span className="whatsapp-float-icon"><WhatsAppIcon /></span>
-            <span>Consultar</span>
+            <span>Hablar conmigo</span>
           </a>
         </div>
       );
